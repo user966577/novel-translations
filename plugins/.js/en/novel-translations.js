@@ -6,38 +6,12 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-// Hybrid approach:
-// - jsDelivr CDN for chapter content (large files, good caching)
-// - GitHub API for metadata.json (small file, needs fresh data, avoids CDN cache issues)
-var BASE_CDN_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
-var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
-
-// Helper to fetch metadata.json via GitHub API (always fresh, no CDN caching)
-async function fetchMetadata(folderName) {
-  var apiUrl = BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?ref=' + BRANCH;
-  console.log('[NovelTranslations] Fetching metadata from:', apiUrl);
-
-  var response = await fetch(apiUrl, {
-    headers: { 'Accept': 'application/vnd.github.v3+json' }
-  });
-
-  if (!response.ok) {
-    console.log('[NovelTranslations] Metadata fetch failed:', response.status);
-    return null;
-  }
-
-  var data = await response.json();
-  // GitHub API returns content as base64 - decode UTF-8 safely
-  var content = decodeURIComponent(escape(atob(data.content)));
-  var metadata = JSON.parse(content);
-  console.log('[NovelTranslations] Loaded metadata, chapters:', Object.keys(metadata.chapter_titles || {}).length);
-  return metadata;
-}
+var BASE_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.1.3';
+  this.version = '1.2.0';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -47,9 +21,10 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
   if (pageNo > 1) return [];
 
   try {
-    var response = await fetch(BASE_API_URL + '/translated?ref=' + BRANCH, {
-      headers: { 'Accept': 'application/vnd.github.v3+json' }
-    });
+    // Get list of novel folders
+    var response = await fetch(
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/translated?ref=' + BRANCH
+    );
     var folders = await response.json();
 
     if (!Array.isArray(folders)) return [];
@@ -63,25 +38,25 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
       var novelPath = folder.name;
 
       try {
-        var metadata = await fetchMetadata(folder.name);
+        // Fetch metadata with cache-busting timestamp
+        var metaUrl = BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now();
+        var metaResponse = await fetch(metaUrl);
+        var metadata = await metaResponse.json();
 
         var coverUrl = '';
-        if (metadata && metadata.cover_image) {
-          coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
-          console.log('[NovelTranslations] Cover URL:', coverUrl);
+        if (metadata.cover_image) {
+          coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
         }
 
         novels.push({
-          name: (metadata && metadata.title) || folder.name,
+          name: metadata.title || folder.name,
           path: novelPath,
-          url: novelPath,
           cover: coverUrl
         });
       } catch (e) {
         novels.push({
           name: folder.name,
           path: novelPath,
-          url: novelPath,
           cover: ''
         });
       }
@@ -97,20 +72,24 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
   var folderName = novelUrl;
 
   try {
-    var metadata = await fetchMetadata(folderName);
+    // Fetch metadata with cache-busting timestamp
+    var metaUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now();
+    var metaResponse = await fetch(metaUrl);
 
-    if (!metadata) {
-      return { path: folderName, url: folderName, name: folderName, chapters: [] };
+    if (!metaResponse.ok) {
+      return { path: folderName, name: folderName, chapters: [] };
     }
 
+    var metadata = await metaResponse.json();
+
+    // Get chapter files list
     var filesResponse = await fetch(
-      BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH,
-      { headers: { 'Accept': 'application/vnd.github.v3+json' } }
+      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH
     );
     var files = await filesResponse.json();
 
     if (!Array.isArray(files)) {
-      return { path: folderName, url: folderName, name: folderName, chapters: [] };
+      return { path: folderName, name: folderName, chapters: [] };
     }
 
     var chapterFiles = files
@@ -129,19 +108,17 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       return {
         name: 'Chapter ' + chapterNum + ': ' + chapterTitle,
         path: chapterPath,
-        url: chapterPath,
         chapterNumber: chapterNum
       };
     });
 
     var coverUrl = '';
     if (metadata.cover_image) {
-      coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
+      coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
     return {
       path: folderName,
-      url: folderName,
       name: metadata.title || folderName,
       cover: coverUrl,
       summary: metadata.synopsis || '',
@@ -151,14 +128,13 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       chapters: chapters
     };
   } catch (error) {
-    return { path: folderName, url: folderName, name: folderName, chapters: [] };
+    return { path: folderName, name: folderName, chapters: [] };
   }
 };
 
 NovelTranslationsPlugin.prototype.parseChapter = async function(chapterUrl) {
   try {
-    // Use jsDelivr CDN for chapter content (good caching for large files)
-    var url = BASE_CDN_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
+    var url = BASE_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
     var response = await fetch(url);
     var text = await response.text();
 
