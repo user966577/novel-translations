@@ -783,7 +783,8 @@ def scrape_novel_by_navigation(
     output_dir: str = DEFAULT_OUTPUT_DIR,
     delay: float = REQUEST_DELAY,
     max_chapters: int | None = None,
-    english_title: str | None = None
+    english_title: str | None = None,
+    start_chapter: int = 1
 ):
     """
     Scrape novel by following navigation links instead of using TOC.
@@ -795,6 +796,7 @@ def scrape_novel_by_navigation(
         delay: Delay between requests in seconds
         max_chapters: Maximum number of chapters to download (None = unlimited)
         english_title: English title for the novel folder (optional)
+        start_chapter: Chapter number to start from (default: 1)
     """
     # Detect which site we're scraping
     site = detect_site(novel_url)
@@ -840,9 +842,19 @@ def scrape_novel_by_navigation(
         if existing_chapters:
             print(f"Found {len(existing_chapters)} existing chapters")
 
-        # Start scraping from first chapter
-        current_url = first_chapter_url
-        chapter_num = 1
+        # Determine starting chapter and URL
+        chapter_num = start_chapter
+        if site == "novel543" and start_chapter > 1:
+            # For novel543, we can construct the start URL directly
+            parsed = urlparse(novel_url)
+            current_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/{section_id}_{start_chapter}.html"
+            print(f"Starting from chapter {start_chapter}: {current_url}")
+        else:
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Warning: --start-chapter requires crawling for {site}, starting from chapter 1")
+                chapter_num = 1
+
         downloaded = 0
         skipped = 0
         failed = 0
@@ -854,23 +866,26 @@ def scrape_novel_by_navigation(
 
         while current_url:
             # Check max chapters limit
-            if max_chapters and chapter_num > max_chapters:
+            if max_chapters and (chapter_num - start_chapter + 1) > max_chapters:
                 print(f"\nReached maximum chapter limit ({max_chapters})")
                 break
 
             try:
                 # Skip if already downloaded
                 if chapter_num in existing_chapters:
-                    # Still need to fetch to get next chapter URL
-                    print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
+                    # For novel543, construct next URL directly (no fetching needed)
                     if site == "novel543":
-                        chapter_data = extract_novel543_chapter(current_url, session, novel_id, section_id, delay)
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        parsed = urlparse(novel_url)
+                        current_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/{section_id}_{chapter_num + 1}.html"
                     else:
+                        # For shuhaige, must fetch to get next chapter URL
+                        print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
                         chapter_data = extract_chapter_with_parts(current_url, session, delay)
-                    current_url = chapter_data["next_chapter_url"]
+                        current_url = chapter_data["next_chapter_url"]
+                        time.sleep(delay)
                     chapter_num += 1
                     skipped += 1
-                    time.sleep(delay)
                     continue
 
                 # Rate limiting (except for first chapter)
@@ -1072,6 +1087,12 @@ def main():
         help="English title for the novel folder (default: uses Chinese title from site)"
     )
     parser.add_argument(
+        "-s", "--start-chapter",
+        type=int,
+        default=1,
+        help="Chapter number to start from (default: 1, only works efficiently for novel543.com)"
+    )
+    parser.add_argument(
         "--legacy",
         action="store_true",
         help="Use legacy TOC-based scraping (doesn't handle split chapters, shuhaige only)"
@@ -1082,7 +1103,7 @@ def main():
     if args.legacy:
         scrape_novel(args.novel_url, args.output, args.delay)
     else:
-        scrape_novel_by_navigation(args.novel_url, args.output, args.delay, args.max_chapters, args.english_title)
+        scrape_novel_by_navigation(args.novel_url, args.output, args.delay, args.max_chapters, args.english_title, args.start_chapter)
 
 
 if __name__ == "__main__":
