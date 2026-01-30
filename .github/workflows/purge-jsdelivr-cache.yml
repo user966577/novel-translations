@@ -1,0 +1,64 @@
+name: Purge jsDelivr Cache
+
+# Trigger after pushes to main (including merged PRs)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'translated/**'
+      - 'plugins/**'
+
+jobs:
+  purge-cache:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          # Get list of changed files
+          changed=$(git diff --name-only HEAD~1 HEAD | grep -E '^(translated/|plugins/)' || true)
+          echo "Changed files:"
+          echo "$changed"
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$changed" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Purge jsDelivr cache
+        run: |
+          REPO_PATH="gh/user966577/novel-translations@main"
+          BASE_PURGE_URL="https://purge.jsdelivr.net"
+
+          # Always purge the plugin files
+          echo "Purging plugin files..."
+          curl -s "${BASE_PURGE_URL}/${REPO_PATH}/plugins/.dist/plugins.min.json" || true
+          curl -s "${BASE_PURGE_URL}/${REPO_PATH}/plugins/.js/en/novel-translations.js" || true
+
+          # Purge changed files
+          echo "Purging changed files..."
+          while IFS= read -r file; do
+            if [ -n "$file" ]; then
+              # URL encode spaces and special characters
+              encoded_file=$(echo "$file" | sed 's/ /%20/g')
+              echo "Purging: $encoded_file"
+              curl -s "${BASE_PURGE_URL}/${REPO_PATH}/${encoded_file}" || true
+            fi
+          done <<< "${{ steps.changed-files.outputs.files }}"
+
+          # Purge metadata files for any changed novel
+          echo "Purging metadata files..."
+          echo "${{ steps.changed-files.outputs.files }}" | grep -oP '^translated/[^/]+' | sort -u | while read -r novel_dir; do
+            if [ -n "$novel_dir" ]; then
+              encoded_dir=$(echo "$novel_dir" | sed 's/ /%20/g')
+              echo "Purging metadata: ${encoded_dir}/metadata.json"
+              curl -s "${BASE_PURGE_URL}/${REPO_PATH}/${encoded_dir}/metadata.json" || true
+            fi
+          done
+
+          echo "Cache purge complete!"
