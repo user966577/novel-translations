@@ -11,7 +11,7 @@ var BASE_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NA
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.2.1';
+  this.version = '1.2.2';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -120,13 +120,17 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
+    var synopsis = metadata.synopsis || '';
+
     return {
       path: folderName,
       url: folderName,
       name: metadata.title || folderName,
       cover: coverUrl,
-      summary: metadata.synopsis || '',
+      summary: synopsis,
+      description: synopsis,
       author: metadata.author || 'Unknown',
+      artist: '',
       status: 'Ongoing',
       genres: 'Web Novel, Cultivation',
       chapters: chapters
