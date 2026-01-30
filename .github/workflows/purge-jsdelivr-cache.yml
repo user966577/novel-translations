@@ -35,6 +35,11 @@ jobs:
           REPO_PATH="gh/user966577/novel-translations@main"
           BASE_PURGE_URL="https://purge.jsdelivr.net"
 
+          # Function to URL encode a string (handles spaces, commas, and other special chars)
+          urlencode() {
+            python3 -c "import urllib.parse; print(urllib.parse.quote('$1', safe='/'))"
+          }
+
           # Always purge the plugin files
           echo "Purging plugin files..."
           curl -s "${BASE_PURGE_URL}/${REPO_PATH}/plugins/.dist/plugins.min.json" || true
@@ -44,8 +49,8 @@ jobs:
           echo "Purging changed files..."
           while IFS= read -r file; do
             if [ -n "$file" ]; then
-              # URL encode spaces and special characters
-              encoded_file=$(echo "$file" | sed 's/ /%20/g')
+              # URL encode all special characters (spaces, commas, etc.)
+              encoded_file=$(urlencode "$file")
               echo "Purging: $encoded_file"
               curl -s "${BASE_PURGE_URL}/${REPO_PATH}/${encoded_file}" || true
             fi
@@ -55,7 +60,7 @@ jobs:
           echo "Purging metadata files..."
           echo "${{ steps.changed-files.outputs.files }}" | grep -oP '^translated/[^/]+' | sort -u | while read -r novel_dir; do
             if [ -n "$novel_dir" ]; then
-              encoded_dir=$(echo "$novel_dir" | sed 's/ /%20/g')
+              encoded_dir=$(urlencode "$novel_dir")
               echo "Purging metadata: ${encoded_dir}/metadata.json"
               curl -s "${BASE_PURGE_URL}/${REPO_PATH}/${encoded_dir}/metadata.json" || true
             fi
