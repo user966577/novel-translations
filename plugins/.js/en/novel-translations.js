@@ -11,7 +11,7 @@ var BASE_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NA
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.2.0';
+  this.version = '1.2.1';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -51,12 +51,14 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
         novels.push({
           name: metadata.title || folder.name,
           path: novelPath,
+          url: novelPath,
           cover: coverUrl
         });
       } catch (e) {
         novels.push({
           name: folder.name,
           path: novelPath,
+          url: novelPath,
           cover: ''
         });
       }
@@ -77,7 +79,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
     var metaResponse = await fetch(metaUrl);
 
     if (!metaResponse.ok) {
-      return { path: folderName, name: folderName, chapters: [] };
+      return { path: folderName, url: folderName, name: folderName, chapters: [] };
     }
 
     var metadata = await metaResponse.json();
@@ -89,7 +91,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
     var files = await filesResponse.json();
 
     if (!Array.isArray(files)) {
-      return { path: folderName, name: folderName, chapters: [] };
+      return { path: folderName, url: folderName, name: folderName, chapters: [] };
     }
 
     var chapterFiles = files
@@ -108,6 +110,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       return {
         name: 'Chapter ' + chapterNum + ': ' + chapterTitle,
         path: chapterPath,
+        url: chapterPath,
         chapterNumber: chapterNum
       };
     });
@@ -119,6 +122,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     return {
       path: folderName,
+      url: folderName,
       name: metadata.title || folderName,
       cover: coverUrl,
       summary: metadata.synopsis || '',
@@ -128,7 +132,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       chapters: chapters
     };
   } catch (error) {
-    return { path: folderName, name: folderName, chapters: [] };
+    return { path: folderName, url: folderName, name: folderName, chapters: [] };
   }
 };
 
