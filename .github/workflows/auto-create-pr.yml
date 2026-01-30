@@ -1,4 +1,4 @@
-name: Auto-create PR for Claude branches
+name: Auto-create and merge PR for Claude branches
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - 'claude/**'
 
 jobs:
-  create-pr:
+  create-and-merge-pr:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create Pull Request
+      - name: Create and Merge Pull Request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -24,11 +24,20 @@ jobs:
           existing_pr=$(gh pr list --head "${{ github.ref_name }}" --json number --jq '.[0].number')
 
           if [ -z "$existing_pr" ]; then
+            echo "Creating new PR..."
             gh pr create \
               --title "${{ github.event.head_commit.message }}" \
               --body "Automated PR from Claude Code branch." \
               --base main \
               --head "${{ github.ref_name }}"
+
+            # Get the PR number we just created
+            pr_number=$(gh pr list --head "${{ github.ref_name }}" --json number --jq '.[0].number')
           else
             echo "PR #$existing_pr already exists"
+            pr_number=$existing_pr
           fi
+
+          # Merge the PR
+          echo "Merging PR #$pr_number..."
+          gh pr merge $pr_number --merge --delete-branch

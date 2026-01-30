@@ -13,7 +13,7 @@ var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAM
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.0.7';
+  this.version = '1.0.8';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -40,7 +40,7 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
 
       try {
         var metaResponse = await fetch(
-          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json'
+          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
         );
         var metadata = await metaResponse.json();
 
@@ -76,7 +76,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
   try {
     var metaResponse = await fetch(
-      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json'
+      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
     );
 
     if (!metaResponse.ok) {
