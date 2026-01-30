@@ -6,12 +6,14 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-var BASE_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
+// Using jsDelivr CDN - works correctly with special characters in folder names
+var BASE_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
+var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.2.2';
+  this.version = '1.3.0';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -21,10 +23,9 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
   if (pageNo > 1) return [];
 
   try {
-    // Get list of novel folders
-    var response = await fetch(
-      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/translated?ref=' + BRANCH
-    );
+    var response = await fetch(BASE_API_URL + '/translated?ref=' + BRANCH, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
     var folders = await response.json();
 
     if (!Array.isArray(folders)) return [];
@@ -38,9 +39,9 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
       var novelPath = folder.name;
 
       try {
-        // Fetch metadata with cache-busting timestamp
-        var metaUrl = BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now();
-        var metaResponse = await fetch(metaUrl);
+        var metaResponse = await fetch(
+          BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
+        );
         var metadata = await metaResponse.json();
 
         var coverUrl = '';
@@ -74,9 +75,9 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
   var folderName = novelUrl;
 
   try {
-    // Fetch metadata with cache-busting timestamp
-    var metaUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now();
-    var metaResponse = await fetch(metaUrl);
+    var metaResponse = await fetch(
+      BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
+    );
 
     if (!metaResponse.ok) {
       return { path: folderName, url: folderName, name: folderName, chapters: [] };
@@ -84,9 +85,9 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     var metadata = await metaResponse.json();
 
-    // Get chapter files list
     var filesResponse = await fetch(
-      'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH
+      BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH,
+      { headers: { 'Accept': 'application/vnd.github.v3+json' } }
     );
     var files = await filesResponse.json();
 
@@ -120,17 +121,13 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
-    var synopsis = metadata.synopsis || '';
-
     return {
       path: folderName,
       url: folderName,
       name: metadata.title || folderName,
       cover: coverUrl,
-      summary: synopsis,
-      description: synopsis,
+      summary: metadata.synopsis || '',
       author: metadata.author || 'Unknown',
-      artist: '',
       status: 'Ongoing',
       genres: 'Web Novel, Cultivation',
       chapters: chapters
