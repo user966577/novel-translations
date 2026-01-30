@@ -314,9 +314,9 @@ def find_novel543_navigation(soup: BeautifulSoup, base_url: str, novel_id: str, 
     - Actual next chapter (8096_1.html -> 8096_2.html)
 
     We determine this by checking the URL pattern.
-    Returns {'next_page': url or None, 'next_chapter': url or None}
+    Returns {'next_page': url or None, 'next_chapter': url or None, 'is_end': bool}
     """
-    result = {"next_page": None, "next_chapter": None}
+    result = {"next_page": None, "next_chapter": None, "is_end": False}
 
     for link in soup.find_all("a", href=True):
         link_text = link.get_text(strip=True)
@@ -325,6 +325,11 @@ def find_novel543_navigation(soup: BeautifulSoup, base_url: str, novel_id: str, 
 
         # Check for navigation links (下一章 can be misleading)
         if "下一章" in link_text or "下一頁" in link_text or "下一页" in link_text:
+            # Check if this links to the end page (novel finished)
+            if "/end.html" in href:
+                result["is_end"] = True
+                continue
+
             # Check if this is a sub-page of the current chapter
             # Pattern: section_chapterNum_pageNum.html (e.g., 8096_1_2.html)
             subpage_match = re.search(rf"/{section_id}_{current_chapter_num}_(\d+)\.html", href)
@@ -387,6 +392,11 @@ def extract_novel543_chapter(start_url: str, session: requests.Session, novel_id
             current_url = nav_links["next_page"]
             time.sleep(delay)
             continue
+
+        # Check if we've reached the end of the novel
+        if nav_links["is_end"]:
+            next_chapter_url = None
+            break
 
         # No more sub-pages - get next chapter URL or construct it
         if nav_links["next_chapter"]:
@@ -874,6 +884,11 @@ def scrape_novel_by_navigation(
         print()
 
         while current_url:
+            # Check if URL is the end page (novel543 specific)
+            if "/end.html" in current_url:
+                print(f"\nReached end of novel (end.html detected)")
+                break
+
             # Check max chapters limit
             if max_chapters and (chapter_num - start_chapter + 1) > max_chapters:
                 print(f"\nReached maximum chapter limit ({max_chapters})")
