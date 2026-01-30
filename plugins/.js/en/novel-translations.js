@@ -12,7 +12,7 @@ var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAM
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.0.2';
+  this.version = '1.0.3';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -48,13 +48,13 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
 
         novels.push({
           name: metadata.title || folder.name,
-          path: folder.name,
+          url: folder.name,
           cover: coverUrl
         });
       } catch (e) {
         novels.push({
           name: folder.name,
-          path: folder.name,
+          url: folder.name,
           cover: ''
         });
       }
@@ -66,8 +66,8 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
   }
 };
 
-NovelTranslationsPlugin.prototype.parseNovel = async function(novelPath) {
-  var folderName = novelPath;
+NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
+  var folderName = novelUrl;
 
   try {
     var metaResponse = await fetch(
@@ -99,7 +99,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelPath) {
 
       return {
         name: 'Chapter ' + chapterNum + ': ' + chapterTitle,
-        path: folderName + '/' + file.name,
+        url: folderName + '/' + file.name,
         chapterNumber: chapterNum
       };
     });
@@ -123,9 +123,9 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelPath) {
   }
 };
 
-NovelTranslationsPlugin.prototype.parseChapter = async function(chapterPath) {
+NovelTranslationsPlugin.prototype.parseChapter = async function(chapterUrl) {
   try {
-    var url = BASE_RAW_URL + '/translated/' + chapterPath.split('/').map(encodeURIComponent).join('/');
+    var url = BASE_RAW_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
     var response = await fetch(url);
     var text = await response.text();
 
