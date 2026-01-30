@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-Chinese Webnovel Text Scraper for shuhaige.net
+Chinese Webnovel Text Scraper
 Downloads all chapters from a novel and saves them as UTF-8 .txt files.
+
+Supported sites:
+- shuhaige.net (m.shuhaige.net)
+- novel543.com
 """
 
 import os
@@ -32,8 +36,8 @@ REQUEST_TIMEOUT = 30
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "zh-TW,zh-CN,zh;q=0.9,en;q=0.8",
+    "Cache-Control": "no-cache",
 }
 
 
@@ -74,6 +78,17 @@ def fetch_page(url: str, session: requests.Session) -> BeautifulSoup | None:
     return None
 
 
+def detect_site(url: str) -> str:
+    """Detect which site the URL is from."""
+    host = urlparse(url).netloc.lower()
+    if "shuhaige" in host:
+        return "shuhaige"
+    elif "novel543" in host:
+        return "novel543"
+    else:
+        raise Exception(f"Unsupported site: {host}")
+
+
 def extract_novel_id(novel_url: str) -> str:
     """Extract novel ID from URL."""
     # Handle various URL formats:
@@ -92,6 +107,300 @@ def extract_novel_id(novel_url: str) -> str:
         return parts[0]
 
     return ""
+
+
+def extract_novel543_info(novel_url: str) -> tuple[str, str]:
+    """
+    Extract novel ID and section ID from novel543.com URL.
+    URL formats:
+    - https://www.novel543.com/1004604965/dir -> TOC
+    - https://www.novel543.com/1004604965/8096_119.html -> chapter
+    Returns (novel_id, section_id).
+    """
+    path = urlparse(novel_url).path.strip("/")
+    parts = path.split("/")
+
+    novel_id = parts[0] if parts else ""
+
+    # Extract section ID from chapter URL like "8096_119.html"
+    section_id = ""
+    if len(parts) > 1 and parts[1] != "dir":
+        match = re.match(r"(\d+)_", parts[1])
+        if match:
+            section_id = match.group(1)
+
+    return novel_id, section_id
+
+
+def get_novel543_toc_url(novel_url: str) -> str:
+    """Get the TOC URL for a novel543.com novel."""
+    novel_id, _ = extract_novel543_info(novel_url)
+    parsed = urlparse(novel_url)
+    return f"{parsed.scheme}://{parsed.netloc}/{novel_id}/dir"
+
+
+def get_novel543_first_chapter(novel_url: str, session: requests.Session) -> tuple[str, str, str]:
+    """
+    Get the first chapter URL from novel543.com.
+    If given a chapter URL, constructs chapter 1 URL.
+    If given a TOC URL, tries to find chapter 1.
+    Returns (novel_title, first_chapter_url, section_id).
+    """
+    novel_id, section_id = extract_novel543_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Novel ID: {novel_id}")
+
+    # If we have a section_id from the URL (it was a chapter URL), construct chapter 1 directly
+    if section_id:
+        first_chapter_url = f"{base_url}/{novel_id}/{section_id}_1.html"
+        print(f"Constructed first chapter URL: {first_chapter_url}")
+
+        # Fetch the first chapter to get the novel title
+        soup = fetch_page(first_chapter_url, session)
+        if not soup:
+            raise Exception(f"Failed to fetch first chapter: {first_chapter_url}")
+
+        # Extract novel title from the chapter page
+        # Look for breadcrumb or title element
+        novel_title = "Unknown Novel"
+        h1 = soup.find("h1")
+        if h1:
+            chapter_title = h1.get_text(strip=True)
+            # Title is usually "Novel Name - Chapter X"
+            print(f"Chapter title: {chapter_title}")
+
+        # Try to find novel title from page title or meta
+        title_tag = soup.find("title")
+        if title_tag:
+            page_title = title_tag.get_text(strip=True)
+            # Format is typically "Chapter Title - Novel Name - Site"
+            parts = page_title.split(" - ")
+            if len(parts) >= 2:
+                novel_title = parts[1] if len(parts) > 2 else parts[0]
+            print(f"Novel title (from page): {novel_title}")
+
+        return novel_title, first_chapter_url, section_id
+
+    # If no section_id, try to fetch TOC
+    toc_url = f"{base_url}/{novel_id}/dir"
+    print(f"Fetching table of contents from: {toc_url}")
+
+    soup = fetch_page(toc_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch TOC page: {toc_url}")
+
+    # Extract novel title from h1
+    h1 = soup.find("h1")
+    if h1:
+        novel_title = h1.get_text(strip=True)
+        novel_title = re.sub(r"(章節列表|章节列表|目錄|目录)$", "", novel_title).strip()
+    else:
+        novel_title = "Unknown Novel"
+    print(f"Novel title: {novel_title}")
+
+    # Find chapter links
+    chapter_pattern = re.compile(rf"/{novel_id}/(\d+)_(\d+)\.html")
+    chapters = []
+
+    for link in soup.find_all("a", href=True):
+        href = link.get("href", "")
+        match = chapter_pattern.search(href)
+        if match:
+            sec_id = match.group(1)
+            ch_num = int(match.group(2))
+            full_url = urljoin(toc_url, href)
+            if full_url not in [c["url"] for c in chapters]:
+                chapters.append({
+                    "url": full_url,
+                    "section_id": sec_id,
+                    "chapter_num": ch_num
+                })
+
+    if chapters:
+        chapters.sort(key=lambda x: x["chapter_num"])
+        first_chapter = chapters[0]
+        section_id = first_chapter["section_id"]
+        print(f"Section ID: {section_id}")
+        print(f"First chapter URL: {first_chapter['url']}")
+        print(f"Total chapters found: {len(chapters)}")
+        return novel_title, first_chapter["url"], section_id
+
+    # Fallback: If TOC doesn't work, we need section_id from URL
+    raise Exception("Could not find chapter URLs. Please provide a direct chapter URL (e.g., .../8096_1.html)")
+
+
+def extract_novel543_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a novel543.com chapter page."""
+    paragraphs = []
+
+    # novel543 uses various content containers
+    # Try multiple selectors
+    content_selectors = [
+        "#acontent",
+        "#content",
+        ".content",
+        ".chapter-content",
+        ".readcontent",
+        "article",
+        "#chaptercontent",
+    ]
+
+    content_div = None
+    for selector in content_selectors:
+        content_div = soup.select_one(selector)
+        if content_div:
+            break
+
+    if content_div:
+        # Get text and split by newlines or <br> tags
+        # First try to get text with separator
+        text = content_div.get_text(separator="\n", strip=True)
+        raw_paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+
+        # Also check for <p> tags
+        for p in content_div.find_all("p"):
+            p_text = p.get_text(strip=True)
+            if p_text and p_text not in raw_paragraphs:
+                raw_paragraphs.append(p_text)
+
+        paragraphs = raw_paragraphs
+
+    # Fallback: get all <p> tags
+    if not paragraphs:
+        for p in soup.find_all("p"):
+            text = p.get_text(strip=True)
+            if text and len(text) > 10:
+                paragraphs.append(text)
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"novel543",
+        r"熱門推薦",
+        r"隨機推薦",
+        r"上一章",
+        r"下一章",
+        r"上一頁",
+        r"下一頁",
+        r"回目錄",
+        r"目錄",
+        r"章節目錄",
+        r"^\d+/\d+$",  # Page numbers like "1/2"
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def find_novel543_navigation(soup: BeautifulSoup, base_url: str, novel_id: str, section_id: str, current_chapter_num: int) -> dict:
+    """
+    Find next page and next chapter navigation for novel543.com.
+
+    Note: novel543 uses confusing naming - "下一章" can mean either:
+    - Next page of same chapter (8096_1.html -> 8096_1_2.html)
+    - Actual next chapter (8096_1.html -> 8096_2.html)
+
+    We determine this by checking the URL pattern.
+    Returns {'next_page': url or None, 'next_chapter': url or None}
+    """
+    result = {"next_page": None, "next_chapter": None}
+
+    for link in soup.find_all("a", href=True):
+        link_text = link.get_text(strip=True)
+        href = link["href"]
+        full_url = urljoin(base_url, href)
+
+        # Check for navigation links (下一章 can be misleading)
+        if "下一章" in link_text or "下一頁" in link_text or "下一页" in link_text:
+            # Check if this is a sub-page of the current chapter
+            # Pattern: section_chapterNum_pageNum.html (e.g., 8096_1_2.html)
+            subpage_match = re.search(rf"/{section_id}_{current_chapter_num}_(\d+)\.html", href)
+            if subpage_match:
+                result["next_page"] = full_url
+                continue
+
+            # Check if this is the next chapter
+            # Pattern: section_nextChapterNum.html (e.g., 8096_2.html)
+            next_ch_match = re.search(rf"/{section_id}_(\d+)\.html", href)
+            if next_ch_match:
+                ch_num = int(next_ch_match.group(1))
+                if ch_num == current_chapter_num + 1:
+                    result["next_chapter"] = full_url
+
+    return result
+
+
+def extract_novel543_chapter(start_url: str, session: requests.Session, novel_id: str, section_id: str, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract complete chapter content from novel543.com by following pagination.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    all_paragraphs = []
+    current_url = start_url
+    title = None
+    next_chapter_url = None
+    page_count = 0
+
+    # Extract chapter number from URL to construct next chapter URL
+    ch_match = re.search(rf"/{section_id}_(\d+)(?:_\d+)?\.html", start_url)
+    current_chapter_num = int(ch_match.group(1)) if ch_match else 1
+
+    while current_url:
+        page_count += 1
+
+        soup = fetch_page(current_url, session)
+        if not soup:
+            raise Exception(f"Failed to fetch chapter page: {current_url}")
+
+        # Extract title only from the first page
+        if title is None:
+            h1 = soup.find("h1")
+            if h1:
+                title = h1.get_text(strip=True)
+                # Remove page indicator like "(1/2)"
+                title = re.sub(r"\s*\(\d+/\d+\)\s*$", "", title)
+            else:
+                title = "Untitled"
+
+        # Extract content from this page
+        paragraphs = extract_novel543_content(soup)
+        all_paragraphs.extend(paragraphs)
+
+        # Find navigation links
+        nav_links = find_novel543_navigation(soup, current_url, novel_id, section_id, current_chapter_num)
+
+        # Follow sub-pages of the same chapter
+        if nav_links["next_page"]:
+            current_url = nav_links["next_page"]
+            time.sleep(delay)
+            continue
+
+        # No more sub-pages - get next chapter URL or construct it
+        if nav_links["next_chapter"]:
+            next_chapter_url = nav_links["next_chapter"]
+        else:
+            # Construct next chapter URL
+            next_chapter_num = current_chapter_num + 1
+            parsed = urlparse(start_url)
+            next_chapter_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/{section_id}_{next_chapter_num}.html"
+        break
+
+    content = "\n\n".join(all_paragraphs)
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": page_count
+    }
 
 
 def get_novel_title(soup: BeautifulSoup) -> str:
@@ -256,6 +565,10 @@ def extract_content_from_page(soup: BeautifulSoup) -> list[str]:
         r"书海阁",
         r"shuhaige",
         r"手机版",
+        r"novel543",
+        r"熱門推薦",
+        r"隨機推薦",
+        r"回目錄",
     ]
 
     for p in paragraphs:
@@ -469,32 +782,54 @@ def scrape_novel_by_navigation(
     novel_url: str,
     output_dir: str = DEFAULT_OUTPUT_DIR,
     delay: float = REQUEST_DELAY,
-    max_chapters: int | None = None
+    max_chapters: int | None = None,
+    english_title: str | None = None
 ):
     """
     Scrape novel by following navigation links instead of using TOC.
     This correctly handles chapters split across multiple pages.
 
     Args:
-        novel_url: URL to the novel's table of contents on shuhaige.net
+        novel_url: URL to the novel's table of contents
         output_dir: Directory to save downloaded novels
         delay: Delay between requests in seconds
         max_chapters: Maximum number of chapters to download (None = unlimited)
+        english_title: English title for the novel folder (optional)
     """
+    # Detect which site we're scraping
+    site = detect_site(novel_url)
+
     print(f"\n{'=' * 60}")
-    print("Chinese Webnovel Scraper for shuhaige.net")
+    print(f"Chinese Webnovel Scraper")
+    print(f"Site: {site}")
     print("(Navigation-based scraping mode)")
     print(f"{'=' * 60}\n")
 
     # Create session for connection pooling
     session = requests.Session()
 
+    # Site-specific variables
+    novel_id = ""
+    section_id = ""
+
     try:
-        # Get first chapter URL from TOC
-        novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
+        # Get first chapter URL from TOC (site-specific)
+        if site == "novel543":
+            novel_title, first_chapter_url, section_id = get_novel543_first_chapter(novel_url, session)
+            novel_id, _ = extract_novel543_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
+        else:
+            novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
+
+        # Use English title for folder if provided
+        if english_title:
+            folder_name = english_title
+            print(f"Using English title for folder: {folder_name}")
+        else:
+            folder_name = safe_novel_title
 
         # Create novel folder
-        novel_folder = os.path.join(output_dir, safe_novel_title)
+        novel_folder = os.path.join(output_dir, folder_name)
         os.makedirs(novel_folder, exist_ok=True)
 
         # Set up error logger
@@ -528,7 +863,10 @@ def scrape_novel_by_navigation(
                 if chapter_num in existing_chapters:
                     # Still need to fetch to get next chapter URL
                     print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
-                    chapter_data = extract_chapter_with_parts(current_url, session, delay)
+                    if site == "novel543":
+                        chapter_data = extract_novel543_chapter(current_url, session, novel_id, section_id, delay)
+                    else:
+                        chapter_data = extract_chapter_with_parts(current_url, session, delay)
                     current_url = chapter_data["next_chapter_url"]
                     chapter_num += 1
                     skipped += 1
@@ -539,9 +877,12 @@ def scrape_novel_by_navigation(
                 if downloaded > 0:
                     time.sleep(delay)
 
-                # Extract complete chapter (including all pages)
+                # Extract complete chapter (including all pages) - site-specific
                 print(f"Chapter {chapter_num}: Fetching from {current_url}")
-                chapter_data = extract_chapter_with_parts(current_url, session, delay)
+                if site == "novel543":
+                    chapter_data = extract_novel543_chapter(current_url, session, novel_id, section_id, delay)
+                else:
+                    chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
                 # Try to get chapter number from title
                 title_num = extract_chapter_number(chapter_data["title"])
@@ -701,11 +1042,11 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Download Chinese webnovels from shuhaige.net"
+        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com"
     )
     parser.add_argument(
         "novel_url",
-        help="URL to the novel's table of contents (e.g., https://m.shuhaige.net/123456/)"
+        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/ or https://www.novel543.com/123456/dir)"
     )
     parser.add_argument(
         "-o", "--output",
@@ -725,9 +1066,15 @@ def main():
         help="Maximum number of chapters to download (default: unlimited)"
     )
     parser.add_argument(
+        "-e", "--english-title",
+        type=str,
+        default=None,
+        help="English title for the novel folder (default: uses Chinese title from site)"
+    )
+    parser.add_argument(
         "--legacy",
         action="store_true",
-        help="Use legacy TOC-based scraping (doesn't handle split chapters)"
+        help="Use legacy TOC-based scraping (doesn't handle split chapters, shuhaige only)"
     )
 
     args = parser.parse_args()
@@ -735,7 +1082,7 @@ def main():
     if args.legacy:
         scrape_novel(args.novel_url, args.output, args.delay)
     else:
-        scrape_novel_by_navigation(args.novel_url, args.output, args.delay, args.max_chapters)
+        scrape_novel_by_navigation(args.novel_url, args.output, args.delay, args.max_chapters, args.english_title)
 
 
 if __name__ == "__main__":
