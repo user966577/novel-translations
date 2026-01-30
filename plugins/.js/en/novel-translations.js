@@ -27,13 +27,8 @@ async function fetchMetadata(folderName) {
   }
 
   var data = await response.json();
-  // GitHub API returns content as base64 - need proper UTF-8 decoding
-  var binaryString = atob(data.content);
-  var bytes = new Uint8Array(binaryString.length);
-  for (var i = 0; i < binaryString.length; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
-  var content = new TextDecoder('utf-8').decode(bytes);
+  // GitHub API returns content as base64 - decode UTF-8 safely
+  var content = decodeURIComponent(escape(atob(data.content)));
   var metadata = JSON.parse(content);
   console.log('[NovelTranslations] Loaded metadata, chapters:', Object.keys(metadata.chapter_titles || {}).length);
   return metadata;
@@ -42,7 +37,7 @@ async function fetchMetadata(folderName) {
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.1.2';
+  this.version = '1.1.3';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
