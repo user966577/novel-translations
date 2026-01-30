@@ -3,151 +3,160 @@
 // Novel Translations Plugin for LNReader
 // Reads translated chapters from GitHub repository
 
-const REPO_OWNER = 'user966577';
-const REPO_NAME = 'novel-translations';
-const BRANCH = 'main';
-const BASE_RAW_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}`;
-const BASE_API_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents`;
+var REPO_OWNER = 'user966577';
+var REPO_NAME = 'novel-translations';
+var BRANCH = 'main';
+var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
+var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
 
-class NovelTranslationsPlugin {
-  id = 'novel-translations';
-  name = 'Novel Translations';
-  version = '1.0.0';
-  icon = 'src/en/noveltranslations/icon.png';
-  site = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
-  filters = {};
+function NovelTranslationsPlugin() {
+  this.id = 'novel-translations';
+  this.name = 'Novel Translations';
+  this.version = '1.0.1';
+  this.icon = 'src/en/noveltranslations/icon.png';
+  this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
+  this.filters = {};
+}
 
-  async popularNovels(pageNo, { showLatestNovels, filters }) {
-    if (pageNo > 1) return [];
+NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options) {
+  if (pageNo > 1) return [];
 
-    try {
-      const response = await fetch(`${BASE_API_URL}/translated?ref=${BRANCH}`, {
-        headers: { 'Accept': 'application/vnd.github.v3+json' }
-      });
-      const folders = await response.json();
+  try {
+    var response = await fetch(BASE_API_URL + '/translated?ref=' + BRANCH, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
+    var folders = await response.json();
 
-      if (!Array.isArray(folders)) return [];
+    if (!Array.isArray(folders)) return [];
 
-      const novels = [];
+    var novels = [];
 
-      for (const folder of folders) {
-        if (folder.type !== 'dir') continue;
+    for (var i = 0; i < folders.length; i++) {
+      var folder = folders[i];
+      if (folder.type !== 'dir') continue;
 
-        try {
-          const metaResponse = await fetch(
-            `${BASE_RAW_URL}/translated/${encodeURIComponent(folder.name)}/metadata.json`
-          );
-          const metadata = await metaResponse.json();
+      try {
+        var metaResponse = await fetch(
+          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json'
+        );
+        var metadata = await metaResponse.json();
 
-          let coverUrl = '';
-          if (metadata.cover_image) {
-            coverUrl = `${BASE_RAW_URL}/translated/${encodeURIComponent(folder.name)}/${metadata.cover_image}`;
-          }
-
-          novels.push({
-            name: metadata.title || folder.name,
-            path: `${folder.name}`,
-            cover: coverUrl,
-          });
-        } catch (e) {
-          novels.push({
-            name: folder.name,
-            path: `${folder.name}`,
-            cover: '',
-          });
+        var coverUrl = '';
+        if (metadata.cover_image) {
+          coverUrl = BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
         }
-      }
 
-      return novels;
-    } catch (error) {
-      return [];
-    }
-  }
-
-  async parseNovel(novelPath) {
-    const folderName = novelPath;
-
-    try {
-      const metaResponse = await fetch(
-        `${BASE_RAW_URL}/translated/${encodeURIComponent(folderName)}/metadata.json`
-      );
-      const metadata = await metaResponse.json();
-
-      const filesResponse = await fetch(
-        `${BASE_API_URL}/translated/${encodeURIComponent(folderName)}?ref=${BRANCH}`,
-        { headers: { 'Accept': 'application/vnd.github.v3+json' } }
-      );
-      const files = await filesResponse.json();
-
-      if (!Array.isArray(files)) {
-        return { name: folderName, chapters: [] };
-      }
-
-      const chapterFiles = files
-        .filter(f => f.name.match(/^chapter\d+\.txt$/))
-        .sort((a, b) => {
-          const numA = parseInt(a.name.match(/\d+/)[0]);
-          const numB = parseInt(b.name.match(/\d+/)[0]);
-          return numA - numB;
+        novels.push({
+          name: metadata.title || folder.name,
+          path: folder.name,
+          cover: coverUrl
         });
-
-      const chapters = chapterFiles.map(file => {
-        const chapterNum = parseInt(file.name.match(/\d+/)[0]);
-        const chapterTitle = metadata.chapter_titles?.[chapterNum] || `Chapter ${chapterNum}`;
-
-        return {
-          name: `Chapter ${chapterNum}: ${chapterTitle}`,
-          path: `${folderName}/${file.name}`,
-          chapterNumber: chapterNum,
-        };
-      });
-
-      let coverUrl = '';
-      if (metadata.cover_image) {
-        coverUrl = `${BASE_RAW_URL}/translated/${encodeURIComponent(folderName)}/${metadata.cover_image}`;
+      } catch (e) {
+        novels.push({
+          name: folder.name,
+          path: folder.name,
+          cover: ''
+        });
       }
+    }
 
-      return {
-        name: metadata.title || folderName,
-        cover: coverUrl,
-        summary: metadata.synopsis || '',
-        author: metadata.author || 'Unknown',
-        status: 'Ongoing',
-        genres: 'Web Novel, Cultivation',
-        chapters,
-      };
-    } catch (error) {
+    return novels;
+  } catch (error) {
+    return [];
+  }
+};
+
+NovelTranslationsPlugin.prototype.parseNovel = async function(novelPath) {
+  var folderName = novelPath;
+
+  try {
+    var metaResponse = await fetch(
+      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json'
+    );
+    var metadata = await metaResponse.json();
+
+    var filesResponse = await fetch(
+      BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH,
+      { headers: { 'Accept': 'application/vnd.github.v3+json' } }
+    );
+    var files = await filesResponse.json();
+
+    if (!Array.isArray(files)) {
       return { name: folderName, chapters: [] };
     }
-  }
 
-  async parseChapter(chapterPath) {
-    try {
-      const response = await fetch(`${BASE_RAW_URL}/translated/${encodeURIComponent(chapterPath).replace(/%2F/g, '/')}`);
-      const text = await response.text();
+    var chapterFiles = files
+      .filter(function(f) { return /^chapter\d+\.txt$/.test(f.name); })
+      .sort(function(a, b) {
+        var numA = parseInt(a.name.match(/\d+/)[0]);
+        var numB = parseInt(b.name.match(/\d+/)[0]);
+        return numA - numB;
+      });
 
-      const paragraphs = text
-        .split(/\n\n+/)
-        .filter(p => p.trim())
-        .map(p => `<p>${p.trim().replace(/\n/g, '<br>').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&lt;br&gt;/g, '<br>')}</p>`)
-        .join('\n');
+    var chapters = chapterFiles.map(function(file) {
+      var chapterNum = parseInt(file.name.match(/\d+/)[0]);
+      var chapterTitle = (metadata.chapter_titles && metadata.chapter_titles[chapterNum]) || ('Chapter ' + chapterNum);
 
-      return paragraphs;
-    } catch (error) {
-      return '<p>Error loading chapter content.</p>';
+      return {
+        name: 'Chapter ' + chapterNum + ': ' + chapterTitle,
+        path: folderName + '/' + file.name,
+        chapterNumber: chapterNum
+      };
+    });
+
+    var coverUrl = '';
+    if (metadata.cover_image) {
+      coverUrl = BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
+
+    return {
+      name: metadata.title || folderName,
+      cover: coverUrl,
+      summary: metadata.synopsis || '',
+      author: metadata.author || 'Unknown',
+      status: 'Ongoing',
+      genres: 'Web Novel, Cultivation',
+      chapters: chapters
+    };
+  } catch (error) {
+    return { name: folderName, chapters: [] };
   }
+};
 
-  async searchNovels(searchTerm, pageNo) {
-    if (pageNo > 1) return [];
+NovelTranslationsPlugin.prototype.parseChapter = async function(chapterPath) {
+  try {
+    var url = BASE_RAW_URL + '/translated/' + chapterPath.split('/').map(encodeURIComponent).join('/');
+    var response = await fetch(url);
+    var text = await response.text();
 
-    const allNovels = await this.popularNovels(1, {});
-    const searchLower = searchTerm.toLowerCase();
+    var paragraphs = text
+      .split(/\n\n+/)
+      .filter(function(p) { return p.trim(); })
+      .map(function(p) {
+        var escaped = p.trim()
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\n/g, '<br>');
+        return '<p>' + escaped + '</p>';
+      })
+      .join('\n');
 
-    return allNovels.filter(novel =>
-      novel.name.toLowerCase().includes(searchLower)
-    );
+    return paragraphs;
+  } catch (error) {
+    return '<p>Error loading chapter content.</p>';
   }
-}
+};
+
+NovelTranslationsPlugin.prototype.searchNovels = async function(searchTerm, pageNo) {
+  if (pageNo > 1) return [];
+
+  var allNovels = await this.popularNovels(1, {});
+  var searchLower = searchTerm.toLowerCase();
+
+  return allNovels.filter(function(novel) {
+    return novel.name.toLowerCase().indexOf(searchLower) !== -1;
+  });
+};
 
 module.exports = new NovelTranslationsPlugin();
