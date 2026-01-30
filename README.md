@@ -37,7 +37,7 @@ novel-translations/
 1. Connect this repository via [claude.ai/code](https://claude.ai/code)
 2. Ask Claude to translate chapters:
    ```
-   Translate chapters 70-75 from raw/after-villain-lies-low/
+   Translate chapters 70-75 from raw/After the Villain Lies Low, the Heroines Panic/
    ```
 3. Review the diff and approve the PR
 
