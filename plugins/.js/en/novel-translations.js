@@ -6,8 +6,8 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-// Using jsDelivr for instant cache updates (purge via https://purge.jsdelivr.net/gh/...)
-var BASE_RAW_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
+// Using raw.githubusercontent.com for instant updates (no CDN caching issues)
+var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
 var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
 
 function NovelTranslationsPlugin() {
