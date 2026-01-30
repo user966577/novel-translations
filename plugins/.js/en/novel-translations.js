@@ -15,22 +15,29 @@ var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAM
 // Helper to fetch metadata.json via GitHub API (always fresh, no CDN caching)
 async function fetchMetadata(folderName) {
   var apiUrl = BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?ref=' + BRANCH;
+  console.log('[NovelTranslations] Fetching metadata from:', apiUrl);
+
   var response = await fetch(apiUrl, {
     headers: { 'Accept': 'application/vnd.github.v3+json' }
   });
 
-  if (!response.ok) return null;
+  if (!response.ok) {
+    console.log('[NovelTranslations] Metadata fetch failed:', response.status);
+    return null;
+  }
 
   var data = await response.json();
   // GitHub API returns content as base64
   var content = atob(data.content);
-  return JSON.parse(content);
+  var metadata = JSON.parse(content);
+  console.log('[NovelTranslations] Loaded metadata, chapters:', Object.keys(metadata.chapter_titles || {}).length);
+  return metadata;
 }
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.1.0';
+  this.version = '1.1.1';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -61,6 +68,7 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
         var coverUrl = '';
         if (metadata && metadata.cover_image) {
           coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
+          console.log('[NovelTranslations] Cover URL:', coverUrl);
         }
 
         novels.push({
