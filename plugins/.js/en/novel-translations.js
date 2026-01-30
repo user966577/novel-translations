@@ -6,13 +6,14 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
+// Using jsDelivr for instant cache updates (purge via https://purge.jsdelivr.net/gh/...)
+var BASE_RAW_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
 var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.0.6';
+  this.version = '1.0.7';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
