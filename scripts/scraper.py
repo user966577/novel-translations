@@ -139,10 +139,10 @@ def get_novel543_toc_url(novel_url: str) -> str:
     return f"{parsed.scheme}://{parsed.netloc}/{novel_id}/dir"
 
 
-def get_novel543_first_chapter(novel_url: str, session: requests.Session) -> tuple[str, str, str]:
+def get_novel543_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, str]:
     """
     Get the first chapter URL from novel543.com.
-    If given a chapter URL, constructs chapter 1 URL.
+    If given a chapter URL, constructs chapter 1 URL (or start_chapter URL).
     If given a TOC URL, tries to find chapter 1.
     Returns (novel_title, first_chapter_url, section_id).
     """
@@ -152,15 +152,20 @@ def get_novel543_first_chapter(novel_url: str, session: requests.Session) -> tup
 
     print(f"Novel ID: {novel_id}")
 
-    # If we have a section_id from the URL (it was a chapter URL), construct chapter 1 directly
+    # If we have a section_id from the URL (it was a chapter URL), construct the start chapter URL
     if section_id:
-        first_chapter_url = f"{base_url}/{novel_id}/{section_id}_1.html"
-        print(f"Constructed first chapter URL: {first_chapter_url}")
+        first_chapter_url = f"{base_url}/{novel_id}/{section_id}_{start_chapter}.html"
+        print(f"Constructed chapter URL: {first_chapter_url}")
 
-        # Fetch the first chapter to get the novel title
+        # If english_title is provided, skip fetching just for the title
+        if skip_title_fetch:
+            print("Skipping title fetch (English title provided)")
+            return "Unknown Novel", first_chapter_url, section_id
+
+        # Fetch the chapter to get the novel title
         soup = fetch_page(first_chapter_url, session)
         if not soup:
-            raise Exception(f"Failed to fetch first chapter: {first_chapter_url}")
+            raise Exception(f"Failed to fetch chapter: {first_chapter_url}")
 
         # Extract novel title from the chapter page
         # Look for breadcrumb or title element
@@ -817,7 +822,11 @@ def scrape_novel_by_navigation(
     try:
         # Get first chapter URL from TOC (site-specific)
         if site == "novel543":
-            novel_title, first_chapter_url, section_id = get_novel543_first_chapter(novel_url, session)
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, section_id = get_novel543_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
             novel_id, _ = extract_novel543_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
         else:
@@ -844,11 +853,11 @@ def scrape_novel_by_navigation(
 
         # Determine starting chapter and URL
         chapter_num = start_chapter
-        if site == "novel543" and start_chapter > 1:
-            # For novel543, we can construct the start URL directly
-            parsed = urlparse(novel_url)
-            current_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/{section_id}_{start_chapter}.html"
-            print(f"Starting from chapter {start_chapter}: {current_url}")
+        if site == "novel543":
+            # For novel543, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
         else:
             current_url = first_chapter_url
             if start_chapter > 1:
