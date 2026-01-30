@@ -27,8 +27,8 @@ novel-translations/
 ## Current Novels
 
 ### After the Villain Lies Low, the Heroines Panic
-- **Status**: 69 chapters translated
-- **Folder**: `translated/after-villain-lies-low/`
+- **Status**: 80 chapters translated
+- **Folder**: `translated/After the Villain Lies Low, the Heroines Panic/`
 
 ## How to Use
 
