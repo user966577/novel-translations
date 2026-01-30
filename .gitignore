@@ -20,9 +20,5 @@ pip-delete-this-directory.txt
 .DS_Store
 Thumbs.db
 
-# Project specific
-*.epub
-output/*.epub
-
 # Keep the output folder structure
 !output/.gitkeep
