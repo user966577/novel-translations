@@ -12,7 +12,7 @@ var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAM
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.0.3';
+  this.version = '1.0.4';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -110,6 +110,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
     }
 
     return {
+      url: folderName,
       name: metadata.title || folderName,
       cover: coverUrl,
       summary: metadata.synopsis || '',
@@ -119,7 +120,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
       chapters: chapters
     };
   } catch (error) {
-    return { name: folderName, chapters: [] };
+    return { url: folderName, name: folderName, chapters: [] };
   }
 };
 
