@@ -6,14 +6,16 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-// Using jsDelivr CDN - works correctly with special characters in folder names
-var BASE_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
+// jsDelivr for content (covers, chapters) - handles special chars well
+var BASE_CDN_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
+// raw.githubusercontent for metadata.json - avoids CDN cache issues
+var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
 var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.3.0';
+  this.version = '1.3.1';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -40,13 +42,13 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
 
       try {
         var metaResponse = await fetch(
-          BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
+          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
         );
         var metadata = await metaResponse.json();
 
         var coverUrl = '';
         if (metadata.cover_image) {
-          coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
+          coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
         }
 
         novels.push({
@@ -76,7 +78,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
   try {
     var metaResponse = await fetch(
-      BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
+      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
     );
 
     if (!metaResponse.ok) {
@@ -118,7 +120,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     var coverUrl = '';
     if (metadata.cover_image) {
-      coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
+      coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
     return {
@@ -139,7 +141,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
 NovelTranslationsPlugin.prototype.parseChapter = async function(chapterUrl) {
   try {
-    var url = BASE_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
+    var url = BASE_CDN_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
     var response = await fetch(url);
     var text = await response.text();
 
