@@ -6,14 +6,31 @@
 var REPO_OWNER = 'user966577';
 var REPO_NAME = 'novel-translations';
 var BRANCH = 'main';
-// Using raw.githubusercontent.com for instant updates (no CDN caching issues)
-var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
+// Hybrid approach:
+// - jsDelivr CDN for chapter content (large files, good caching)
+// - GitHub API for metadata.json (small file, needs fresh data, avoids CDN cache issues)
+var BASE_CDN_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
 var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
+
+// Helper to fetch metadata.json via GitHub API (always fresh, no CDN caching)
+async function fetchMetadata(folderName) {
+  var apiUrl = BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?ref=' + BRANCH;
+  var response = await fetch(apiUrl, {
+    headers: { 'Accept': 'application/vnd.github.v3+json' }
+  });
+
+  if (!response.ok) return null;
+
+  var data = await response.json();
+  // GitHub API returns content as base64
+  var content = atob(data.content);
+  return JSON.parse(content);
+}
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.0.9';
+  this.version = '1.1.0';
   this.icon = 'src/en/noveltranslations/icon.png';
   this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
   this.filters = {};
@@ -39,18 +56,15 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
       var novelPath = folder.name;
 
       try {
-        var metaResponse = await fetch(
-          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
-        );
-        var metadata = await metaResponse.json();
+        var metadata = await fetchMetadata(folder.name);
 
         var coverUrl = '';
-        if (metadata.cover_image) {
-          coverUrl = BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
+        if (metadata && metadata.cover_image) {
+          coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
         }
 
         novels.push({
-          name: metadata.title || folder.name,
+          name: (metadata && metadata.title) || folder.name,
           path: novelPath,
           url: novelPath,
           cover: coverUrl
@@ -75,15 +89,11 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
   var folderName = novelUrl;
 
   try {
-    var metaResponse = await fetch(
-      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
-    );
+    var metadata = await fetchMetadata(folderName);
 
-    if (!metaResponse.ok) {
+    if (!metadata) {
       return { path: folderName, url: folderName, name: folderName, chapters: [] };
     }
-
-    var metadata = await metaResponse.json();
 
     var filesResponse = await fetch(
       BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH,
@@ -118,7 +128,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     var coverUrl = '';
     if (metadata.cover_image) {
-      coverUrl = BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
+      coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
     return {
@@ -139,7 +149,8 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
 NovelTranslationsPlugin.prototype.parseChapter = async function(chapterUrl) {
   try {
-    var url = BASE_RAW_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
+    // Use jsDelivr CDN for chapter content (good caching for large files)
+    var url = BASE_CDN_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
     var response = await fetch(url);
     var text = await response.text();
 
