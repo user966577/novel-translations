@@ -6,6 +6,8 @@ Downloads all chapters from a novel and saves them as UTF-8 .txt files.
 Supported sites:
 - shuhaige.net (m.shuhaige.net)
 - novel543.com
+- wxdzs.net (无线电子书)
+- jpxs123.com (精品小说网)
 """
 
 import os
@@ -17,8 +19,12 @@ from datetime import datetime
 from urllib.parse import urljoin, urlparse
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+
+# Suppress SSL warnings for sites with certificate issues (like wxdzs.net)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Fix Windows console encoding for Chinese characters
 if sys.platform == "win32":
@@ -62,12 +68,28 @@ def setup_error_logger(novel_folder: str) -> logging.Logger:
     return logger
 
 
-def fetch_page(url: str, session: requests.Session) -> BeautifulSoup | None:
-    """Fetch a page and return BeautifulSoup object."""
+def fetch_page(url: str, session: requests.Session, verify_ssl: bool = True, encoding: str | None = None) -> BeautifulSoup | None:
+    """Fetch a page and return BeautifulSoup object.
+
+    Args:
+        url: The URL to fetch
+        session: requests Session object
+        verify_ssl: Whether to verify SSL certificates
+        encoding: Force a specific encoding. If None, uses apparent_encoding for Chinese sites.
+    """
     for attempt in range(MAX_RETRIES):
         try:
-            response = session.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
-            response.encoding = "utf-8"
+            response = session.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=verify_ssl)
+
+            # Determine encoding: use provided encoding, apparent_encoding for Chinese sites, or UTF-8
+            if encoding:
+                response.encoding = encoding
+            elif response.apparent_encoding and response.apparent_encoding.lower() in ("gb18030", "gb2312", "gbk"):
+                # Chinese encoding detected - use it
+                response.encoding = response.apparent_encoding
+            else:
+                response.encoding = "utf-8"
+
             response.raise_for_status()
             return BeautifulSoup(response.text, "lxml")
         except requests.RequestException as e:
@@ -85,6 +107,10 @@ def detect_site(url: str) -> str:
         return "shuhaige"
     elif "novel543" in host:
         return "novel543"
+    elif "wxdzs" in host:
+        return "wxdzs"
+    elif "jpxs123" in host:
+        return "jpxs123"
     else:
         raise Exception(f"Unsupported site: {host}")
 
@@ -415,6 +441,535 @@ def extract_novel543_chapter(start_url: str, session: requests.Session, novel_id
         "content": content,
         "next_chapter_url": next_chapter_url,
         "page_count": page_count
+    }
+
+
+def extract_wxdzs_info(novel_url: str) -> tuple[str, str]:
+    """
+    Extract novel ID and chapter ID from wxdzs.net URL.
+    URL formats:
+    - https://www.wxdzs.net/wxbook/94900.html -> novel page
+    - https://www.wxdzs.net/wxchapter/94900.html -> chapter list
+    - https://www.wxdzs.net/wxread/94900_43871003.html -> chapter page
+    Returns (novel_id, chapter_id).
+    """
+    path = urlparse(novel_url).path.strip("/")
+
+    # Handle /wxbook/94900.html format (novel page)
+    book_match = re.search(r"wxbook/(\d+)\.html", path)
+    if book_match:
+        return book_match.group(1), ""
+
+    # Handle /wxchapter/94900.html format (chapter list)
+    chapter_list_match = re.search(r"wxchapter/(\d+)\.html", path)
+    if chapter_list_match:
+        return chapter_list_match.group(1), ""
+
+    # Handle /wxread/94900_43871003.html format (chapter page)
+    read_match = re.search(r"wxread/(\d+)_(\d+)\.html", path)
+    if read_match:
+        return read_match.group(1), read_match.group(2)
+
+    return "", ""
+
+
+def get_wxdzs_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, list[dict]]:
+    """
+    Get the first chapter URL from wxdzs.net.
+    Returns (novel_title, first_chapter_url, chapter_list).
+    """
+    novel_id, chapter_id = extract_wxdzs_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Novel ID: {novel_id}")
+
+    # If we have a chapter_id from the URL (it was a chapter URL), use it directly
+    if chapter_id:
+        first_chapter_url = f"{base_url}/wxread/{novel_id}_{chapter_id}.html"
+        print(f"Using provided chapter URL: {first_chapter_url}")
+
+        if skip_title_fetch:
+            print("Skipping title fetch (English title provided)")
+            return "Unknown Novel", first_chapter_url, []
+
+        # Fetch the chapter to get the novel title (wxdzs has SSL issues, so verify=False)
+        soup = fetch_page(first_chapter_url, session, verify_ssl=False)
+        if not soup:
+            raise Exception(f"Failed to fetch chapter: {first_chapter_url}")
+
+        # Extract novel title from page
+        novel_title = "Unknown Novel"
+        title_tag = soup.find("title")
+        if title_tag:
+            page_title = title_tag.get_text(strip=True)
+            # Format is "小说名 章节名 无线电子书"
+            parts = page_title.split()
+            if len(parts) >= 2:
+                novel_title = parts[0]
+            print(f"Novel title (from page): {novel_title}")
+
+        return novel_title, first_chapter_url, []
+
+    # Fetch the chapter list page (wxdzs has SSL issues, so verify=False)
+    chapter_list_url = f"{base_url}/wxchapter/{novel_id}.html"
+    print(f"Fetching chapter list from: {chapter_list_url}")
+
+    soup = fetch_page(chapter_list_url, session, verify_ssl=False)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter list: {chapter_list_url}")
+
+    # Extract novel title
+    novel_title = "Unknown Novel"
+    title_div = soup.select_one("div")
+    for div in soup.find_all("div"):
+        text = div.get_text(strip=True)
+        if text and not text.startswith("当前位置") and not text.startswith("作者") and len(text) > 2 and len(text) < 50:
+            # Check if this looks like a title (not navigation text)
+            if "首页" not in text and ">" not in text:
+                novel_title = text
+                break
+
+    # Try to get from page title
+    title_tag = soup.find("title")
+    if title_tag:
+        page_title = title_tag.get_text(strip=True)
+        # Format: "小说名章节目录 无线电子书"
+        if "章节目录" in page_title:
+            novel_title = page_title.split("章节目录")[0].strip()
+
+    print(f"Novel title: {novel_title}")
+
+    # Find all chapter links
+    # wxdzs lists chapters in order on the page, but also has a "最新章节" section at top
+    # We need to skip the "最新章节" section and only capture the main chapter list
+    chapter_pattern = re.compile(rf"/wxread/{novel_id}_(\d+)\.html")
+    chapters = []
+    seen_urls = set()
+    in_chapter_list = False
+
+    for link in soup.find_all("a", href=True):
+        href = link.get("href", "")
+        ch_title = link.get_text(strip=True)
+
+        # Start capturing once we see "第一章" or similar first chapter indicator
+        if not in_chapter_list:
+            if ch_title.startswith("第一章") or ch_title.startswith("第1章") or ch_title.startswith("第01章"):
+                in_chapter_list = True
+            else:
+                continue
+
+        match = chapter_pattern.search(href)
+        if match:
+            ch_id = match.group(1)
+            full_url = urljoin(chapter_list_url, href)
+            if full_url not in seen_urls:
+                seen_urls.add(full_url)
+                chapters.append({
+                    "url": full_url,
+                    "chapter_id": ch_id,
+                    "title": ch_title
+                })
+
+    # Chapters should already be in order from the page, but let's verify
+    # by checking if the first few are in sequence
+
+    if chapters:
+        # Start from the requested chapter (1-indexed)
+        if start_chapter > 1 and start_chapter <= len(chapters):
+            first_chapter = chapters[start_chapter - 1]
+            print(f"Starting from chapter {start_chapter}: {first_chapter['title']}")
+        else:
+            first_chapter = chapters[0]
+
+        print(f"First chapter URL: {first_chapter['url']}")
+        print(f"Total chapters found: {len(chapters)}")
+        return novel_title, first_chapter["url"], chapters
+
+    raise Exception("Could not find chapter URLs. Please check the URL format.")
+
+
+def extract_wxdzs_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a wxdzs.net chapter page."""
+    paragraphs = []
+
+    # wxdzs uses paragraphs inside a container div
+    # Find the main content area (after the h1 title)
+    h1 = soup.find("h1")
+    if h1:
+        # Find the parent container and get paragraphs after h1
+        parent = h1.parent
+        if parent:
+            for p in parent.find_all("p"):
+                text = p.get_text(strip=True)
+                if text:
+                    paragraphs.append(text)
+
+    # If no paragraphs found, try broader search
+    if not paragraphs:
+        for p in soup.find_all("p"):
+            text = p.get_text(strip=True)
+            if text and len(text) > 5:
+                paragraphs.append(text)
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"wxdzs",
+        r"无线电子书",
+        r"上一章",
+        r"下一章",
+        r"书页",
+        r"设置",
+        r"点这里听书",
+        r"已支持Chrome",
+        r"^\*已支持",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def find_wxdzs_navigation(soup: BeautifulSoup, base_url: str, novel_id: str) -> dict:
+    """
+    Find next chapter navigation for wxdzs.net.
+    Returns {'next_chapter': url or None, 'is_end': bool}
+    """
+    result = {"next_chapter": None, "is_end": False}
+
+    for link in soup.find_all("a", href=True):
+        link_text = link.get_text(strip=True)
+        href = link["href"]
+
+        # Skip javascript links
+        if href.startswith("javascript:"):
+            continue
+
+        # Check for "next chapter" (下一章)
+        if "下一章" in link_text:
+            # Check if it's an actual chapter URL
+            if f"/wxread/{novel_id}_" in href:
+                result["next_chapter"] = urljoin(base_url, href)
+
+    # Also check for generic "下一章" divs that might be clickable
+    for div in soup.find_all(["div", "generic"]):
+        text = div.get_text(strip=True)
+        if text == "下一章":
+            # Check if parent is a link
+            parent = div.parent
+            if parent and parent.name == "a" and parent.get("href"):
+                href = parent["href"]
+                if f"/wxread/{novel_id}_" in href:
+                    result["next_chapter"] = urljoin(base_url, href)
+
+    return result
+
+
+def extract_wxdzs_chapter(start_url: str, session: requests.Session, novel_id: str, chapters: list[dict], current_index: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract complete chapter content from wxdzs.net.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    # wxdzs has SSL issues, so verify=False
+    soup = fetch_page(start_url, session, verify_ssl=False)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter page: {start_url}")
+
+    # Extract title from h1
+    title = "Untitled"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+
+    # Extract content
+    paragraphs = extract_wxdzs_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Check if this is the final chapter (contains "完结" meaning "complete/finished")
+    is_final_chapter = "完结" in title
+
+    # Determine next chapter URL
+    next_chapter_url = None
+
+    # If this is the final chapter, don't look for next chapter
+    if is_final_chapter:
+        print(f"  -> Detected final chapter (完结)")
+        next_chapter_url = None
+    elif chapters and current_index + 1 < len(chapters):
+        # Use chapter list to get next chapter (more reliable than navigation links)
+        next_chapter_url = chapters[current_index + 1]["url"]
+    else:
+        # Fall back to navigation links
+        nav_links = find_wxdzs_navigation(soup, start_url, novel_id)
+        if nav_links["next_chapter"]:
+            next_chapter_url = nav_links["next_chapter"]
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1  # wxdzs doesn't seem to split chapters into multiple pages
+    }
+
+
+def extract_jpxs123_info(novel_url: str) -> tuple[str, str, str]:
+    """
+    Extract category, novel ID, and chapter number from jpxs123.com URL.
+    URL formats:
+    - https://jpxs123.com/cyjk/10524.html -> novel page
+    - https://jpxs123.com/cyjk/10524/772.html -> chapter page
+    Returns (category, novel_id, chapter_num).
+    """
+    path = urlparse(novel_url).path.strip("/")
+
+    # Handle /category/novel_id/chapter.html format (chapter page)
+    chapter_match = re.search(r"(\w+)/(\d+)/(\d+)\.html", path)
+    if chapter_match:
+        return chapter_match.group(1), chapter_match.group(2), chapter_match.group(3)
+
+    # Handle /category/novel_id.html format (novel page)
+    novel_match = re.search(r"(\w+)/(\d+)\.html", path)
+    if novel_match:
+        return novel_match.group(1), novel_match.group(2), ""
+
+    return "", "", ""
+
+
+def get_jpxs123_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, int]:
+    """
+    Get the first chapter URL from jpxs123.com.
+    Returns (novel_title, first_chapter_url, total_chapters).
+    """
+    category, novel_id, chapter_num = extract_jpxs123_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Category: {category}")
+    print(f"Novel ID: {novel_id}")
+
+    # If we have a chapter_num from the URL (it was a chapter URL), use it to get info
+    if chapter_num:
+        first_chapter_url = f"{base_url}/{category}/{novel_id}/{start_chapter}.html"
+        print(f"Constructed first chapter URL: {first_chapter_url}")
+
+        if skip_title_fetch:
+            print("Skipping title fetch (English title provided)")
+            return "Unknown Novel", first_chapter_url, 0
+
+        # Fetch the chapter to get the novel title and total chapters
+        soup = fetch_page(first_chapter_url, session)
+        if not soup:
+            raise Exception(f"Failed to fetch chapter: {first_chapter_url}")
+
+        # Extract novel title from h1 (format: "Novel Title 第X章")
+        novel_title = "Unknown Novel"
+        h1 = soup.find("h1")
+        if h1:
+            full_title = h1.get_text(strip=True)
+            # Remove chapter part from title
+            title_match = re.match(r"(.+?)\s*第\d+章", full_title)
+            if title_match:
+                novel_title = title_match.group(1).strip()
+            else:
+                novel_title = full_title
+            print(f"Novel title: {novel_title}")
+
+        # Try to get total chapters from "772/1574" text
+        total_chapters = 0
+        page_text = soup.get_text()
+        total_match = re.search(r"\d+/(\d+)", page_text)
+        if total_match:
+            total_chapters = int(total_match.group(1))
+            print(f"Total chapters: {total_chapters}")
+
+        return novel_title, first_chapter_url, total_chapters
+
+    # If no chapter_num, fetch the novel page to get info
+    novel_page_url = f"{base_url}/{category}/{novel_id}.html"
+    print(f"Fetching novel page from: {novel_page_url}")
+
+    soup = fetch_page(novel_page_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch novel page: {novel_page_url}")
+
+    # Extract novel title (usually in a heading or title)
+    novel_title = "Unknown Novel"
+    title_tag = soup.find("title")
+    if title_tag:
+        page_title = title_tag.get_text(strip=True)
+        # Format: "Novel Title(1-827)_Category" or similar
+        title_match = re.match(r"(.+?)\s*[\(（]", page_title)
+        if title_match:
+            novel_title = title_match.group(1).strip()
+        else:
+            novel_title = page_title.split("_")[0].strip()
+        print(f"Novel title: {novel_title}")
+
+    # Construct first chapter URL
+    first_chapter_url = f"{base_url}/{category}/{novel_id}/{start_chapter}.html"
+    print(f"First chapter URL: {first_chapter_url}")
+
+    # Try to get total chapters by fetching the first chapter
+    total_chapters = 0
+    chapter_soup = fetch_page(first_chapter_url, session)
+    if chapter_soup:
+        page_text = chapter_soup.get_text()
+        total_match = re.search(r"\d+/(\d+)", page_text)
+        if total_match:
+            total_chapters = int(total_match.group(1))
+            print(f"Total chapters: {total_chapters}")
+
+    return novel_title, first_chapter_url, total_chapters
+
+
+def extract_jpxs123_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a jpxs123.com chapter page."""
+    paragraphs = []
+
+    # jpxs123 uses div.read_chapterDetail to contain the chapter content
+    content_div = soup.select_one(".read_chapterDetail")
+    if content_div:
+        for p in content_div.find_all("p"):
+            text = p.get_text(strip=True)
+            if text:
+                paragraphs.append(text)
+
+    # Fallback: look in h1's grandparent (the chapter wrapper div)
+    if not paragraphs:
+        h1 = soup.find("h1")
+        if h1:
+            grandparent = h1.parent.parent if h1.parent else None
+            if grandparent:
+                for p in grandparent.find_all("p"):
+                    text = p.get_text(strip=True)
+                    if text:
+                        paragraphs.append(text)
+
+    # Last resort: get all paragraphs on page
+    if not paragraphs:
+        for p in soup.find_all("p"):
+            text = p.get_text(strip=True)
+            if text and len(text) > 5:
+                paragraphs.append(text)
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"jpxs123",
+        r"精品小说",
+        r"极品小说",
+        r"上一章",
+        r"下一章",
+        r"上一篇",
+        r"下一篇",
+        r"目录",
+        r"首章",
+        r"尾章",
+        r"作者：",
+        r"Copyright",
+        r"All Rights Reserved",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def find_jpxs123_navigation(soup: BeautifulSoup, base_url: str, category: str, novel_id: str) -> dict:
+    """
+    Find next chapter navigation for jpxs123.com.
+    Returns {'next_chapter': url or None, 'is_end': bool, 'current': int, 'total': int}
+    """
+    result = {"next_chapter": None, "is_end": False, "current": 0, "total": 0}
+
+    for link in soup.find_all("a", href=True):
+        link_text = link.get_text(strip=True)
+        href = link["href"]
+
+        # Check for "next chapter" (下一章)
+        if "下一章" in link_text:
+            # Check if it's an actual chapter URL
+            if f"/{category}/{novel_id}/" in href:
+                result["next_chapter"] = urljoin(base_url, href)
+
+        # Check for "last chapter" (尾章) to know when we're at the end
+        if "尾章" in link_text and f"/{category}/{novel_id}/" in href:
+            # Extract the last chapter number
+            last_match = re.search(r"/(\d+)\.html", href)
+            if last_match:
+                result["total"] = int(last_match.group(1))
+
+    # Try to find current/total from text like "772/1574"
+    page_text = soup.get_text()
+    position_match = re.search(r"(\d+)/(\d+)", page_text)
+    if position_match:
+        result["current"] = int(position_match.group(1))
+        result["total"] = int(position_match.group(2))
+
+        # If we're at the last chapter
+        if result["current"] >= result["total"]:
+            result["is_end"] = True
+            result["next_chapter"] = None
+
+    return result
+
+
+def extract_jpxs123_chapter(start_url: str, session: requests.Session, category: str, novel_id: str, total_chapters: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract complete chapter content from jpxs123.com.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count', 'current', 'total'.
+    """
+    soup = fetch_page(start_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter page: {start_url}")
+
+    # Extract title from h1
+    title = "Untitled"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+
+    # Extract content
+    paragraphs = extract_jpxs123_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Find navigation
+    nav_links = find_jpxs123_navigation(soup, start_url, category, novel_id)
+
+    # Check if this is the final chapter
+    is_final_chapter = nav_links["is_end"]
+
+    # Determine next chapter URL
+    next_chapter_url = None
+    if is_final_chapter:
+        print(f"  -> Detected final chapter ({nav_links['current']}/{nav_links['total']})")
+        next_chapter_url = None
+    elif nav_links["next_chapter"]:
+        next_chapter_url = nav_links["next_chapter"]
+    else:
+        # Construct next chapter URL from current
+        if nav_links["current"] > 0 and nav_links["current"] < nav_links["total"]:
+            parsed = urlparse(start_url)
+            next_chapter_url = f"{parsed.scheme}://{parsed.netloc}/{category}/{novel_id}/{nav_links['current'] + 1}.html"
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1,  # jpxs123 doesn't split chapters into multiple pages
+        "current": nav_links["current"],
+        "total": nav_links["total"]
     }
 
 
@@ -828,6 +1383,9 @@ def scrape_novel_by_navigation(
     # Site-specific variables
     novel_id = ""
     section_id = ""
+    category = ""  # For jpxs123
+    chapters = []  # For sites that provide chapter list
+    total_chapters = 0  # For jpxs123
 
     try:
         # Get first chapter URL from TOC (site-specific)
@@ -838,6 +1396,22 @@ def scrape_novel_by_navigation(
                 novel_url, session, start_chapter, skip_title
             )
             novel_id, _ = extract_novel543_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
+        elif site == "wxdzs":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, chapters = get_wxdzs_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            novel_id, _ = extract_wxdzs_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
+        elif site == "jpxs123":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, total_chapters = get_jpxs123_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            category, novel_id, _ = extract_jpxs123_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
         else:
             novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
@@ -863,8 +1437,19 @@ def scrape_novel_by_navigation(
 
         # Determine starting chapter and URL
         chapter_num = start_chapter
+        current_chapter_index = start_chapter - 1  # 0-indexed for chapter list
         if site == "novel543":
             # For novel543, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
+        elif site == "wxdzs":
+            # For wxdzs, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
+        elif site == "jpxs123":
+            # For jpxs123, first_chapter_url already points to start_chapter
             current_url = first_chapter_url
             if start_chapter > 1:
                 print(f"Starting from chapter {start_chapter}")
@@ -883,10 +1468,28 @@ def scrape_novel_by_navigation(
             print(f"Maximum chapters: {max_chapters}")
         print()
 
+        seen_urls = set()  # Track URLs to detect loops
+
         while current_url:
             # Check if URL is the end page (novel543 specific)
             if "/end.html" in current_url:
                 print(f"\nReached end of novel (end.html detected)")
+                break
+
+            # Check for URL loops (same URL visited twice)
+            if current_url in seen_urls:
+                print(f"\nDetected loop (URL already visited), stopping")
+                break
+            seen_urls.add(current_url)
+
+            # For wxdzs, check if we've exceeded the chapter list
+            if site == "wxdzs" and chapters and current_chapter_index >= len(chapters):
+                print(f"\nReached end of chapter list ({len(chapters)} chapters)")
+                break
+
+            # For jpxs123, check if we've exceeded the total chapters
+            if site == "jpxs123" and total_chapters > 0 and chapter_num > total_chapters:
+                print(f"\nReached end of novel ({total_chapters} chapters)")
                 break
 
             # Check max chapters limit
@@ -902,6 +1505,22 @@ def scrape_novel_by_navigation(
                         print(f"Chapter {chapter_num}: Skipping (already exists)")
                         parsed = urlparse(novel_url)
                         current_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/{section_id}_{chapter_num + 1}.html"
+                    elif site == "wxdzs":
+                        # For wxdzs, use chapter list if available
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        current_chapter_index += 1
+                        if chapters and current_chapter_index < len(chapters):
+                            current_url = chapters[current_chapter_index]["url"]
+                        else:
+                            # Fall back to fetching to get next URL
+                            chapter_data = extract_wxdzs_chapter(current_url, session, novel_id, chapters, current_chapter_index - 1, delay)
+                            current_url = chapter_data["next_chapter_url"]
+                            time.sleep(delay)
+                    elif site == "jpxs123":
+                        # For jpxs123, construct next URL directly (simple numeric chapters)
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        parsed = urlparse(novel_url)
+                        current_url = f"{parsed.scheme}://{parsed.netloc}/{category}/{novel_id}/{chapter_num + 1}.html"
                     else:
                         # For shuhaige, must fetch to get next chapter URL
                         print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
@@ -920,6 +1539,10 @@ def scrape_novel_by_navigation(
                 print(f"Chapter {chapter_num}: Fetching from {current_url}")
                 if site == "novel543":
                     chapter_data = extract_novel543_chapter(current_url, session, novel_id, section_id, delay)
+                elif site == "wxdzs":
+                    chapter_data = extract_wxdzs_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
+                elif site == "jpxs123":
+                    chapter_data = extract_jpxs123_chapter(current_url, session, category, novel_id, total_chapters, delay)
                 else:
                     chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
@@ -943,6 +1566,7 @@ def scrape_novel_by_navigation(
                 # Move to next chapter
                 current_url = chapter_data["next_chapter_url"]
                 chapter_num += 1
+                current_chapter_index += 1
 
             except Exception as e:
                 failed += 1
@@ -1081,11 +1705,11 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com"
+        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com"
     )
     parser.add_argument(
         "novel_url",
-        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/ or https://www.novel543.com/123456/dir)"
+        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html)"
     )
     parser.add_argument(
         "-o", "--output",
@@ -1114,7 +1738,7 @@ def main():
         "-s", "--start-chapter",
         type=int,
         default=1,
-        help="Chapter number to start from (default: 1, only works efficiently for novel543.com)"
+        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, and jpxs123.com)"
     )
     parser.add_argument(
         "--legacy",
