@@ -175,17 +175,16 @@ novel-translations/
 2. Read the raw chapter(s) in `raw/<novel-name>/`
 3. Translate, referencing glossary for all terms
 4. Save to `translated/<novel-name>/chapterXXX.txt` (content only, no title in file)
-5. Flag any new terms that should be added to glossary
+5. Add any new terms to `translation_glossary.csv` immediately after completing each chapter (do not wait until the end of a batch—this ensures consistency across multi-chapter sessions)
 
 ### New Term Management
 
-When encountering terms not in glossary:
+When encountering terms not in glossary, add them immediately after each chapter:
 
-1. **Assess category**: character name, cultivation term, location, etc.
+1. **Assess category**: character name, cultivation term, location, organization, medical_term, etc.
 2. **Translate contextually**: use genre conventions and existing patterns
-3. **Document decision**: note term, translation, chapter first appeared
-4. **Add to glossary**: update `translation_glossary.csv` with the new term
-5. **Be consistent**: once translated, use same translation throughout
+3. **Add to glossary**: update `translation_glossary.csv` with the new term, including the novel name in the Notes field for novel-specific terms (e.g., "Qin Feng's sister (Hospital Sign In)")
+4. **Use immediately**: reference the new glossary entry for all subsequent chapters in the same session
 
 Format for new glossary entries:
 ```
