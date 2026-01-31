@@ -693,3 +693,19 @@ Chinese,English,Category,Notes
 天尊器,Celestial Venerable Artifact,item,Weapon forged by a Celestial Venerable
 萧正,Xiao Zheng,character_name,Third Corps Commander of Northern Guard Legion
 赵烈,Zhao Lie,character_name,Marshal of Dragon Xia Nation's military
+秦风,Qin Feng,character_name,Director of Transplant Center at Municipal First Hospital (Hospital Sign In)
+柳烟儿,Liu Yan'er,character_name,Qin Feng's romantic interest (Hospital Sign In)
+魏小霞,Wei Xiaoxia,character_name,13-year-old leukemia patient also called Xiaoxia (Hospital Sign In)
+叶知秋,Ye Zhiqiu,character_name,Attending physician at Transplant Center (Hospital Sign In)
+陈副主任,Deputy Director Chen,character_name,Hospital administrator (Hospital Sign In)
+江城,Jiang City,location,City where Municipal First Hospital is located (Hospital Sign In)
+彭城,Peng City,location,Neighboring city to Jiang City (Hospital Sign In)
+厂西省,Changxi Province,location,Province where Xiaoxia's hometown is located (Hospital Sign In)
+桂州,Guizhou,location,City in Changxi Province - Xiaoxia's hometown (Hospital Sign In)
+市一院,Municipal First Hospital,organization,Main hospital setting (Hospital Sign In)
+移植中心,Transplant Center,organization,Department headed by Qin Feng (Hospital Sign In)
+白血病,Leukemia,medical_term,Blood cancer affecting Xiaoxia (Hospital Sign In)
+骨髓移植,Bone Marrow Transplant,medical_term,Treatment procedure for leukemia (Hospital Sign In)
+化疗,Chemotherapy,medical_term,Cancer treatment (Hospital Sign In)
+骨髓穿刺,Bone Marrow Biopsy,medical_term,Diagnostic procedure (Hospital Sign In)
+干细胞库,Stem Cell Bank,organization,Repository for stem cell matching (Hospital Sign In)
