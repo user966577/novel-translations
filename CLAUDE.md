@@ -119,20 +119,34 @@ novel-translations/
 
 ## Technical Translation Details
 
-**Measurements**:
-- Zhang → "about 10 feet" or "roughly 3 meters" (choose one system per work)
-- Li → "about half a kilometer"
-- Jin → "roughly a pound"
-- First usage: full conversion. Subsequent: can use original + number ("300 zhang away")
+**Measurements (Use Imperial for American readers)**:
+- Zhang (丈) → "about 10 feet" (3.3 meters)
+- Li (里) → "about a third of a mile" or "half a kilometer" — ALWAYS convert, never leave as "li"
+- Chi (尺) → "about a foot"
+- Cun (寸) → "about an inch"
+- Jin (斤) → "about a pound" (actually 1.1 lbs)
+- IMPORTANT: Always convert to familiar units. Don't write "500 li away"—write "about 150 miles away"
 
-**Time Periods**:
-- Shichen → "two hours"
-- Ke → "15 minutes"
-- More obscure units: brief parenthetical on first use
+**Time Periods (ALWAYS convert to hours/minutes)**:
+- Shichen (時辰) → 2 hours. NEVER leave as "shichen"—write "two hours" or "a couple of hours"
+- Ke (刻) → 15 minutes. Write "fifteen minutes" or "a quarter hour"
+- Yi zhan xiang (一盞香) → "about 15 minutes" (time for incense to burn)
+- Yi zhu xiang (一炷香) → "about 30 minutes" (time for incense stick)
+- General rule: Convert all time units so readers instantly understand duration
+
+**Large Numbers (Chinese uses 4-digit groupings)**:
+- 萬 (wan) = 10,000. Convert to Western notation: 三萬 → "30,000" not "3 wan"
+- 億 (yi) = 100,000,000. Write as "100 million"
+- Use commas for Western number formatting: 1,000,000 not 100萬
+- Round large numbers naturally: 三萬七千 → "about 37,000" or "nearly 40,000"
 
 **Currency**:
+- Yuan (元/¥) → Convert to USD at ~7:1 ratio for reader comprehension
+  - Example: 1000元 → "about $140" or "around a hundred fifty dollars"
+  - For large amounts: 十萬元 → "about $14,000"
+  - Can note "yuan" on first use: "100,000 yuan—about $14,000"
 - Taels, spirit stones, etc.—keep as-is since they're fantasy currency
-- Provide context through narrative if value is important
+- Provide context through narrative if value is important ("enough to buy a house")
 
 ## Quality Standards
 
