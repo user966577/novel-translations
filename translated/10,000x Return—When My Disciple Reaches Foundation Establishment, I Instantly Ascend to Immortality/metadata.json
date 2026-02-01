@@ -1,156 +1,28 @@
 {
   "title": "10,000x Return—When My Disciple Reaches Foundation Establishment, I Instantly Ascend to Immortality",
-  "original_title": "万倍返还——弟子筑基，我即刻飞升",
   "author": "Unknown",
   "cover_image": "cover.jpg",
-  "translator": "Claude",
-  "genre": ["Xianxia", "System", "Master-Disciple", "Comedy"],
-  "status": "ongoing",
-  "total_raw_chapters": 1865,
-  "translated_chapters": 20,
-  "synopsis": "Zhong Qing transmigrated into a cultivation world and spent five years as a talentless waste on Mufu Peak, the most desolate of Xianjiang Sect's seven peaks. His only inheritance from his late master, Daoist Nai, was the Peak Master title and a daily check-in system that rewarded everything except cultivation—Saint-grade methods he burned for warmth, divine weapons he used as kitchen tools. Then the system finally activates a new feature: the Trash Bond. By taking disciples who are complete wastes like himself, his disciples gain 100x cultivation speed while he receives 1,000x returns. When his first disciple cultivates for a day, Zhong Qing gains the equivalent of nearly 300 years of cultivation. The sect that looked down on him, the Peak Masters who mocked him, and the geniuses who dismissed him are about to discover that Mufu Peak's 'trash' has been hiding a mountain of treasures all along.",
-  "tags": ["transmigration", "system", "cultivation", "master-disciple", "face-slapping", "hiding strength", "comedy", "xianxia"],
-  "chapters": [
-    {
-      "number": 1,
-      "title": "This Pile of Saint-Grade Cultivation Methods Should Last Me Through the Winter",
-      "original_title": "这堆圣级功法，勉强够我烧整个冬天",
-      "file": "chapter001.txt"
-    },
-    {
-      "number": 2,
-      "title": "The System's Chosen Disciple!",
-      "original_title": "系统选定的弟子！",
-      "file": "chapter002.txt"
-    },
-    {
-      "number": 3,
-      "title": "The System's Super Reward",
-      "original_title": "系统的超级奖励",
-      "file": "chapter003.txt"
-    },
-    {
-      "number": 4,
-      "title": "He... Wasn't He Supposed to Be Trash? How Did He...",
-      "original_title": "他，他不是个废材吗，他怎么……",
-      "file": "chapter004.txt"
-    },
-    {
-      "number": 5,
-      "title": "You Trash Think You're Qualified to Join My Mufu Peak?",
-      "original_title": "凭你们这群废物，想入我幕府峰，还不够资格",
-      "file": "chapter005.txt"
-    },
-    {
-      "number": 6,
-      "title": "Imperial-Grade Cultivation Methods... By the Sackful?",
-      "original_title": "帝级功法，一麻袋？",
-      "file": "chapter006.txt"
-    },
-    {
-      "number": 7,
-      "title": "We Were Too Disrespectful Before—Quick, Kneel!",
-      "original_title": "之前是我们太不恭敬，快快跪下",
-      "file": "chapter007.txt"
-    },
-    {
-      "number": 8,
-      "title": "Don't Think About Anything—Just Open the Method and Cultivate!",
-      "original_title": "啥都不想，打开功法就是干！",
-      "file": "chapter008.txt"
-    },
-    {
-      "number": 9,
-      "title": "You Think an Eighth-Grade Toy Can Compete With Us?",
-      "original_title": "一把八品的破兵器，也敢来碰瓷？",
-      "file": "chapter009.txt"
-    },
-    {
-      "number": 10,
-      "title": "A Pond You Can Never Escape",
-      "original_title": "一座走不出去的池塘",
-      "file": "chapter010.txt"
-    },
-    {
-      "number": 11,
-      "title": "Gaining Enlightenment in the Bitter Sea",
-      "original_title": "苦海之中，悟道",
-      "file": "chapter011.txt"
-    },
-    {
-      "number": 12,
-      "title": "The Hidden Peak Master's Strength",
-      "original_title": "深藏不露的峰主",
-      "file": "chapter012.txt"
-    },
-    {
-      "number": 13,
-      "title": "The Prodigy's Challenge",
-      "original_title": "天才的挑战",
-      "file": "chapter013.txt"
-    },
-    {
-      "number": 14,
-      "title": "The Second Disciple Appears",
-      "original_title": "第二个弟子出现",
-      "file": "chapter014.txt"
-    },
-    {
-      "number": 15,
-      "title": "Absolute Suppression",
-      "original_title": "同级碾压",
-      "file": "chapter015.txt"
-    },
-    {
-      "number": 16,
-      "title": "Never Let Anyone Who's Hurt You Get Away",
-      "original_title": "绝不放过任何伤害过你的人",
-      "file": "chapter016.txt"
-    },
-    {
-      "number": 17,
-      "title": "The Calamity-Tribulation Physique",
-      "original_title": "天难厄体",
-      "file": "chapter017.txt"
-    },
-    {
-      "number": 18,
-      "title": "Mufu Peak's Master Defending Himself—Perfectly Reasonable",
-      "original_title": "幕府峰的峰主自卫——天经地义",
-      "file": "chapter018.txt"
-    },
-    {
-      "number": 19,
-      "title": "Moon Profound... That's All?",
-      "original_title": "月玄境……就这？",
-      "file": "chapter019.txt"
-    },
-    {
-      "number": 20,
-      "title": "The Sect Owes Zhong Qing an Apology",
-      "original_title": "宗门欠钟青一个道歉",
-      "file": "chapter020.txt"
-    }
-  ],
-  "cultivation_system": {
-    "realms": [
-      "Body Refining (炼体)",
-      "Houtian (后天)",
-      "Xiantian (先天)",
-      "Dawn Profound Realm (辰玄境)",
-      "Star Profound Realm (星玄境)",
-      "Moon Profound Realm (月玄境)",
-      "Sun Profound Realm (日玄境)",
-      "Earth Profound Realm (地玄境)",
-      "Heaven Profound Realm (天玄境)"
-    ],
-    "method_grades": [
-      "First to Ninth Grade (一品至九品)",
-      "King Grade (王级)",
-      "Emperor Grade (皇级)",
-      "Venerable Grade (尊级)",
-      "Saint Grade (圣级)",
-      "Imperial Grade (帝级)"
-    ]
+  "synopsis": "Zhong Qing transmigrated into a cultivation world and spent five years as a talentless waste on Mufu Peak, the most desolate of Xianjiang Sect's seven peaks. His only inheritance from his late master, Daoist Nai, was the Peak Master title and a daily check-in system that rewarded everything except cultivation—Saint-grade methods he burned for warmth, divine weapons he used as kitchen tools.\n\nThen the system finally activates a new feature: the Trash Bond. By taking disciples who are complete wastes like himself, his disciples gain 100x cultivation speed while he receives 10,000x returns. When his first disciple cultivates for a day, Zhong Qing gains the equivalent of nearly 300 years of cultivation.\n\nThe sect that looked down on him, the Peak Masters who mocked him, and the geniuses who dismissed him are about to discover that Mufu Peak's 'trash' has been hiding a mountain of treasures all along.",
+  "chapter_titles": {
+    "1": "This Pile of Saint-Grade Cultivation Methods Should Last Me Through the Winter",
+    "2": "The System's Chosen Disciple!",
+    "3": "The System's Super Reward",
+    "4": "He... Wasn't He Supposed to Be Trash? How Did He...",
+    "5": "You Trash Think You're Qualified to Join My Mufu Peak?",
+    "6": "Imperial-Grade Cultivation Methods... By the Sackful?",
+    "7": "We Were Too Disrespectful Before—Quick, Kneel!",
+    "8": "Don't Think About Anything—Just Open the Method and Cultivate!",
+    "9": "You Think an Eighth-Grade Toy Can Compete With Us?",
+    "10": "A Pond You Can Never Escape",
+    "11": "Gaining Enlightenment in the Bitter Sea",
+    "12": "The Hidden Peak Master's Strength",
+    "13": "The Prodigy's Challenge",
+    "14": "The Second Disciple Appears",
+    "15": "Absolute Suppression",
+    "16": "Never Let Anyone Who's Hurt You Get Away",
+    "17": "The Calamity-Tribulation Physique",
+    "18": "Mufu Peak's Master Defending Himself—Perfectly Reasonable",
+    "19": "Moon Profound... That's All?",
+    "20": "The Sect Owes Zhong Qing an Apology"
   }
 }
