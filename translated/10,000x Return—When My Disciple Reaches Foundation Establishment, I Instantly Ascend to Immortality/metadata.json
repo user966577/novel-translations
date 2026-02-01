@@ -7,7 +7,7 @@
   "genre": ["Xianxia", "System", "Master-Disciple", "Comedy"],
   "status": "ongoing",
   "total_raw_chapters": 1865,
-  "translated_chapters": 10,
+  "translated_chapters": 20,
   "synopsis": "Zhong Qing transmigrated into a cultivation world and spent five years as a talentless waste on Mufu Peak, the most desolate of Xianjiang Sect's seven peaks. His only inheritance from his late master, Daoist Nai, was the Peak Master title and a daily check-in system that rewarded everything except cultivation—Saint-grade methods he burned for warmth, divine weapons he used as kitchen tools. Then the system finally activates a new feature: the Trash Bond. By taking disciples who are complete wastes like himself, his disciples gain 100x cultivation speed while he receives 1,000x returns. When his first disciple cultivates for a day, Zhong Qing gains the equivalent of nearly 300 years of cultivation. The sect that looked down on him, the Peak Masters who mocked him, and the geniuses who dismissed him are about to discover that Mufu Peak's 'trash' has been hiding a mountain of treasures all along.",
   "tags": ["transmigration", "system", "cultivation", "master-disciple", "face-slapping", "hiding strength", "comedy", "xianxia"],
   "chapters": [
@@ -70,6 +70,66 @@
       "title": "A Pond You Can Never Escape",
       "original_title": "一座走不出去的池塘",
       "file": "chapter010.txt"
+    },
+    {
+      "number": 11,
+      "title": "Gaining Enlightenment in the Bitter Sea",
+      "original_title": "苦海之中，悟道",
+      "file": "chapter011.txt"
+    },
+    {
+      "number": 12,
+      "title": "The Hidden Peak Master's Strength",
+      "original_title": "深藏不露的峰主",
+      "file": "chapter012.txt"
+    },
+    {
+      "number": 13,
+      "title": "The Prodigy's Challenge",
+      "original_title": "天才的挑战",
+      "file": "chapter013.txt"
+    },
+    {
+      "number": 14,
+      "title": "The Second Disciple Appears",
+      "original_title": "第二个弟子出现",
+      "file": "chapter014.txt"
+    },
+    {
+      "number": 15,
+      "title": "Absolute Suppression",
+      "original_title": "同级碾压",
+      "file": "chapter015.txt"
+    },
+    {
+      "number": 16,
+      "title": "Never Let Anyone Who's Hurt You Get Away",
+      "original_title": "绝不放过任何伤害过你的人",
+      "file": "chapter016.txt"
+    },
+    {
+      "number": 17,
+      "title": "The Calamity-Tribulation Physique",
+      "original_title": "天难厄体",
+      "file": "chapter017.txt"
+    },
+    {
+      "number": 18,
+      "title": "Mufu Peak's Master Defending Himself—Perfectly Reasonable",
+      "original_title": "幕府峰的峰主自卫——天经地义",
+      "file": "chapter018.txt"
+    },
+    {
+      "number": 19,
+      "title": "Moon Profound... That's All?",
+      "original_title": "月玄境……就这？",
+      "file": "chapter019.txt"
+    },
+    {
+      "number": 20,
+      "title": "The Sect Owes Zhong Qing an Apology",
+      "original_title": "宗门欠钟青一个道歉",
+      "file": "chapter020.txt"
     }
   ],
   "cultivation_system": {
