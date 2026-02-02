@@ -52,6 +52,32 @@ novel-translations/
 
 **Forms of Address**: Match formality level to relationship and context. "Senior" in tense moments, "Senior Brother" in casual conversation.
 
+## Translating Meaningful Proper Nouns
+
+**Core Principle**: Pinyin is just sounds to English readers. If a name carries meaning that helps readers understand context, translate it. "Taixuan Holy Land" tells readers nothing, but "Supreme Mystery Holy Land" signals a profound, esoteric Daoist sect.
+
+**Sect/Organization Names — TRANSLATE**:
+- 太玄聖地 → Supreme Mystery Holy Land (not "Taixuan Holy Land")
+- 百花聖地 → Hundred Flowers Holy Land (tells readers it's feminine/floral themed)
+- 搖光聖地 → Starlight Holy Land (搖光 = star in Big Dipper)
+- 天劍宗 → Heavenly Sword Sect (not "Tianjian Sect")
+
+**Location Names — TRANSLATE when meaningful**:
+- 黑風谷 → Black Wind Valley (not "Heifeng Valley")
+- 飛仙池 → Flying Immortal Pool (not "Feixian Pool")
+- 迎客峰 → Welcoming Guest Peak (tells readers its purpose)
+
+**Cultivation Realms — TRANSLATE**:
+- 大乘 → Grand Ascension (not "Mahayana" — readers should understand this is the peak before immortality)
+- 煉虛 → Void Refining (not "Lianxu")
+- 化神 → Soul Transformation (not "Huashen")
+
+**Character Names — KEEP IN PINYIN**:
+- Personal names stay as Pinyin (Xiao Fan, Lin Yuan, Ji Qingxue)
+- Exception: Nicknames or titles that describe the person ("Sword Demon," "Blood Fiend")
+
+**When in Doubt**: Ask yourself—"Does knowing the meaning help the reader understand the story better?" If yes, translate it.
+
 ## Cultivation Terminology
 
 **Core Terms**: Keep genre-standard Pinyin terms: qi, dantian, dao, jianghu, meridians, nascent soul, golden core
