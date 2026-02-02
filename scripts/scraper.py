@@ -8,6 +8,7 @@ Supported sites:
 - novel543.com
 - wxdzs.net (无线电子书)
 - jpxs123.com (精品小说网)
+- wfxs.tw (m.wfxs.tw) - 無妨小說
 """
 
 import os
@@ -111,6 +112,8 @@ def detect_site(url: str) -> str:
         return "wxdzs"
     elif "jpxs123" in host:
         return "jpxs123"
+    elif "wfxs" in host:
+        return "wfxs"
     else:
         raise Exception(f"Unsupported site: {host}")
 
@@ -973,6 +976,260 @@ def extract_jpxs123_chapter(start_url: str, session: requests.Session, category:
     }
 
 
+def extract_wfxs_info(novel_url: str) -> tuple[str, str]:
+    """
+    Extract novel ID and chapter ID from wfxs.tw URL.
+    URL formats:
+    - https://m.wfxs.tw/xs-2172679/ -> novel page
+    - https://m.wfxs.tw/xs-2172679/du-152253409/ -> chapter page
+    Returns (novel_id, chapter_id).
+    """
+    path = urlparse(novel_url).path.strip("/")
+
+    # Handle /xs-{novel_id}/du-{chapter_id}/ format (chapter page)
+    chapter_match = re.search(r"xs-(\d+)/du-(\d+)", path)
+    if chapter_match:
+        return chapter_match.group(1), chapter_match.group(2)
+
+    # Handle /xs-{novel_id}/ format (novel page)
+    novel_match = re.search(r"xs-(\d+)", path)
+    if novel_match:
+        return novel_match.group(1), ""
+
+    return "", ""
+
+
+def get_wfxs_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, list[dict]]:
+    """
+    Get the first chapter URL from wfxs.tw.
+    Returns (novel_title, first_chapter_url, chapter_list).
+    """
+    novel_id, chapter_id = extract_wfxs_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Novel ID: {novel_id}")
+
+    # If we have a chapter_id from the URL (it was a chapter URL), we need to get the chapter list
+    # to know the order and find the correct starting chapter
+    # Always fetch the novel page to get the chapter list
+
+    # Fetch the novel page (TOC)
+    novel_page_url = f"{base_url}/xs-{novel_id}/"
+    print(f"Fetching table of contents from: {novel_page_url}")
+
+    soup = fetch_page(novel_page_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch TOC page: {novel_page_url}")
+
+    # Extract novel title from h1
+    novel_title = "Unknown Novel"
+    h1 = soup.find("h1")
+    if h1:
+        novel_title = h1.get_text(strip=True)
+    else:
+        # Try from page title
+        title_tag = soup.find("title")
+        if title_tag:
+            novel_title = title_tag.get_text(strip=True).split(" - ")[0].strip()
+
+    print(f"Novel title: {novel_title}")
+
+    # Find all chapter links in <div class="list">
+    chapter_list_div = soup.select_one("div.list")
+    chapters = []
+    seen_urls = set()
+
+    if chapter_list_div:
+        for link in chapter_list_div.find_all("a", href=True):
+            href = link.get("href", "")
+            ch_title = link.get_text(strip=True)
+
+            # Match chapter URL pattern
+            ch_match = re.search(r"/xs-\d+/du-(\d+)/", href)
+            if ch_match:
+                ch_id = ch_match.group(1)
+                full_url = urljoin(novel_page_url, href)
+                if full_url not in seen_urls:
+                    seen_urls.add(full_url)
+                    chapters.append({
+                        "url": full_url,
+                        "chapter_id": ch_id,
+                        "title": ch_title
+                    })
+
+    if not chapters:
+        # Fallback: search entire page for chapter links
+        chapter_pattern = re.compile(rf"/xs-{novel_id}/du-(\d+)/")
+        for link in soup.find_all("a", href=True):
+            href = link.get("href", "")
+            ch_title = link.get_text(strip=True)
+            ch_match = chapter_pattern.search(href)
+            if ch_match:
+                ch_id = ch_match.group(1)
+                full_url = urljoin(novel_page_url, href)
+                if full_url not in seen_urls:
+                    seen_urls.add(full_url)
+                    chapters.append({
+                        "url": full_url,
+                        "chapter_id": ch_id,
+                        "title": ch_title
+                    })
+
+    if chapters:
+        # Start from the requested chapter (1-indexed)
+        if start_chapter > 1 and start_chapter <= len(chapters):
+            first_chapter = chapters[start_chapter - 1]
+            print(f"Starting from chapter {start_chapter}: {first_chapter['title']}")
+        else:
+            first_chapter = chapters[0]
+
+        print(f"First chapter URL: {first_chapter['url']}")
+        print(f"Total chapters found: {len(chapters)}")
+        return novel_title, first_chapter["url"], chapters
+
+    raise Exception("Could not find chapter URLs. Please check the URL format.")
+
+
+def extract_wfxs_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a wfxs.tw chapter page."""
+    paragraphs = []
+
+    # wfxs uses <div class="articlebody"> for content
+    content_div = soup.select_one("div.articlebody")
+    if content_div:
+        for p in content_div.find_all("p"):
+            text = p.get_text(strip=True)
+            if text:
+                paragraphs.append(text)
+
+    # Fallback: look for any content container
+    if not paragraphs:
+        for selector in ["#content", ".content", ".chapter-content"]:
+            content_div = soup.select_one(selector)
+            if content_div:
+                for p in content_div.find_all("p"):
+                    text = p.get_text(strip=True)
+                    if text:
+                        paragraphs.append(text)
+                break
+
+    # Last resort: get all paragraphs on page
+    if not paragraphs:
+        for p in soup.find_all("p"):
+            text = p.get_text(strip=True)
+            if text and len(text) > 5:
+                paragraphs.append(text)
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"wfxs",
+        r"無妨小說",
+        r"上一章",
+        r"下一章",
+        r"上一頁",
+        r"下一頁",
+        r"目錄",
+        r"章節目錄",
+        r"加入書籤",
+        r"分享到",
+        r"Facebook",
+        r"Twitter",
+        r"Line",
+        r"複製連結",
+        r"設定",
+        r"字體大小",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def find_wfxs_navigation(soup: BeautifulSoup, base_url: str, novel_id: str) -> dict:
+    """
+    Find next chapter navigation for wfxs.tw.
+    Returns {'next_chapter': url or None, 'is_end': bool}
+    """
+    result = {"next_chapter": None, "is_end": False}
+
+    # Look for navigation in <div class="list_page">
+    nav_div = soup.select_one("div.list_page")
+    if nav_div:
+        for link in nav_div.find_all("a", href=True):
+            link_text = link.get_text(strip=True)
+            href = link["href"]
+
+            # Check for "next chapter" (下一章 or 下一頁)
+            if "下一章" in link_text or "下一頁" in link_text:
+                # Check if it's an actual chapter URL
+                if f"/xs-{novel_id}/du-" in href:
+                    result["next_chapter"] = urljoin(base_url, href)
+
+    # Also check for generic navigation links if not found
+    if not result["next_chapter"]:
+        for link in soup.find_all("a", href=True):
+            link_text = link.get_text(strip=True)
+            href = link["href"]
+
+            if ("下一章" in link_text or "下一頁" in link_text) and f"/xs-{novel_id}/du-" in href:
+                result["next_chapter"] = urljoin(base_url, href)
+                break
+
+    return result
+
+
+def extract_wfxs_chapter(start_url: str, session: requests.Session, novel_id: str, chapters: list[dict], current_index: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract complete chapter content from wfxs.tw.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    soup = fetch_page(start_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter page: {start_url}")
+
+    # Extract title from h1
+    title = "Untitled"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+
+    # Extract content
+    paragraphs = extract_wfxs_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Check if this is the final chapter (contains "完結" or "大結局" meaning "complete/finished")
+    is_final_chapter = "完結" in title or "大結局" in title
+
+    # Determine next chapter URL
+    next_chapter_url = None
+
+    if is_final_chapter:
+        print(f"  -> Detected final chapter")
+        next_chapter_url = None
+    elif chapters and current_index + 1 < len(chapters):
+        # Use chapter list to get next chapter (more reliable than navigation links)
+        next_chapter_url = chapters[current_index + 1]["url"]
+    else:
+        # Fall back to navigation links
+        nav_links = find_wfxs_navigation(soup, start_url, novel_id)
+        if nav_links["next_chapter"]:
+            next_chapter_url = nav_links["next_chapter"]
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1  # wfxs doesn't split chapters into multiple pages
+    }
+
+
 def get_novel_title(soup: BeautifulSoup) -> str:
     """Extract novel title from the TOC page."""
     # Try various selectors for the novel title
@@ -1413,6 +1670,14 @@ def scrape_novel_by_navigation(
             )
             category, novel_id, _ = extract_jpxs123_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
+        elif site == "wfxs":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, chapters = get_wfxs_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            novel_id, _ = extract_wfxs_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
         else:
             novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
 
@@ -1453,6 +1718,11 @@ def scrape_novel_by_navigation(
             current_url = first_chapter_url
             if start_chapter > 1:
                 print(f"Starting from chapter {start_chapter}")
+        elif site == "wfxs":
+            # For wfxs, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
         else:
             current_url = first_chapter_url
             if start_chapter > 1:
@@ -1487,6 +1757,11 @@ def scrape_novel_by_navigation(
                 print(f"\nReached end of chapter list ({len(chapters)} chapters)")
                 break
 
+            # For wfxs, check if we've exceeded the chapter list
+            if site == "wfxs" and chapters and current_chapter_index >= len(chapters):
+                print(f"\nReached end of chapter list ({len(chapters)} chapters)")
+                break
+
             # For jpxs123, check if we've exceeded the total chapters
             if site == "jpxs123" and total_chapters > 0 and chapter_num > total_chapters:
                 print(f"\nReached end of novel ({total_chapters} chapters)")
@@ -1516,6 +1791,17 @@ def scrape_novel_by_navigation(
                             chapter_data = extract_wxdzs_chapter(current_url, session, novel_id, chapters, current_chapter_index - 1, delay)
                             current_url = chapter_data["next_chapter_url"]
                             time.sleep(delay)
+                    elif site == "wfxs":
+                        # For wfxs, use chapter list if available
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        current_chapter_index += 1
+                        if chapters and current_chapter_index < len(chapters):
+                            current_url = chapters[current_chapter_index]["url"]
+                        else:
+                            # Fall back to fetching to get next URL
+                            chapter_data = extract_wfxs_chapter(current_url, session, novel_id, chapters, current_chapter_index - 1, delay)
+                            current_url = chapter_data["next_chapter_url"]
+                            time.sleep(delay)
                     elif site == "jpxs123":
                         # For jpxs123, construct next URL directly (simple numeric chapters)
                         print(f"Chapter {chapter_num}: Skipping (already exists)")
@@ -1543,6 +1829,8 @@ def scrape_novel_by_navigation(
                     chapter_data = extract_wxdzs_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
                 elif site == "jpxs123":
                     chapter_data = extract_jpxs123_chapter(current_url, session, category, novel_id, total_chapters, delay)
+                elif site == "wfxs":
+                    chapter_data = extract_wfxs_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
                 else:
                     chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
@@ -1705,11 +1993,11 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com"
+        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com, wfxs.tw"
     )
     parser.add_argument(
         "novel_url",
-        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html)"
+        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html, https://m.wfxs.tw/xs-2172679/)"
     )
     parser.add_argument(
         "-o", "--output",
@@ -1738,7 +2026,7 @@ def main():
         "-s", "--start-chapter",
         type=int,
         default=1,
-        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, and jpxs123.com)"
+        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, jpxs123.com, and wfxs.tw)"
     )
     parser.add_argument(
         "--legacy",
