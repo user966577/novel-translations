@@ -165,7 +165,7 @@ Chinese,English,Category,Notes
 大千世界,Major Thousand Worlds,location,
 大圆满,Great Perfection,cultivation_term,
 大成,Major Achievement,cultivation_term,
-大罗金仙,Grand Unity Golden Immortal,cultivation_realm,
+大罗金仙,Grand Luo Golden Immortal,cultivation_realm,Immortal King level - free from tribulations
 大道浮屠诀,Great Way of the Buddha,technique,
 天人 / 天众,Deva,creature,
 天仙,Heavenly Immortal,cultivation_realm,
@@ -1084,3 +1084,9 @@ CPU,Manipulation Technique,cultivation_term,Internet slang for emotional manipul
 乾坤畫卷,Qiankun Painting Scroll,item,Scroll containing Li Yuxian's legacy (No Daughter of Luck)
 天玄九變,Heaven Mystery Nine Transformations,technique,Li Yutong's shapeshifting technique (No Daughter of Luck)
 七玄破界符,Seven Mystery Realm-Breaking Talisman,item,Escape talisman effective against Golden Immortals (No Daughter of Luck)
+荒古腎體丹,Desolate Primordial Kidney Body Pill,item,Divine pill that evolves the body for dual cultivation (No Daughter of Luck)
+荒古腎體,Desolate Primordial Kidney Body,cultivation_term,Special physique for enhanced dual cultivation (No Daughter of Luck)
+仙靈丹,Immortal Spirit Pills,item,Pills to replenish immortal power (No Daughter of Luck)
+養魂丹,Soul-Nourishing Pills,item,Pills made from refined soul fragments to heal divine souls (No Daughter of Luck)
+龍象,Dragon-Elephant,cultivation_term,Advanced stage of Divine Elephant Suppressing Prison Art (No Daughter of Luck)
+萬龍巢,Myriad Dragon Nest,location,Where the dragon girl Long Ningbing resides (No Daughter of Luck)
