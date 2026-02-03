@@ -9,6 +9,7 @@ Supported sites:
 - wxdzs.net (无线电子书)
 - jpxs123.com (精品小说网)
 - wfxs.tw (m.wfxs.tw) - 無妨小說
+- uukanshu.cc (UU看书)
 """
 
 import os
@@ -114,6 +115,8 @@ def detect_site(url: str) -> str:
         return "jpxs123"
     elif "wfxs" in host:
         return "wfxs"
+    elif "uukanshu" in host:
+        return "uukanshu"
     else:
         raise Exception(f"Unsupported site: {host}")
 
@@ -1230,6 +1233,274 @@ def extract_wfxs_chapter(start_url: str, session: requests.Session, novel_id: st
     }
 
 
+def extract_uukanshu_info(novel_url: str) -> tuple[str, str]:
+    """
+    Extract novel ID and chapter ID from uukanshu.cc URL.
+    URL formats:
+    - https://uukanshu.cc/book/25143/ -> novel page
+    - https://uukanshu.cc/book/25143/16161315.html -> chapter page
+    Returns (novel_id, chapter_id).
+    """
+    path = urlparse(novel_url).path.strip("/")
+
+    # Handle /book/{novel_id}/{chapter_id}.html format (chapter page)
+    chapter_match = re.search(r"book/(\d+)/(\d+)\.html", path)
+    if chapter_match:
+        return chapter_match.group(1), chapter_match.group(2)
+
+    # Handle /book/{novel_id}/ format (novel page)
+    novel_match = re.search(r"book/(\d+)", path)
+    if novel_match:
+        return novel_match.group(1), ""
+
+    return "", ""
+
+
+def get_uukanshu_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, list[dict]]:
+    """
+    Get the first chapter URL from uukanshu.cc.
+    Returns (novel_title, first_chapter_url, chapter_list).
+    """
+    novel_id, chapter_id = extract_uukanshu_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Novel ID: {novel_id}")
+
+    # Fetch the novel page (TOC)
+    novel_page_url = f"{base_url}/book/{novel_id}/"
+    print(f"Fetching table of contents from: {novel_page_url}")
+
+    soup = fetch_page(novel_page_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch TOC page: {novel_page_url}")
+
+    # Extract novel title - try multiple selectors
+    novel_title = "Unknown Novel"
+    # Try h1 first
+    h1 = soup.find("h1")
+    if h1:
+        novel_title = h1.get_text(strip=True)
+    else:
+        # Try from page title
+        title_tag = soup.find("title")
+        if title_tag:
+            page_title = title_tag.get_text(strip=True)
+            # Title often contains "小说名_作者_UU看书" or similar
+            novel_title = page_title.split("_")[0].strip()
+            if not novel_title:
+                novel_title = page_title.split("-")[0].strip()
+
+    print(f"Novel title: {novel_title}")
+
+    # Find all chapter links
+    # uukanshu typically lists chapters in a container div
+    chapters = []
+    seen_urls = set()
+
+    # Look for chapter links - pattern: /book/{novel_id}/{chapter_id}.html
+    chapter_pattern = re.compile(rf"/book/{novel_id}/(\d+)\.html")
+
+    # Try to find chapter list container first
+    chapter_containers = soup.select("div.list, div.chapter-list, ul.chapter-list, div#list, div.listmain")
+
+    if chapter_containers:
+        for container in chapter_containers:
+            for link in container.find_all("a", href=True):
+                href = link.get("href", "")
+                ch_title = link.get_text(strip=True)
+                ch_match = chapter_pattern.search(href)
+                if ch_match:
+                    ch_id = ch_match.group(1)
+                    full_url = urljoin(novel_page_url, href)
+                    if full_url not in seen_urls:
+                        seen_urls.add(full_url)
+                        chapters.append({
+                            "url": full_url,
+                            "chapter_id": ch_id,
+                            "title": ch_title
+                        })
+
+    # Fallback: search entire page for chapter links
+    if not chapters:
+        for link in soup.find_all("a", href=True):
+            href = link.get("href", "")
+            ch_title = link.get_text(strip=True)
+            ch_match = chapter_pattern.search(href)
+            if ch_match:
+                ch_id = ch_match.group(1)
+                full_url = urljoin(novel_page_url, href)
+                if full_url not in seen_urls and ch_title:  # Only add if has title
+                    seen_urls.add(full_url)
+                    chapters.append({
+                        "url": full_url,
+                        "chapter_id": ch_id,
+                        "title": ch_title
+                    })
+
+    if chapters:
+        # Start from the requested chapter (1-indexed)
+        if start_chapter > 1 and start_chapter <= len(chapters):
+            first_chapter = chapters[start_chapter - 1]
+            print(f"Starting from chapter {start_chapter}: {first_chapter['title']}")
+        else:
+            first_chapter = chapters[0]
+
+        print(f"First chapter URL: {first_chapter['url']}")
+        print(f"Total chapters found: {len(chapters)}")
+        return novel_title, first_chapter["url"], chapters
+
+    # If we had a chapter URL directly, use it
+    if chapter_id:
+        first_chapter_url = f"{base_url}/book/{novel_id}/{chapter_id}.html"
+        print(f"Using provided chapter URL: {first_chapter_url}")
+        return novel_title, first_chapter_url, []
+
+    raise Exception("Could not find chapter URLs. Please check the URL format.")
+
+
+def extract_uukanshu_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a uukanshu.cc chapter page."""
+    paragraphs = []
+
+    # uukanshu typically uses a content div for chapter text
+    content_selectors = [
+        "#contentbox",
+        "#content",
+        ".content",
+        ".chapter-content",
+        "#bookContent",
+        ".readcontent",
+        "div.content",
+    ]
+
+    content_div = None
+    for selector in content_selectors:
+        content_div = soup.select_one(selector)
+        if content_div:
+            break
+
+    if content_div:
+        # Get text from paragraphs
+        for p in content_div.find_all("p"):
+            text = p.get_text(strip=True)
+            if text:
+                paragraphs.append(text)
+
+        # If no <p> tags, try getting text with newline separator
+        if not paragraphs:
+            text = content_div.get_text(separator="\n", strip=True)
+            paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+
+    # Fallback: get all paragraphs on page
+    if not paragraphs:
+        for p in soup.find_all("p"):
+            text = p.get_text(strip=True)
+            if text and len(text) > 5:
+                paragraphs.append(text)
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"uukanshu",
+        r"UU看书",
+        r"uu看书",
+        r"上一章",
+        r"下一章",
+        r"上一頁",
+        r"下一頁",
+        r"目录",
+        r"目錄",
+        r"章节目录",
+        r"加入书签",
+        r"加入書籤",
+        r"手机阅读",
+        r"请记住",
+        r"推荐阅读",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def find_uukanshu_navigation(soup: BeautifulSoup, base_url: str, novel_id: str) -> dict:
+    """
+    Find next chapter navigation for uukanshu.cc.
+    Returns {'next_chapter': url or None, 'is_end': bool}
+    """
+    result = {"next_chapter": None, "is_end": False}
+
+    for link in soup.find_all("a", href=True):
+        link_text = link.get_text(strip=True)
+        href = link["href"]
+
+        # Check for "next chapter" (下一章)
+        if "下一章" in link_text:
+            # Check if it's an actual chapter URL
+            if f"/book/{novel_id}/" in href and href.endswith(".html"):
+                result["next_chapter"] = urljoin(base_url, href)
+
+    return result
+
+
+def extract_uukanshu_chapter(start_url: str, session: requests.Session, novel_id: str, chapters: list[dict], current_index: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract complete chapter content from uukanshu.cc.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    soup = fetch_page(start_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter page: {start_url}")
+
+    # Extract title from h1 or other heading
+    title = "Untitled"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+    else:
+        # Try title tag
+        title_tag = soup.find("title")
+        if title_tag:
+            page_title = title_tag.get_text(strip=True)
+            # Extract chapter title from page title
+            title = page_title.split("_")[0].strip()
+
+    # Extract content
+    paragraphs = extract_uukanshu_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Check if this is the final chapter
+    is_final_chapter = "完结" in title or "大结局" in title or "完本" in title
+
+    # Determine next chapter URL
+    next_chapter_url = None
+
+    if is_final_chapter:
+        print(f"  -> Detected final chapter")
+        next_chapter_url = None
+    elif chapters and current_index + 1 < len(chapters):
+        # Use chapter list to get next chapter (more reliable than navigation links)
+        next_chapter_url = chapters[current_index + 1]["url"]
+    else:
+        # Fall back to navigation links
+        nav_links = find_uukanshu_navigation(soup, start_url, novel_id)
+        if nav_links["next_chapter"]:
+            next_chapter_url = nav_links["next_chapter"]
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1  # uukanshu doesn't typically split chapters
+    }
+
+
 def get_novel_title(soup: BeautifulSoup) -> str:
     """Extract novel title from the TOC page."""
     # Try various selectors for the novel title
@@ -1678,6 +1949,14 @@ def scrape_novel_by_navigation(
             )
             novel_id, _ = extract_wfxs_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
+        elif site == "uukanshu":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, chapters = get_uukanshu_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            novel_id, _ = extract_uukanshu_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
         else:
             novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
 
@@ -1723,6 +2002,11 @@ def scrape_novel_by_navigation(
             current_url = first_chapter_url
             if start_chapter > 1:
                 print(f"Starting from chapter {start_chapter}")
+        elif site == "uukanshu":
+            # For uukanshu, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
         else:
             current_url = first_chapter_url
             if start_chapter > 1:
@@ -1759,6 +2043,11 @@ def scrape_novel_by_navigation(
 
             # For wfxs, check if we've exceeded the chapter list
             if site == "wfxs" and chapters and current_chapter_index >= len(chapters):
+                print(f"\nReached end of chapter list ({len(chapters)} chapters)")
+                break
+
+            # For uukanshu, check if we've exceeded the chapter list
+            if site == "uukanshu" and chapters and current_chapter_index >= len(chapters):
                 print(f"\nReached end of chapter list ({len(chapters)} chapters)")
                 break
 
@@ -1802,6 +2091,17 @@ def scrape_novel_by_navigation(
                             chapter_data = extract_wfxs_chapter(current_url, session, novel_id, chapters, current_chapter_index - 1, delay)
                             current_url = chapter_data["next_chapter_url"]
                             time.sleep(delay)
+                    elif site == "uukanshu":
+                        # For uukanshu, use chapter list if available
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        current_chapter_index += 1
+                        if chapters and current_chapter_index < len(chapters):
+                            current_url = chapters[current_chapter_index]["url"]
+                        else:
+                            # Fall back to fetching to get next URL
+                            chapter_data = extract_uukanshu_chapter(current_url, session, novel_id, chapters, current_chapter_index - 1, delay)
+                            current_url = chapter_data["next_chapter_url"]
+                            time.sleep(delay)
                     elif site == "jpxs123":
                         # For jpxs123, construct next URL directly (simple numeric chapters)
                         print(f"Chapter {chapter_num}: Skipping (already exists)")
@@ -1831,6 +2131,8 @@ def scrape_novel_by_navigation(
                     chapter_data = extract_jpxs123_chapter(current_url, session, category, novel_id, total_chapters, delay)
                 elif site == "wfxs":
                     chapter_data = extract_wfxs_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
+                elif site == "uukanshu":
+                    chapter_data = extract_uukanshu_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
                 else:
                     chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
@@ -1993,11 +2295,11 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com, wfxs.tw"
+        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, uukanshu.cc"
     )
     parser.add_argument(
         "novel_url",
-        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html, https://m.wfxs.tw/xs-2172679/)"
+        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html, https://m.wfxs.tw/xs-2172679/, https://uukanshu.cc/book/25143/)"
     )
     parser.add_argument(
         "-o", "--output",
@@ -2026,7 +2328,7 @@ def main():
         "-s", "--start-chapter",
         type=int,
         default=1,
-        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, jpxs123.com, and wfxs.tw)"
+        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, and uukanshu.cc)"
     )
     parser.add_argument(
         "--legacy",
