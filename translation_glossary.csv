@@ -183,6 +183,8 @@ Chinese,English,Category,Notes
 天道,Heavenly Dao,cultivation_term,
 天阶,Heaven Rank,cultivation_term,
 太初之气,Primordial Beginning Qi,cultivation_term,
+太乙真仙,Taiyi True Immortal,cultivation_realm,Above Golden Immortal - early/mid/late stages (No Daughter of Luck)
+太乙金仙,Taiyi Golden Immortal,cultivation_realm,Above Taiyi True Immortal - early/mid/late stages (No Daughter of Luck)
 夺舍,Possession,technique,Soul/body takeover
 奇门阵法,Esoteric Formation,technique,
 奥义,Profound Truth,cultivation_term,
@@ -287,6 +289,7 @@ Chinese,English,Category,Notes
 混沌,Hundun,creature,Chaos beast
 混沌之气,Chaos Qi,cultivation_term,
 混沌至宝,Chaos Supreme Treasure,item,
+混元大罗金仙,Primordial Chaos Grand Luo Golden Immortal,cultivation_realm,Immortal Emperor level - highest immortal realm (No Daughter of Luck)
 渡劫,Tribulation Transcendence,cultivation_realm,
 灵丹,Spirit Pill,item,
 灵兽,Spirit Beast,creature,
