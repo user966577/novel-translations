@@ -220,6 +220,7 @@ novel-translations/
 5. Save to `translated/<novel-name>/chapterXXX.txt` (content only, no title in file)
 6. Update `translated/<novel-name>/metadata.json` with the new chapter number and English title in `chapter_titles`
 7. Add any new terms to `translation_glossary.csv` immediately after completing each chapter (do not wait until the end of a batch—this ensures consistency across multi-chapter sessions)
+8. Run `python scripts/generate_index.py` to regenerate `translated/index.json` (the LNReader plugin relies on this file to discover novels and chapters)
 
 Use the `/translate` skill to automate this entire workflow.
 
