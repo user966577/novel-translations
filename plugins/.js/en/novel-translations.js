@@ -1,23 +1,16 @@
 "use strict";
 
 // Novel Translations Plugin for LNReader
-// Reads translated chapters from GitHub repository
+// Reads translated chapters from GitHub Pages
 
-var REPO_OWNER = 'user966577';
-var REPO_NAME = 'novel-translations';
-var BRANCH = 'main';
-// jsDelivr for content (covers, chapters) - handles special chars well
-var BASE_CDN_URL = 'https://cdn.jsdelivr.net/gh/' + REPO_OWNER + '/' + REPO_NAME + '@' + BRANCH;
-// raw.githubusercontent for metadata.json - avoids CDN cache issues
-var BASE_RAW_URL = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME + '/' + BRANCH;
-var BASE_API_URL = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents';
+var BASE_URL = 'https://user966577.github.io/novel-translations';
 
 function NovelTranslationsPlugin() {
   this.id = 'novel-translations';
   this.name = 'Novel Translations';
-  this.version = '1.3.1';
+  this.version = '1.4.0';
   this.icon = 'src/en/noveltranslations/icon.png';
-  this.site = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME;
+  this.site = 'https://github.com/user966577/novel-translations';
   this.filters = {};
 }
 
@@ -25,9 +18,7 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
   if (pageNo > 1) return [];
 
   try {
-    var response = await fetch(BASE_API_URL + '/translated?ref=' + BRANCH, {
-      headers: { 'Accept': 'application/vnd.github.v3+json' }
-    });
+    var response = await fetch(BASE_URL + '/translated/index.json');
     var folders = await response.json();
 
     if (!Array.isArray(folders)) return [];
@@ -42,13 +33,13 @@ NovelTranslationsPlugin.prototype.popularNovels = async function(pageNo, options
 
       try {
         var metaResponse = await fetch(
-          BASE_RAW_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json?t=' + Date.now()
+          BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/metadata.json'
         );
         var metadata = await metaResponse.json();
 
         var coverUrl = '';
         if (metadata.cover_image) {
-          coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
+          coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folder.name) + '/' + metadata.cover_image;
         }
 
         novels.push({
@@ -78,7 +69,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
   try {
     var metaResponse = await fetch(
-      BASE_RAW_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json?t=' + Date.now()
+      BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/metadata.json'
     );
 
     if (!metaResponse.ok) {
@@ -87,28 +78,33 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     var metadata = await metaResponse.json();
 
-    var filesResponse = await fetch(
-      BASE_API_URL + '/translated/' + encodeURIComponent(folderName) + '?ref=' + BRANCH,
-      { headers: { 'Accept': 'application/vnd.github.v3+json' } }
-    );
-    var files = await filesResponse.json();
+    var indexResponse = await fetch(BASE_URL + '/translated/index.json');
+    var index = await indexResponse.json();
 
-    if (!Array.isArray(files)) {
+    var novelEntry = null;
+    for (var i = 0; i < index.length; i++) {
+      if (index[i].name === folderName) {
+        novelEntry = index[i];
+        break;
+      }
+    }
+
+    if (!novelEntry) {
       return { path: folderName, url: folderName, name: folderName, chapters: [] };
     }
 
-    var chapterFiles = files
-      .filter(function(f) { return /^chapter\d+\.txt$/.test(f.name); })
+    var chapterFiles = novelEntry.files
+      .filter(function(f) { return /^chapter\d+\.txt$/.test(f); })
       .sort(function(a, b) {
-        var numA = parseInt(a.name.match(/\d+/)[0]);
-        var numB = parseInt(b.name.match(/\d+/)[0]);
+        var numA = parseInt(a.match(/\d+/)[0]);
+        var numB = parseInt(b.match(/\d+/)[0]);
         return numA - numB;
       });
 
     var chapters = chapterFiles.map(function(file) {
-      var chapterNum = parseInt(file.name.match(/\d+/)[0]);
+      var chapterNum = parseInt(file.match(/\d+/)[0]);
       var chapterTitle = (metadata.chapter_titles && metadata.chapter_titles[chapterNum]) || ('Chapter ' + chapterNum);
-      var chapterPath = folderName + '/' + file.name;
+      var chapterPath = folderName + '/' + file;
 
       return {
         name: 'Chapter ' + chapterNum + ': ' + chapterTitle,
@@ -120,7 +116,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
     var coverUrl = '';
     if (metadata.cover_image) {
-      coverUrl = BASE_CDN_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
+      coverUrl = BASE_URL + '/translated/' + encodeURIComponent(folderName) + '/' + metadata.cover_image;
     }
 
     return {
@@ -141,7 +137,7 @@ NovelTranslationsPlugin.prototype.parseNovel = async function(novelUrl) {
 
 NovelTranslationsPlugin.prototype.parseChapter = async function(chapterUrl) {
   try {
-    var url = BASE_CDN_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
+    var url = BASE_URL + '/translated/' + chapterUrl.split('/').map(encodeURIComponent).join('/');
     var response = await fetch(url);
     var text = await response.text();
 
