@@ -117,6 +117,8 @@ def detect_site(url: str) -> str:
         return "wfxs"
     elif "uukanshu" in host:
         return "uukanshu"
+    elif "sjks88" in host:
+        return "sjks88"
     else:
         raise Exception(f"Unsupported site: {host}")
 
@@ -1501,6 +1503,191 @@ def extract_uukanshu_chapter(start_url: str, session: requests.Session, novel_id
     }
 
 
+# ============================================================================
+# sjks88.com support
+# ============================================================================
+
+def fetch_page_gbk(url: str, session: requests.Session) -> BeautifulSoup | None:
+    """Fetch a page with GBK encoding and return BeautifulSoup object."""
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = session.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            response.encoding = 'gbk'
+            response.raise_for_status()
+            return BeautifulSoup(response.text, "lxml")
+        except requests.RequestException as e:
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(REQUEST_DELAY * (attempt + 1))
+            else:
+                raise e
+    return None
+
+
+def extract_sjks88_info(novel_url: str) -> tuple[str, int]:
+    """
+    Extract novel ID and chapter number from sjks88.com URL.
+    URL formats:
+    - https://www.sjks88.com/ds/51396.html -> TOC
+    - https://www.sjks88.com/ds/51396/1.html -> chapter 1
+    Returns (novel_id, chapter_num). chapter_num is 0 for TOC.
+    """
+    path = urlparse(novel_url).path.strip("/")
+    parts = path.split("/")
+
+    novel_id = ""
+    chapter_num = 0
+
+    if len(parts) >= 2:
+        # Extract novel ID from /ds/51396.html or /ds/51396/1.html
+        if parts[0] == "ds":
+            if parts[1].endswith(".html"):
+                # TOC URL: /ds/51396.html
+                novel_id = parts[1].replace(".html", "")
+            else:
+                # Chapter URL: /ds/51396/1.html
+                novel_id = parts[1]
+                if len(parts) >= 3:
+                    chapter_match = re.match(r"(\d+)\.html", parts[2])
+                    if chapter_match:
+                        chapter_num = int(chapter_match.group(1))
+
+    return novel_id, chapter_num
+
+
+def get_sjks88_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, int]:
+    """
+    Get the first chapter URL from sjks88.com.
+    Returns (novel_title, first_chapter_url, total_chapters).
+    """
+    novel_id, _ = extract_sjks88_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Novel ID: {novel_id}")
+
+    # Construct TOC URL
+    toc_url = f"{base_url}/ds/{novel_id}.html"
+    print(f"Fetching table of contents from: {toc_url}")
+
+    soup = fetch_page_gbk(toc_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch TOC page: {toc_url}")
+
+    # Extract novel title
+    h1 = soup.find("h1")
+    if h1:
+        novel_title = h1.get_text(strip=True)
+        # Remove common suffixes like "(1-430)"
+        novel_title = re.sub(r"\s*\(\d+-\d+\)\s*$", "", novel_title).strip()
+    else:
+        novel_title = "Unknown Novel"
+    print(f"Novel title: {novel_title}")
+
+    # Find chapter links to get total count
+    chapter_pattern = re.compile(rf"/ds/{novel_id}/(\d+)\.html")
+    max_chapter = 0
+
+    for link in soup.find_all("a", href=True):
+        href = link.get("href", "")
+        match = chapter_pattern.search(href)
+        if match:
+            ch_num = int(match.group(1))
+            max_chapter = max(max_chapter, ch_num)
+
+    print(f"Total chapters found: {max_chapter}")
+
+    # Construct first chapter URL
+    first_chapter_url = f"{base_url}/ds/{novel_id}/{start_chapter}.html"
+    if start_chapter > 1:
+        print(f"Starting from chapter {start_chapter}: {first_chapter_url}")
+    else:
+        print(f"First chapter URL: {first_chapter_url}")
+
+    return novel_title, first_chapter_url, max_chapter
+
+
+def extract_sjks88_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a sjks88.com chapter page."""
+    paragraphs = []
+
+    # Find content div
+    content_div = soup.select_one(".content, #content")
+
+    if content_div:
+        # Get text and split by lines
+        text = content_div.get_text(separator="\n", strip=True)
+        raw_paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+        paragraphs = raw_paragraphs
+
+    # Clean content - remove ads and navigation
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"sjks88",
+        r"上一章",
+        r"下一章",
+        r"上一节",
+        r"下一节",
+        r"目录",
+        r"返回目录",
+        r"加入书签",
+        r"推荐阅读",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        # Skip the first line if it's the novel title repeated
+        if p.startswith("唯我独仙") and len(cleaned) == 0:
+            continue
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def extract_sjks88_chapter(start_url: str, session: requests.Session, novel_id: str, max_chapter: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract chapter content from sjks88.com.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    soup = fetch_page_gbk(start_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch chapter page: {start_url}")
+
+    # Extract title
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+        # Remove novel title prefix if present
+        title = re.sub(r"^.*?(?=第\d+节)", "", title).strip()
+        if not title:
+            title = h1.get_text(strip=True)
+    else:
+        title = "Untitled"
+
+    # Extract content
+    paragraphs = extract_sjks88_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Determine next chapter URL
+    # Extract current chapter number from URL
+    ch_match = re.search(r"/(\d+)\.html", start_url)
+    current_chapter = int(ch_match.group(1)) if ch_match else 1
+
+    next_chapter_url = None
+    if current_chapter < max_chapter:
+        parsed = urlparse(start_url)
+        next_chapter_url = f"{parsed.scheme}://{parsed.netloc}/ds/{novel_id}/{current_chapter + 1}.html"
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1
+    }
+
+
 def get_novel_title(soup: BeautifulSoup) -> str:
     """Extract novel title from the TOC page."""
     # Try various selectors for the novel title
@@ -1957,6 +2144,14 @@ def scrape_novel_by_navigation(
             )
             novel_id, _ = extract_uukanshu_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
+        elif site == "sjks88":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, total_chapters = get_sjks88_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            novel_id, _ = extract_sjks88_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
         else:
             novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
 
@@ -2007,6 +2202,11 @@ def scrape_novel_by_navigation(
             current_url = first_chapter_url
             if start_chapter > 1:
                 print(f"Starting from chapter {start_chapter}")
+        elif site == "sjks88":
+            # For sjks88, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
         else:
             current_url = first_chapter_url
             if start_chapter > 1:
@@ -2053,6 +2253,11 @@ def scrape_novel_by_navigation(
 
             # For jpxs123, check if we've exceeded the total chapters
             if site == "jpxs123" and total_chapters > 0 and chapter_num > total_chapters:
+                print(f"\nReached end of novel ({total_chapters} chapters)")
+                break
+
+            # For sjks88, check if we've exceeded the total chapters
+            if site == "sjks88" and total_chapters > 0 and chapter_num > total_chapters:
                 print(f"\nReached end of novel ({total_chapters} chapters)")
                 break
 
@@ -2107,6 +2312,11 @@ def scrape_novel_by_navigation(
                         print(f"Chapter {chapter_num}: Skipping (already exists)")
                         parsed = urlparse(novel_url)
                         current_url = f"{parsed.scheme}://{parsed.netloc}/{category}/{novel_id}/{chapter_num + 1}.html"
+                    elif site == "sjks88":
+                        # For sjks88, construct next URL directly (simple numeric chapters)
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        parsed = urlparse(novel_url)
+                        current_url = f"{parsed.scheme}://{parsed.netloc}/ds/{novel_id}/{chapter_num + 1}.html"
                     else:
                         # For shuhaige, must fetch to get next chapter URL
                         print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
@@ -2133,6 +2343,8 @@ def scrape_novel_by_navigation(
                     chapter_data = extract_wfxs_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
                 elif site == "uukanshu":
                     chapter_data = extract_uukanshu_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
+                elif site == "sjks88":
+                    chapter_data = extract_sjks88_chapter(current_url, session, novel_id, total_chapters, delay)
                 else:
                     chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
