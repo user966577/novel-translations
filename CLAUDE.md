@@ -8,9 +8,10 @@ You are a professional translator specializing in Chinese web novels, particular
 novel-translations/
 ├── CLAUDE.md                    # This file
 ├── translation_glossary.csv     # Master glossary (ALWAYS reference this)
+├── .claude/skills/              # Claude Code skills (translate, build-epub, glossary, etc.)
 ├── scripts/                     # Utility scripts
 ├── raw/                         # Raw Chinese chapters (organized by novel)
-├── translated/                  # Finished English translations
+├── translated/                  # Finished English translations (each novel has metadata.json)
 └── output/                      # Generated EPUBs and other output
 ```
 
@@ -28,6 +29,7 @@ novel-translations/
 
 **Before Translating**:
 - Load and parse `translation_glossary.csv` completely
+- Filter by the Novel column to focus on terms for the current novel + universal terms (empty Novel field)
 - Index terms by category for quick lookup
 - Note any terms with contextual usage differences
 
@@ -211,11 +213,15 @@ novel-translations/
 
 ### Translating New Chapters
 
-1. Read the glossary first
-2. Read the raw chapter(s) in `raw/<novel-name>/`
-3. Translate, referencing glossary for all terms
-4. Save to `translated/<novel-name>/chapterXXX.txt` (content only, no title in file)
-5. Add any new terms to `translation_glossary.csv` immediately after completing each chapter (do not wait until the end of a batch—this ensures consistency across multi-chapter sessions)
+1. Read the glossary first (filter by Novel column for the current novel + universal terms)
+2. Read `translated/<novel-name>/metadata.json` to check existing chapter titles and find where translation left off
+3. Read the raw chapter(s) in `raw/<novel-name>/`
+4. Translate, referencing glossary for all terms
+5. Save to `translated/<novel-name>/chapterXXX.txt` (content only, no title in file)
+6. Update `translated/<novel-name>/metadata.json` with the new chapter number and English title in `chapter_titles`
+7. Add any new terms to `translation_glossary.csv` immediately after completing each chapter (do not wait until the end of a batch—this ensures consistency across multi-chapter sessions)
+
+Use the `/translate` skill to automate this entire workflow.
 
 ### New Term Management
 
@@ -223,24 +229,35 @@ When encountering terms not in glossary, add them immediately after each chapter
 
 1. **Assess category**: character name, cultivation term, location, organization, medical_term, etc.
 2. **Translate contextually**: use genre conventions and existing patterns
-3. **Add to glossary**: update `translation_glossary.csv` with the new term, including the novel name in the Notes field for novel-specific terms (e.g., "Qin Feng's sister (Hospital Sign In)")
+3. **Add to glossary**: update `translation_glossary.csv` with the new term, using the Novel column for novel-specific terms
 4. **Use immediately**: reference the new glossary entry for all subsequent chapters in the same session
 
 Format for new glossary entries:
 ```
-Chinese,English,Category,Notes
-新术语,New Term,technique,Description of the term
+Chinese,English,Category,Novel,Notes
+新术语,New Term,technique,Novel Short Name,Optional description
 ```
+
+- **Novel column**: Use the novel's short name (e.g., "Killing Spree", "Hospital Sign In", "No Daughter of Luck"). Leave empty for universal terms shared across all novels.
+- **Notes column**: Only for universally applicable context (e.g., "Energy center in the body"). Do NOT put the novel name here.
 
 ### Building EPUBs
 
-Use the `scripts/build_epub.py` script to generate EPUBs from translated chapters.
+Use `/build-epub <novel-folder>` or run `python scripts/build_epub.py translated/<novel-folder>` directly.
 
-## Current Novel: After the Villain Lies Low, the Heroines Panic
+## Active Novels
 
-**Synopsis**: Lin Yuan transmigrated into a cultivation novel as the villain—a top-tier young master with the most powerful family background imaginable. His grandfather is a legendary War God. His parents hold supreme power. His sisters command empires of business and formations. The original host was a hopeless simp who wasted this god-tier starting hand chasing after Li Xuan'er, only to become a stepping stone for the protagonist Ye Xuan. But Lin Yuan isn't about to repeat those mistakes. With his "Divine Lie-Flat System" rewarding him for doing nothing, he'll cultivate to the peak while lounging by the pool.
+See `translated/` for all novels and their current chapter counts. Each novel folder contains a `metadata.json` with title, author, synopsis, and chapter titles. Use `/novel-status` for a quick dashboard of all novels.
 
-**Status**: 69 chapters translated
+## Available Skills
+
+| Skill | Description |
+|---|---|
+| `/translate [novel] [chapters]` | Full translation workflow: glossary, translate, save, update metadata, update glossary |
+| `/build-epub [novel-folder]` | Build an EPUB from translated chapters |
+| `/glossary [check\|search\|stats\|add]` | Glossary maintenance and lookup |
+| `/novel-status` | Dashboard of all novels with progress and stats |
+| `/scrape [url]` | Download raw chapters from supported sites |
 
 ## What Success Looks Like
 
