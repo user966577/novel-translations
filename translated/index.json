@@ -268,7 +268,7 @@
       "chapter95.txt",
       "chapter96.txt",
       "chapter97.txt",
-      "cover.jpg",
+      "cover.png",
       "metadata.json"
     ]
   },
@@ -399,6 +399,7 @@
       "chapter063.txt",
       "chapter064.txt",
       "chapter065.txt",
+      "cover.png",
       "metadata.json"
     ]
   },
@@ -534,7 +535,6 @@
       "chapter160.txt",
       "chapter161.txt",
       "chapter162.txt",
-      "cover.jpg",
       "cover.png",
       "metadata.json"
     ]
@@ -556,6 +556,7 @@
       "chapter011.txt",
       "chapter012.txt",
       "chapter013.txt",
+      "cover.png",
       "metadata.json"
     ]
   }
