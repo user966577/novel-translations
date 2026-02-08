@@ -10,6 +10,7 @@ Supported sites:
 - jpxs123.com (精品小说网)
 - wfxs.tw (m.wfxs.tw) - 無妨小說
 - uukanshu.cc (UU看书)
+- ffxs8.com (饭饭小说)
 """
 
 import os
@@ -119,6 +120,8 @@ def detect_site(url: str) -> str:
         return "uukanshu"
     elif "sjks88" in host:
         return "sjks88"
+    elif "ffxs8" in host:
+        return "ffxs8"
     else:
         raise Exception(f"Unsupported site: {host}")
 
@@ -1688,6 +1691,161 @@ def extract_sjks88_chapter(start_url: str, session: requests.Session, novel_id: 
     }
 
 
+def extract_ffxs8_info(novel_url: str) -> tuple[str, str, int]:
+    """
+    Extract category, novel ID, and section number from ffxs8.com URL.
+    URL formats:
+    - https://ffxs8.com/dsyq/19978/ -> TOC page
+    - https://ffxs8.com/dsyq/19978/index/1.html -> section page
+    Returns (category, novel_id, section_num). section_num is 0 for TOC.
+    """
+    path = urlparse(novel_url).path.strip("/")
+
+    # Handle /{category}/{novel_id}/index/{section}.html format (section page)
+    section_match = re.search(r"(\w+)/(\d+)/index/(\d+)\.html", path)
+    if section_match:
+        return section_match.group(1), section_match.group(2), int(section_match.group(3))
+
+    # Handle /{category}/{novel_id} format (TOC page)
+    toc_match = re.search(r"(\w+)/(\d+)/?$", path)
+    if toc_match:
+        return toc_match.group(1), toc_match.group(2), 0
+
+    return "", "", 0
+
+
+def get_ffxs8_first_chapter(novel_url: str, session: requests.Session, start_chapter: int = 1, skip_title_fetch: bool = False) -> tuple[str, str, int]:
+    """
+    Get the first section URL from ffxs8.com.
+    Returns (novel_title, first_section_url, total_sections).
+    """
+    category, novel_id, _ = extract_ffxs8_info(novel_url)
+    parsed = urlparse(novel_url)
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+
+    print(f"Category: {category}")
+    print(f"Novel ID: {novel_id}")
+
+    # Fetch TOC page
+    toc_url = f"{base_url}/{category}/{novel_id}/"
+    print(f"Fetching TOC from: {toc_url}")
+
+    soup = fetch_page(toc_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch TOC page: {toc_url}")
+
+    # Extract novel title from h1 (format: "Novel Title(1-508)")
+    novel_title = "Unknown Novel"
+    h1 = soup.find("h1")
+    if h1:
+        novel_title = h1.get_text(strip=True)
+        # Remove "(1-508)" suffix
+        novel_title = re.sub(r"\s*[\(（]\d+-\d+[\)）]\s*$", "", novel_title).strip()
+    print(f"Novel title: {novel_title}")
+
+    # Count total sections from chapter links
+    section_pattern = re.compile(rf"/{category}/{novel_id}/index/(\d+)\.html")
+    max_section = 0
+    for link in soup.find_all("a", href=True):
+        match = section_pattern.search(link["href"])
+        if match:
+            max_section = max(max_section, int(match.group(1)))
+
+    print(f"Total sections: {max_section}")
+
+    # Construct first section URL
+    first_section_url = f"{base_url}/{category}/{novel_id}/index/{start_chapter}.html"
+    print(f"First section URL: {first_section_url}")
+
+    return novel_title, first_section_url, max_section
+
+
+def extract_ffxs8_content(soup: BeautifulSoup) -> list[str]:
+    """Extract content paragraphs from a ffxs8.com section page."""
+    paragraphs = []
+
+    # ffxs8 uses div.article as the content container (h1's parent)
+    content_div = soup.select_one("div.article")
+    if content_div:
+        for p in content_div.find_all("p"):
+            text = p.get_text(strip=True)
+            if text:
+                paragraphs.append(text)
+
+    # Fallback: get all <p> in h1's parent
+    if not paragraphs:
+        h1 = soup.find("h1")
+        if h1 and h1.parent:
+            for p in h1.parent.find_all("p"):
+                text = p.get_text(strip=True)
+                if text:
+                    paragraphs.append(text)
+
+    # Clean content - remove ads, navigation, and metadata
+    ad_patterns = [
+        r"http[s]?://",
+        r"www\.",
+        r"ffxs8",
+        r"饭饭小说",
+        r"上一篇",
+        r"下一篇",
+        r"上一节",
+        r"下一节",
+        r"首节",
+        r"尾节",
+        r"目录",
+        r"txt下载",
+        r"推荐阅读",
+        r"Copyright",
+        r"All Rights Reserved",
+        r"电子书共享",
+    ]
+
+    cleaned = []
+    for p in paragraphs:
+        is_ad = any(re.search(pattern, p, re.IGNORECASE) for pattern in ad_patterns)
+        if not is_ad and len(p) > 2:
+            cleaned.append(p)
+
+    return cleaned
+
+
+def extract_ffxs8_chapter(start_url: str, session: requests.Session, category: str, novel_id: str, total_sections: int, delay: float = REQUEST_DELAY) -> dict:
+    """
+    Extract section content from ffxs8.com.
+    Returns dict with 'title', 'content', 'next_chapter_url', 'page_count'.
+    """
+    soup = fetch_page(start_url, session)
+    if not soup:
+        raise Exception(f"Failed to fetch section page: {start_url}")
+
+    # Extract title from h1
+    title = "Untitled"
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+
+    # Extract content
+    paragraphs = extract_ffxs8_content(soup)
+    content = "\n\n".join(paragraphs)
+
+    # Determine next section URL from current section number
+    ch_match = re.search(r"/index/(\d+)\.html", start_url)
+    current_section = int(ch_match.group(1)) if ch_match else 1
+
+    next_chapter_url = None
+    if current_section < total_sections:
+        parsed = urlparse(start_url)
+        next_chapter_url = f"{parsed.scheme}://{parsed.netloc}/{category}/{novel_id}/index/{current_section + 1}.html"
+
+    return {
+        "title": title,
+        "content": content,
+        "next_chapter_url": next_chapter_url,
+        "page_count": 1
+    }
+
+
 def get_novel_title(soup: BeautifulSoup) -> str:
     """Extract novel title from the TOC page."""
     # Try various selectors for the novel title
@@ -2098,9 +2256,9 @@ def scrape_novel_by_navigation(
     # Site-specific variables
     novel_id = ""
     section_id = ""
-    category = ""  # For jpxs123
+    category = ""  # For jpxs123, ffxs8
     chapters = []  # For sites that provide chapter list
-    total_chapters = 0  # For jpxs123
+    total_chapters = 0  # For jpxs123, ffxs8
 
     try:
         # Get first chapter URL from TOC (site-specific)
@@ -2151,6 +2309,14 @@ def scrape_novel_by_navigation(
                 novel_url, session, start_chapter, skip_title
             )
             novel_id, _ = extract_sjks88_info(novel_url)
+            safe_novel_title = sanitize_filename(novel_title)
+        elif site == "ffxs8":
+            # Skip title fetch if english_title is provided (saves a request)
+            skip_title = english_title is not None
+            novel_title, first_chapter_url, total_chapters = get_ffxs8_first_chapter(
+                novel_url, session, start_chapter, skip_title
+            )
+            category, novel_id, _ = extract_ffxs8_info(novel_url)
             safe_novel_title = sanitize_filename(novel_title)
         else:
             novel_title, first_chapter_url, safe_novel_title = get_first_chapter_url(novel_url, session)
@@ -2207,6 +2373,11 @@ def scrape_novel_by_navigation(
             current_url = first_chapter_url
             if start_chapter > 1:
                 print(f"Starting from chapter {start_chapter}")
+        elif site == "ffxs8":
+            # For ffxs8, first_chapter_url already points to start_chapter
+            current_url = first_chapter_url
+            if start_chapter > 1:
+                print(f"Starting from chapter {start_chapter}")
         else:
             current_url = first_chapter_url
             if start_chapter > 1:
@@ -2259,6 +2430,11 @@ def scrape_novel_by_navigation(
             # For sjks88, check if we've exceeded the total chapters
             if site == "sjks88" and total_chapters > 0 and chapter_num > total_chapters:
                 print(f"\nReached end of novel ({total_chapters} chapters)")
+                break
+
+            # For ffxs8, check if we've exceeded the total sections
+            if site == "ffxs8" and total_chapters > 0 and chapter_num > total_chapters:
+                print(f"\nReached end of novel ({total_chapters} sections)")
                 break
 
             # Check max chapters limit
@@ -2317,6 +2493,11 @@ def scrape_novel_by_navigation(
                         print(f"Chapter {chapter_num}: Skipping (already exists)")
                         parsed = urlparse(novel_url)
                         current_url = f"{parsed.scheme}://{parsed.netloc}/ds/{novel_id}/{chapter_num + 1}.html"
+                    elif site == "ffxs8":
+                        # For ffxs8, construct next URL directly (simple numeric sections)
+                        print(f"Chapter {chapter_num}: Skipping (already exists)")
+                        parsed = urlparse(novel_url)
+                        current_url = f"{parsed.scheme}://{parsed.netloc}/{category}/{novel_id}/index/{chapter_num + 1}.html"
                     else:
                         # For shuhaige, must fetch to get next chapter URL
                         print(f"Chapter {chapter_num}: Skipping (already exists), fetching next URL...")
@@ -2345,6 +2526,8 @@ def scrape_novel_by_navigation(
                     chapter_data = extract_uukanshu_chapter(current_url, session, novel_id, chapters, current_chapter_index, delay)
                 elif site == "sjks88":
                     chapter_data = extract_sjks88_chapter(current_url, session, novel_id, total_chapters, delay)
+                elif site == "ffxs8":
+                    chapter_data = extract_ffxs8_chapter(current_url, session, category, novel_id, total_chapters, delay)
                 else:
                     chapter_data = extract_chapter_with_parts(current_url, session, delay)
 
@@ -2507,11 +2690,11 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, uukanshu.cc"
+        description="Download Chinese webnovels. Supported sites: shuhaige.net, novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, uukanshu.cc, ffxs8.com"
     )
     parser.add_argument(
         "novel_url",
-        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html, https://m.wfxs.tw/xs-2172679/, https://uukanshu.cc/book/25143/)"
+        help="URL to the novel's TOC or any chapter (e.g., https://m.shuhaige.net/123456/, https://www.novel543.com/123456/dir, https://www.wxdzs.net/wxbook/94900.html, https://jpxs123.com/cyjk/10524.html, https://m.wfxs.tw/xs-2172679/, https://uukanshu.cc/book/25143/, https://ffxs8.com/dsyq/19978/)"
     )
     parser.add_argument(
         "-o", "--output",
@@ -2540,7 +2723,7 @@ def main():
         "-s", "--start-chapter",
         type=int,
         default=1,
-        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, and uukanshu.cc)"
+        help="Chapter number to start from (default: 1, works efficiently for novel543.com, wxdzs.net, jpxs123.com, wfxs.tw, uukanshu.cc, and ffxs8.com)"
     )
     parser.add_argument(
         "--legacy",
