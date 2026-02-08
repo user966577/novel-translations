@@ -587,5 +587,27 @@
       "cover.png",
       "metadata.json"
     ]
+  },
+  {
+    "name": "Villain—Suppressing the Protagonist and Stealing the Campus Belle from the Start",
+    "type": "dir",
+    "files": [
+      "chapter1.txt",
+      "chapter10.txt",
+      "chapter11.txt",
+      "chapter12.txt",
+      "chapter13.txt",
+      "chapter14.txt",
+      "chapter15.txt",
+      "chapter2.txt",
+      "chapter3.txt",
+      "chapter4.txt",
+      "chapter5.txt",
+      "chapter6.txt",
+      "chapter7.txt",
+      "chapter8.txt",
+      "chapter9.txt",
+      "metadata.json"
+    ]
   }
 ]
