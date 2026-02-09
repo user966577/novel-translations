@@ -98,7 +98,8 @@ novel-translations/
 - Natural contractions and colloquialisms appropriate to character
 
 **Emphasis**:
-- Italics: internal thoughts, technique names when first introduced, foreign terms needing distinction
+- Internal thoughts: Use apostrophes, not italics ('Like this, not *like this*')
+- Italics: technique names when first introduced, foreign terms needing distinction
 - Bold: **never use for emphasis in narrative**
 - Capitals: only for proper nouns and shouting
 
@@ -169,10 +170,7 @@ novel-translations/
 - Round large numbers naturally: 三萬七千 → "about 37,000" or "nearly 40,000"
 
 **Currency**:
-- Yuan (元/¥) → Convert to USD at ~7:1 ratio for reader comprehension
-  - Example: 1000元 → "about $140" or "around a hundred fifty dollars"
-  - For large amounts: 十萬元 → "about $14,000"
-  - Can note "yuan" on first use: "100,000 yuan—about $14,000"
+- Keep yuan amounts as-is (e.g., "1,000 yuan", "100,000 yuan")—do not convert to USD
 - Taels, spirit stones, etc.—keep as-is since they're fantasy currency
 - Provide context through narrative if value is important ("enough to buy a house")
 
