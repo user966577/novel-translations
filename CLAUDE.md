@@ -98,7 +98,8 @@ novel-translations/
 - Natural contractions and colloquialisms appropriate to character
 
 **Emphasis**:
-- Italics: internal thoughts, technique names when first introduced, foreign terms needing distinction
+- Internal thoughts: Use apostrophes, not italics ('Like this, not *like this*')
+- Italics: technique names when first introduced, foreign terms needing distinction
 - Bold: **never use for emphasis in narrative**
 - Capitals: only for proper nouns and shouting
 
