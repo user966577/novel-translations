@@ -1,11 +1,4 @@
 Chinese,English,Category,Notes
-叶轩,Ye Xuan,character_name,
-李萱儿,Li Xuan'er,character_name,
-林建国,Lin Jianguo,character_name,
-林战,Lin Zhan,character_name,
-林渊,Lin Yuan,character_name,
-苏琴,Su Qin,character_name,
-顾凝雪,Gu Ningxue,character_name,
 三灾九难,Three Calamities and Nine Tribulations,cultivation_term,
 三界,Three Realms,cultivation_term,
 三魂七魄,Three Ethereal Souls and Seven Corporeal Spirits,cultivation_term,
@@ -85,7 +78,6 @@ Chinese,English,Category,Notes
 先天灵宝,Innate Spirit Treasure,item,
 入玄境,Nascent Profound Realm (Entry Phase),cultivation_realm,
 入门级,Entry-Level,cultivation_term,
-全国高校武道联赛,National College Martial Arts League,organization,
 全本,Complete Manual,item,
 内力,Internal Energy,cultivation_term,
 内功,Internal Skill,technique,
@@ -391,6 +383,7 @@ Chinese,English,Category,Notes
 神魂境,Divine Soul Realm (Soul Deification),cultivation_realm,
 禁制,Restriction,technique,
 禁地,Forbidden Land,location,
+禁术,Forbidden Technique,cultivation_term,Techniques with severe backlash
 秘境,Secret Realm,location,
 秘境修炼资格,Secret Realm Cultivation Qualification,item,
 秘籍,Secret Manual,item,
@@ -404,6 +397,7 @@ Chinese,English,Category,Notes
 等级,Rank,cultivation_term,
 筑基,Foundation Establishment,cultivation_realm,
 筑基期,Foundation Establishment Stage,cultivation_realm,
+精元,Life Essence,cultivation_term,Vital life force
 精怪,Spirit Monster,creature,
 精神力,Mental Energy,cultivation_term,
 系统,System,cultivation_term,Cheat system
@@ -529,7 +523,6 @@ Chinese,English,Category,Notes
 黄龙,Yellow Dragon,creature,
 黑市,Black Market,location,
 龙,Dragon,creature,
-龙夏国,Dragon Xia Country,location,
 龙气,Dragon Qi,cultivation_term,
 龙王,Dragon King,creature,
 龙马,Dragon Horse,creature,
@@ -565,133 +558,13 @@ Chinese,English,Category,Notes
 殿下,Your Highness,title,
 真传弟子,True Disciple,title,
 祖师,Ancestral Master,title,
+管家,Butler,title,Head servant
 道侣,Dao Companion,title,Cultivation partner/spouse
 道友,Fellow Daoist,title,Respectful address between cultivators
 长老,Elder,title,
 门主,Sect Leader,title,
 阁下,Your Excellency,title,
 陛下,Your Majesty,title,
-钟叔,Uncle Zhong,character_name,Lin Yuan's butler
-皇甫卓,Huangfu Zhuo,character_name,Huangfu family genius
-皇甫雄,Huangfu Xiong,character_name,Huangfu family patriarch
-林可儿,Lin Ke'er,character_name,Lin Yuan's sister and formation prodigy
-林梦瑶,Lin Mengyao,character_name,Lin Yuan's businesswoman sister
-刘如烟,Liu Ruyan,character_name,Magic City Martial Arts Academy competitor
-赵文武,Zhao Wenwu,character_name,Tiannan Academy competitor
-罗天,Luo Tian,character_name,Cangyun Academy competitor
-石磊,Shi Lei,character_name,War God Academy's Absolute Defense fighter
-秦战,Qin Zhan,character_name,Imperial Military Academy fighter
-太上道祖,Supreme Dao Ancestor,character_name,Ancient soul in Ye Xuan's consciousness
-血燃龙变诀,Blood-Burning Dragon Transformation Art,technique,Ye Xuan's forbidden technique
-血燃龙拳,Blood-Burning Dragon Fist,technique,Ye Xuan's attack move
-明王琉璃体,Bright King Glazed Body,technique,Shi Lei's innate defensive physique
-龙象镇狱功,Dragon Elephant Prison-Suppressing Art,technique,Qin Zhan's power technique
-琉璃雪心剑法,Glazed Snow Heart Sword Art,technique,Gu Ningxue's Earth-Rank sword technique
-冰凰降世,Ice Phoenix Descends,technique,Gu Ningxue's ultimate move
-龙争于野,Dragon Battles the Wilds,technique,Ye Xuan's attack move
-九曲龙困阵,Nine-Twist Dragon Trap Formation,technique,Lin Ke'er's Earth-Rank formation
-天星阵,Heavenly Star Array,technique,Ancient divine formation
-幻光步,Phantom Light Steps,technique,Liu Ruyan's movement technique
-追魂夺命剑,Soul-Chasing Life-Reaping Sword,technique,Liu Ruyan's sword technique
-开山拳,Mountain-Splitting Fist,technique,Zhao Wenwu's fist technique
-龙巢,Dragon's Nest,location,National martial arts stadium
-燕京城,Yan Jing City,location,Capital city of Dragon Xia Country
-北疆,Northern Frontier,location,Military region commanded by Lin Zhan
-松州,Songzhou,location,City where academy is located
-皇甫家,Huangfu Family,organization,Enemy family of the Lin family
-战神学院,War God Academy,organization,Shi Lei's academy
-皇家军事学院,Imperial Military Academy,organization,Qin Zhan's academy
-京都武道学院,Capital Martial Arts Academy,organization,Main characters' academy
-魔都武道学院,Magic City Martial Arts Academy,organization,Liu Ruyan's academy
-天南武道学院,Tiannan Martial Arts Academy,organization,Zhao Wenwu's academy
-苍云武道学院,Cangyun Martial Arts Academy,organization,Luo Tian's academy
-北疆军团,Northern Frontier Legion,organization,Military force commanded by Lin Zhan
-禁术,Forbidden Technique,cultivation_term,Techniques with severe backlash
-精元,Life Essence,cultivation_term,Vital life force
 残魂,Remnant Soul,cultivation_term,Fragment of a deceased soul
 宿主,Host,cultivation_term,Body hosting another soul
 天命之子,Child of Destiny,cultivation_term,Protagonist blessed by fate
-龙威,Dragon Might,cultivation_term,Dragon-type pressure/aura
-千年火灵芝,Thousand-Year Fire Lingzhi,item,Rare fire-element treasure
-紫玉葡萄,Purple Jade Grape,item,Spirit fruit rich in spiritual energy
-云顶仙糕,Cloud-Peak Immortal Cake,item,Rare pastry filled with spiritual energy
-灵泉水,Spirit Spring Water,item,Refreshing cultivator beverage
-光脑,Light-Brain,item,Futuristic communicator/computer device
-管家,Butler,title,Head servant
-叶沧澜,Ye Canglan,character_name,Ye Xuan's father and Divine Court member
-宋瑶,Song Yao,character_name,Song family princess and prodigy
-柳明轩,Liu Mingxuan,character_name,Liu family heir
-陈宇,Chen Yu,character_name,Chen family heir
-柳擎天,Liu Qingtian,character_name,Liu family patriarch
-陈天豪,Chen Tianhao,character_name,Chen family patriarch
-王腾,Wang Teng,character_name,Wang family prodigy
-通神境,Meridian Opening Realm,cultivation_realm,Typo for 通脉境 in source - use Meridian Opening Realm
-神庭,Divine Court,organization,Evil cult opposing Dragon Xia Country
-十二神官,Twelve Divine Officials,title,Top-tier Divine Court members
-炼血大阵,Blood Refinement Array,technique,Divine Court soul-refining formation
-镇天印,Heaven-Suppressing Seal,technique,Lin Zhan's law-burning attack
-周天星斗大阵,Grand Celestial Star Formation,technique,Star-based formation array
-太虚裂空拳,Grand Void Shattering Fist,technique,Lin Yuan's star-dropping punch
-沧溟剑意,Boundless Sword Intent,technique,Lin Yuan's ocean-like sword intent
-血魔吞天爪,Blood Demon Heaven-Devouring Claw,technique,Ye Xuan's demonic claw attack
-血狱沉沦,Blood Prison Descent,technique,Li Xuan'er's chain binding attack
-陈若曦,Chen Ruoxi,character_name,Chen family daughter and artifact refining prodigy
-萧龙,Xiao Long,character_name,Xiao family grandson and battle-axe fighter
-萧诚恩,Xiao Cheng'en,character_name,Xiao family martial god
-赵虎,Zhao Hu,character_name,Zhao family eldest grandson (Zhao Tiger)
-鬼枭,Ghost Owl,character_name,Divine Court assassin (Meridian Opening 5th level)
-影刃,Shadow Blade,character_name,Divine Court assassin (Meridian Opening 3rd level)
-黑风谷,Black Wind Valley,location,Forbidden zone in the wilderness
-云顶山庄,Cloud Summit Manor,location,Venue for National Finals
-荒野狩猎,Wilderness Hunt,event,Annual prodigy hunting competition
-天工图解,Celestial Craft Illustrated,item,Heaven-rank artifact refining manual
-九龙镜,Nine Dragon Mirror,item,Artifact refined by Chen Ruoxi
-裂风刀,Wind Ripper,item,Chen Yu's Profound-Rank war saber
-冷月鞭,Cold Moon Whip,item,Song Yao's chain blade weapon
-九窍净心果,Nine-Aperture Heart-Clearing Fruit,item,Rare spirit fruit
-玄龙赤血丹,Mystic Dragon Scarlet Blood Pill,item,Medicinal pill
-破魔灵盘,Demon-Breaking Spirit Disc,item,Artifact item
-猛虎下山,Fierce Tiger Descends the Mountain,technique,Zhao Hu's attack technique
-三尺冰,Three Feet of Ice,technique,Gu Ningxue's ice defense technique
-疾风斩,Gale Slash,technique,Chen Yu's saber technique
-四象锁天阵,Four Symbols Heaven-Lock Formation,technique,Liu family formation
-冰凰舞,Ice Phoenix Dance,technique,Gu Ningxue's phoenix technique
-冥血祭,Nether Blood Sacrifice,technique,Divine Court soul-burning forbidden technique
-冥神爪,Nether God Claw,technique,Divine Court killing technique
-鲲鹏逍遥步,Kunpeng Wandering Step,technique,Lin Yuan's void-stepping movement technique
-紫天神雷,Purple Heaven Divine Thunder,technique,Lin Yuan's lightning technique
-惊鸿幻步,Startled Swan Phantom Steps,technique,Movement technique
-缩地成寸,Shrink the Earth to Inches,technique,Spatial movement technique
-永世季梦大阵,Grand Dream of Eternal Seasons,technique,High-rank formation
-风兔,Wind Rabbit,creature,First-tier demonic beast
-赤焰狼,Scarlet Flame Wolf,creature,Second-tier demonic beast
-裂地魔熊,Earth-Rending Demon Bear,creature,Third-tier demonic beast
-法则之力,Law Power,cultivation_term,Higher-level energy type
-柳玄宸,Liu Xuanchen,character_name,Liu family old War God and Martial God
-上官惊鸿,Shangguan Jinghong,character_name,Flying Moon Sword God - youngest Martial God in Dragon Xia
-铁狂,Tie Kuang,character_name,Mountain-Swallowing Martial God - known for strength and defense
-赵天龙,Zhao Tianlong,character_name,Western District Commander
-王俊义,Wang Junyi,character_name,Regional Commander under Lin Jianguo
-陈北玄,Chen Beixuan,character_name,Regional Commander under Lin Jianguo
-李默,Li Mo,character_name,Regional Commander under Lin Jianguo
-飞月剑神,Flying Moon Sword God,title,Shangguan Jinghong's title
-吞岳武神,Mountain-Swallowing Martial God,title,Tie Kuang's title
-凶煞血龙,Baleful Blood Dragon,creature,Terrifying dragon summoned by Divine Court sacrifice
-禁神丹,Divine Prohibition Pill,item,Divine Court forbidden pill that burns potential for power
-陸野,Lu Ye,character_name,Nine Lives Celestial Venerable - protagonist of Betrayed by Eight Empresses
-九命天尊,Nine Lives Celestial Venerable,title,Lu Ye's title
-上官幻靈,Shangguan Huanling,character_name,Phantom Spirit Empress - one of the eight empresses
-幻靈女帝,Phantom Spirit Empress,title,Shangguan Huanling's title
-古今天尊,Ancient-Modern Celestial Venerable,character_name,Supreme being of the previous era
-古今鏡,Ancient-Modern Mirror,item,Mirror that reflects past and future and severs time/karma
-九命不死天經,Nine Lives Immortal Scripture,technique,Lu Ye's cultivation method granting nine lives
-陰陽噬道蠱,Yin-Yang Dao-Devouring Gu,creature,Parasitic Gu that devours the Great Dao - planted during intimacy
-黑暗之源,Source of Darkness,creature,Dark entity threatening the Nine Heavens
-墮天釘,Heaven-Falling Nail,item,Torture implement
-證道,Proving the Dao,cultivation_term,Process of ascending to become a Saint
-成聖大劫,Saint Tribulation,cultivation_term,Tribulation to become a Saint
-萬古大劫,Primordial Tribulation,cultivation_term,Most difficult tribulation - fighting all past tribulation takers
-天尊器,Celestial Venerable Artifact,item,Weapon forged by a Celestial Venerable
-萧正,Xiao Zheng,character_name,Third Corps Commander of Northern Guard Legion
-赵烈,Zhao Lie,character_name,Marshal of Dragon Xia Nation's military
-天命之子,Child of Destiny,cultivation_term,Protagonist of fate

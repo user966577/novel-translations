@@ -281,6 +281,7 @@
       "chapter96.txt",
       "chapter97.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -290,6 +291,7 @@
     "files": [
       "chapter1.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
