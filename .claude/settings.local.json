@@ -8,7 +8,11 @@
       "Bash(ls:*)",
       "Bash(grep:*)",
       "WebFetch(domain:user966577.github.io)",
-      "mcp__sequential-thinking__sequentialthinking"
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(git status:*)",
+      "Bash(git stash:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash pop:*)"
     ]
   },
   "outputStyle": "Novel Translator"
