@@ -28,6 +28,7 @@
 | 白素素 | Bai Susu | Holy Sword Sect Master's daughter - fortune heroine - MC's woman |
 | 林尘 | Lin Chen | Holy Sword Sect Holy Son - possessed by Great Emperor remnant soul - Child of Destiny |
 | 白景云 | Bai Jingyun | Holy Sword Sect Master - Bai Susu's father |
+| 柳舒婉 | Liu Shuwan | Holy Sword Sect ancestral Saintess - ~6000 years old - half-Emperor - secluded in Sword Valley |
 
 ## Cultivation Realms
 
@@ -63,6 +64,8 @@
 | 气运女主 | Fortune Heroine | Female lead blessed by fortune/destiny |
 | 先天剑体 | Innate Sword Body | Lin Chen's divine body - attack and killing focused |
 | 仙火 | Immortal Fire | Fire Spirit Pearl evolved - above Great Emperor level |
+| 剑道皇者 | Sword Emperor | Title for one who achieves Sword Heart - commands all sword cultivators |
+| 元神之力 | Primordial Spirit Power | Lin Chen's trump card - remnant Great Emperor energy - non-renewable before reaching Emperor |
 
 ## Techniques
 
@@ -112,6 +115,7 @@
 | 十地 | Ten Lands | Ten continents below the Nine Heavens |
 | 三千界 | Three Thousand Realms | World structure encompassing all continents |
 | 圣剑城 | Holy Sword City | City of the Holy Sword Sect |
+| 剑谷 | Sword Valley | Holy Sword Sect's sacred training ground - 30,000 feet deep - founder's legacy |
 
 ## Organizations
 
@@ -122,6 +126,7 @@
 | 暗阁 | Shadow Pavilion | Assassin organization run by Yan Shiya |
 | 赵家 | Zhao Family | Ancient clan and enemy of the Ye family |
 | 圣剑宗 | Holy Sword Sect | Swordsmanship holy land - hegemonic power on par with ancient clans |
+| 大长老 | Grand Elder | Holy Sword Sect Grand Elder - female - Bai Jingyun's senior - authority equal to Sect Master |
 | 三百六十歌姬 | 360 Songstresses | System reward - 36 Saints + 324 Unity Realm - Combined Strike Art matches Nine Tribulations Supreme |
 
 ## Creatures
@@ -129,3 +134,4 @@
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace |
+| 小红 | Little Red | Baby phoenix - Qin Lian'er's companion - fist-sized at birth - Heavenly Soul Realm |

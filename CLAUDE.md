@@ -114,10 +114,14 @@ novel-translations/
 - Bold: **never use for emphasis in narrative**
 - Capitals: only for proper nouns and shouting
 
-**Structure**:
-- Preserve original chapter breaks and titles
-- Translate chapter titles naturally
-- Maintain paragraph structure unless English flow demands changes
+**Paragraph Structure**:
+- **Do NOT copy the Chinese raw formatting.** Chinese web novels put nearly every sentence on its own line for mobile readability. English prose does not work this way.
+- Merge related sentences into proper English paragraphs. A narrative beat, a description, a character's action sequence—these should flow together as one paragraph, not be split across five single-sentence lines.
+- **Dialogue from the same speaker belongs in one paragraph**, including their dialogue tag and any accompanying action. Don't split `"Hello," he said, crossing his arms. "What do you want?"` across multiple paragraphs.
+- A new paragraph starts when: the speaker changes, the scene shifts, time passes, the POV shifts, or a new narrative beat begins.
+- Short one-line paragraphs are fine for impact (a reaction, a punchline, a dramatic beat), but they should be the exception, not the default.
+- Preserve original chapter breaks and titles.
+- Translate chapter titles naturally.
 
 **Numbers**: Write out numbers one through nine, use numerals for 10+. Exception: cultivation stages, ages, quantities (3rd stage, 5 pills)
 
