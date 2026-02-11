@@ -25,6 +25,9 @@
 | 火青儿 | Huo Qing'er | Fire Tribe woman from MC's ring |
 | 秦风流 | Qin Fengliu | Fourth Ancestor's real name |
 | 李雪依 | Li Xueyi | Qin Jiang's mother - mortal body prodigy who created her own cultivation method |
+| 白素素 | Bai Susu | Holy Sword Sect Master's daughter - fortune heroine - MC's woman |
+| 林尘 | Lin Chen | Holy Sword Sect Holy Son - possessed by Great Emperor remnant soul - Child of Destiny |
+| 白景云 | Bai Jingyun | Holy Sword Sect Master - Bai Susu's father |
 
 ## Cultivation Realms
 
@@ -57,6 +60,9 @@
 | 九劫至尊 | Nine Tribulations Supreme | Peak of Supreme Realm - one step below Great Emperor |
 | 涅盘神体 | Nirvana Divine Body | Qin Lian'er's awakened body - phoenix fire attribute |
 | 涅盘之火 | Nirvana Fire | Fire from Nirvana Divine Body - phoenix flames |
+| 气运女主 | Fortune Heroine | Female lead blessed by fortune/destiny |
+| 先天剑体 | Innate Sword Body | Lin Chen's divine body - attack and killing focused |
+| 仙火 | Immortal Fire | Fire Spirit Pearl evolved - above Great Emperor level |
 
 ## Techniques
 
@@ -87,6 +93,9 @@
 | 青铜小鼎 | Bronze Cauldron | Ye Xuan's natal treasure - refines anything into pure energy |
 | 极品灵髓 | Top-Grade Spirit Marrow | Premium crafting material |
 | 传讯石 | Message Stone | Communication device |
+| 虚空神殿 | Void Divine Temple | System reward - infinite interior space for customization |
+| 凤凰蛋 | Phoenix Egg | System reward - hatches divine beast phoenix |
+| 镇运碑 | Fortune-Sealing Stele | System shop item - protects family fortune from Heavenly Dao drain |
 
 ## Locations
 
@@ -102,6 +111,7 @@
 | 玫瑰赌场 | Rose Casino | Casino in Ye City |
 | 十地 | Ten Lands | Ten continents below the Nine Heavens |
 | 三千界 | Three Thousand Realms | World structure encompassing all continents |
+| 圣剑城 | Holy Sword City | City of the Holy Sword Sect |
 
 ## Organizations
 
@@ -111,6 +121,7 @@
 | 古族 | Ancient Clan | Powerful ancient families of Heavenly Mystery Continent |
 | 暗阁 | Shadow Pavilion | Assassin organization run by Yan Shiya |
 | 赵家 | Zhao Family | Ancient clan and enemy of the Ye family |
+| 圣剑宗 | Holy Sword Sect | Swordsmanship holy land - hegemonic power on par with ancient clans |
 | 三百六十歌姬 | 360 Songstresses | System reward - 36 Saints + 324 Unity Realm - Combined Strike Art matches Nine Tribulations Supreme |
 
 ## Creatures
