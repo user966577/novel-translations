@@ -101,6 +101,13 @@ novel-translations/
 - No spaces before punctuation
 - Natural contractions and colloquialisms appropriate to character
 
+**System Text** (for novels with game-like systems, e.g. Villain Spoiler System):
+- Enclose all system messages in lenticular brackets: 【Like this.】
+- This applies to: system announcements, ding notifications, status updates, system dialogue with the host, system shop displays, quest descriptions, and any text that originates from the system rather than a character
+- Do NOT use square brackets `[text]`, italicized brackets `*[text]*`, or any other variation—always 【text】
+- The raw Chinese already uses 【】 for system text; preserve those brackets in translation rather than converting to English-style brackets
+- If a novel has no system, this rule does not apply
+
 **Emphasis**:
 - Internal thoughts: Use apostrophes, not italics ('Like this, not *like this*')
 - Italics: technique names when first introduced, foreign terms needing distinction
