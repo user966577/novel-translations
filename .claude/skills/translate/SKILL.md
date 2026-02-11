@@ -18,8 +18,8 @@ Translate raw Chinese chapters into polished English following all rules in CLAU
 
 ### 1. Setup
 
-- Load and parse `translation_glossary.csv` completely
-- Filter to entries relevant to this novel (matching Novel column + entries with empty Novel column for universal terms)
+- Load and parse `common_glossary.csv` (universal terms)
+- Load and parse `translated/<novel>/glossary.md` (novel-specific terms)
 - Identify the novel's folder in `raw/` and `translated/`
 - Read `translated/<novel>/metadata.json` to check existing chapter titles and find where translation left off
 
@@ -47,12 +47,11 @@ For each chapter in order:
 ### 4. After EACH Chapter (not at the end of a batch)
 
 - **Update metadata.json**: Add the chapter number and English title to `chapter_titles`
-- **Update glossary**: Append any new terms encountered to `translation_glossary.csv` with proper categorization:
+- **Update glossary**: Append any new novel-specific terms to `translated/<novel>/glossary.md` under the correct category heading:
   ```
-  Chinese,English,Category,Novel,Notes
-  新术语,New Term,technique,Novel Name Here,Optional description
+  | 新术语 | New Term | Optional description |
   ```
-- Use the novel's short name in the Novel column (match existing entries for that novel)
+  If a category section doesn't exist yet, create a new `## Category` section with the table header. Universal terms shared across novels go in `common_glossary.csv` instead.
 
 ### 5. Summary Report
 

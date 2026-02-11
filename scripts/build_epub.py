@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -11,6 +12,63 @@ SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from create_epub import create_novel_epub
+
+
+def glossary_md_to_html(md_text: str) -> str:
+    """Convert glossary markdown tables to HTML for EPUB rendering."""
+    lines = md_text.strip().split('\n')
+    html_parts = []
+    in_table = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Skip the top-level heading (# Glossary) — we use our own title
+        if stripped.startswith('# ') and not stripped.startswith('## '):
+            continue
+
+        # Section headings
+        if stripped.startswith('## '):
+            if in_table:
+                html_parts.append('</table>')
+                in_table = False
+            heading = stripped.lstrip('#').strip()
+            html_parts.append(f'<h2>{heading}</h2>')
+            continue
+
+        # Table header row
+        if stripped.startswith('| Chinese'):
+            if not in_table:
+                html_parts.append('<table>')
+                html_parts.append('<tr><th>Chinese</th><th>English</th><th>Notes</th></tr>')
+                in_table = True
+            continue
+
+        # Table separator row
+        if stripped.startswith('|---') or stripped.startswith('| ---'):
+            continue
+
+        # Table data row
+        if stripped.startswith('|') and in_table:
+            cells = [c.strip() for c in stripped.strip('|').split('|')]
+            if len(cells) >= 3:
+                html_parts.append(
+                    f'<tr><td>{cells[0]}</td><td>{cells[1]}</td><td>{cells[2]}</td></tr>'
+                )
+            continue
+
+        # Non-table content (e.g., Reference Notes section)
+        if in_table:
+            html_parts.append('</table>')
+            in_table = False
+
+        if stripped:
+            html_parts.append(f'<p>{stripped}</p>')
+
+    if in_table:
+        html_parts.append('</table>')
+
+    return '\n'.join(html_parts)
 
 
 def build_novel_epub(novel_folder: str, output_dir: str = None):
@@ -68,6 +126,16 @@ def build_novel_epub(novel_folder: str, output_dir: str = None):
         chapters.append((chapter_title, content))
         print(f"Loaded Chapter {chapter_num}: {chapter_title[:50]}...")
 
+    # Load glossary.md as appendix if present
+    glossary_file = novel_path / 'glossary.md'
+    glossary_html = None
+    if glossary_file.exists():
+        with open(glossary_file, 'r', encoding='utf-8') as f:
+            glossary_md = f.read()
+        if glossary_md.strip():
+            glossary_html = glossary_md_to_html(glossary_md)
+            print(f"Loaded glossary appendix from {glossary_file.name}")
+
     # Determine output path
     if output_dir is None:
         output_dir = SCRIPT_DIR.parent / 'output'
@@ -84,7 +152,8 @@ def build_novel_epub(novel_folder: str, output_dir: str = None):
         author=author,
         output_path=str(output_path),
         cover_image_path=cover_path,
-        description=synopsis
+        description=synopsis,
+        glossary_html=glossary_html
     )
 
     print(f"\nEPUB created with {len(chapters)} chapters: {output_path}")

@@ -126,7 +126,8 @@ def create_novel_epub(
     author: str,
     output_path: str,
     cover_image_path: str = None,
-    description: str = None
+    description: str = None,
+    glossary_html: str = None
 ):
     """Create an EPUB file containing multiple chapters with optional cover and description."""
 
@@ -204,6 +205,21 @@ def create_novel_epub(
     }
     .synopsis-page {
         margin-top: 2em;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.5em 0 1.5em 0;
+        font-size: 0.9em;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 0.4em 0.6em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+        font-weight: bold;
     }
     '''
 
@@ -302,6 +318,28 @@ def create_novel_epub(
         book.add_item(chapter)
         epub_chapters.append(chapter)
         toc.append(epub.Link(f'chapter{i}.xhtml', nav_title, f'ch{i}'))
+
+    # Add glossary appendix if provided
+    if glossary_html:
+        glossary_chapter = epub.EpubHtml(
+            title='Glossary',
+            file_name='glossary.xhtml',
+            lang='en'
+        )
+        glossary_chapter.content = f'''<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Glossary</title>
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+</head>
+<body>
+    <h1>Glossary</h1>
+    {glossary_html}
+</body>
+</html>'''
+        glossary_chapter.add_item(css)
+        book.add_item(glossary_chapter)
+        epub_chapters.append(glossary_chapter)
+        toc.append(epub.Link('glossary.xhtml', 'Glossary', 'glossary'))
 
     # Add navigation
     book.toc = toc

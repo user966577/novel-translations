@@ -101,6 +101,7 @@
       "chapter096.txt",
       "chapter097.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -174,6 +175,7 @@
       "chapter8.txt",
       "chapter9.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -310,6 +312,7 @@
       "chapter116.txt",
       "chapter117.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -381,7 +384,7 @@
       "chapter305.txt",
       "chapter306.txt",
       "cover.png",
-      "glossary.txt",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -410,6 +413,7 @@
       "chapter064.txt",
       "chapter065.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -428,6 +432,7 @@
       "chapter009.txt",
       "chapter010.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -564,6 +569,7 @@
       "chapter161.txt",
       "chapter162.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -591,6 +597,8 @@
       "chapter7.txt",
       "chapter8.txt",
       "chapter9.txt",
+      "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -612,6 +620,7 @@
       "chapter012.txt",
       "chapter013.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   },
@@ -690,6 +699,7 @@
       "chapter8.txt",
       "chapter9.txt",
       "cover.png",
+      "glossary.md",
       "metadata.json"
     ]
   }

@@ -1,0 +1,697 @@
+Chinese,English,Category,Notes
+叶轩,Ye Xuan,character_name,
+李萱儿,Li Xuan'er,character_name,
+林建国,Lin Jianguo,character_name,
+林战,Lin Zhan,character_name,
+林渊,Lin Yuan,character_name,
+苏琴,Su Qin,character_name,
+顾凝雪,Gu Ningxue,character_name,
+三灾九难,Three Calamities and Nine Tribulations,cultivation_term,
+三界,Three Realms,cultivation_term,
+三魂七魄,Three Ethereal Souls and Seven Corporeal Spirits,cultivation_term,
+上品,High Grade,cultivation_term,Quality classification
+上品幽冥灵核,Superior Nether Spirit Core,item,
+上品灵石,High-Grade Spirit Stone,item,
+上界,Upper Realm,location,
+下品,Low Grade,cultivation_term,Quality classification
+下品灵石,Low-Grade Spirit Stone,item,
+下界,Lower Realm,location,
+业力,Karma,cultivation_term,
+中千世界,Middle Thousand Worlds,location,
+中品,Medium Grade,cultivation_term,Quality classification
+中品灵石,Mid-Grade Spirit Stone,item,
+中期,Middle Stage,cultivation_term,Progression stage
+中级,Intermediate,cultivation_term,Level classification
+丹方,Pill Formula,item,
+丹炉,Pill Furnace,item,
+丹田,Dantian,cultivation_term,Energy center in the body
+丹药,Medicinal Pill,item,
+主宰,Dominator,title,
+主角光环,Protagonist Halo,cultivation_term,
+九凤,Nine-headed Phoenix,creature,
+九天,Nine Heavens,location,
+九天玄仙,Nine Heavens Profound Immortal,cultivation_realm,
+九头鸟,Nine-headed Bird,creature,
+九尾狐,Nine-tailed Fox,creature,
+九幽之气,Nine Nether Qi,cultivation_term,
+九重天,Nine Heavens,location,
+乾坤,Qiankun,cultivation_term,
+乾坤袋,Qiankun Bag,item,
+乾坤袖,Qiankun Sleeve,technique,
+乾闼婆 / 乾达婆,Gandharva,creature,
+五毒,Five Venoms,cultivation_term,
+五行,Five Elements,cultivation_term,
+五行之气,Five Elements Qi,cultivation_term,
+亲传弟子,Personal Disciple,title,
+人仙,Human Immortal,cultivation_realm,
+人族,Human Race,race,
+人界,Human Realm,location,
+仙丹,Immortal Pill,item,
+仙人,Immortal,cultivation_realm,
+仙侠,Xianxia,genre,
+仙兽,Immortal Beast,creature,
+仙君,Immortal Lord,cultivation_realm,
+仙器,Immortal Artifact,item,
+仙宝,Immortal Treasure,item,
+仙尊,Immortal Venerable,cultivation_realm,
+仙帝,Immortal Emperor,cultivation_realm,
+仙气,Immortal Qi,cultivation_term,
+仙王,Immortal King,cultivation_realm,
+仙界,Immortal Realm,location,
+仙石,Immortal Stone,item,
+仙级,Immortal Rank,cultivation_term,
+仙草,Immortal Plant,item,
+传承,Legacy,cultivation_term,
+体修,Body Cultivator,cultivation_path,
+体质,Physique,cultivation_term,
+佛力,Buddha Power,cultivation_term,
+信仰之力,Power Of Faith,cultivation_term,
+修士,Cultivator,cultivation_path,
+修罗 / 阿修罗,Asura,creature,
+修者,Cultivator,cultivation_path,
+假丹,False Core,cultivation_term,
+傀儡,Puppet,creature,
+储物戒指,Storage Ring,item,
+储物法宝,Storage Treasures,item,
+储物袋,Storage Pouch,item,
+僵尸,Jiangshi,creature,Chinese hopping zombie
+元婴,Nascent Soul,cultivation_realm,
+元婴期,Nascent Soul Stage,cultivation_realm,
+元气,Origin Qi,cultivation_term,
+元磁之力,Magnetic Force,cultivation_term,
+元神,Primordial Spirit,cultivation_term,
+元神出窍,Primordial Spirit Leaving the Body,technique,
+先天,Innate,cultivation_term,Innate/Heaven-born - pre-natal cultivation stage
+先天灵宝,Innate Spirit Treasure,item,
+入玄境,Nascent Profound Realm (Entry Phase),cultivation_realm,
+入门级,Entry-Level,cultivation_term,
+全国高校武道联赛,National College Martial Arts League,organization,
+全本,Complete Manual,item,
+内力,Internal Energy,cultivation_term,
+内功,Internal Skill,technique,
+冥气,Nether Qi,cultivation_term,
+冥界,Netherworld,location,
+凝气,Qi Condensation,cultivation_realm,
+凡人,Mortal,cultivation_realm,
+凡体九境,Nine Mortal Realms,cultivation_realm,
+凡器,Mortal Weapon,item,
+凡界,Mortal Realm,location,
+凤,Phoenix,creature,
+凤凰,Phoenix,creature,
+凤气,Phoenix Qi,cultivation_term,
+凶兽,Vicious Beast,creature,
+出窍,Soul Emergence,cultivation_realm,
+刀,Saber,weapon,
+刀意,Saber Intent,cultivation_term,
+刀气,Saber Qi,cultivation_term,
+分神,Divided Soul,cultivation_realm,
+分身,Clone,technique,
+创世神境,Creation God Realm,cultivation_realm,
+初期,Early Stage,cultivation_term,Progression stage
+初玄境,Elementary Profound Realm (Beginner Phase),cultivation_realm,
+初级,Elementary,cultivation_term,Level classification
+利器,Sharp Weapon,item,
+制符师,Talisman Maker,profession,
+剑,Sword,weapon,
+剑修,Sword Cultivator,cultivation_path,
+剑冢,Sword Tomb,location,
+剑意,Sword Intent,cultivation_term,
+剑气,Sword Qi,cultivation_term,
+功德,Karma,cultivation_term,
+功法,Cultivation Method,technique,
+功法秘籍,Cultivation Method Manuals,item,
+化境,Transcendent,cultivation_term,
+化神,Soul Transformation,cultivation_realm,
+化神丹,Soul Transformation Stage Pill,item,
+化神期,Soul Transformation Stage,cultivation_realm,
+化罡境,Aura Transformation Realm,cultivation_realm,
+化身,Incarnation,technique,
+千里马,Thousand Li Horse,creature,
+双修,Dual Cultivation,technique,
+古墓,Ancient Tomb,location,
+古教,Ancient Sect,organization,
+合体,Body Integration,cultivation_realm,
+合体期,Body Integration Stage,cultivation_realm,
+后天,Acquired,cultivation_term,Acquired/Earth-born - post-natal cultivation stage
+后天灵宝,Acquired Spirit Treasure,item,
+后期,Late Stage,cultivation_term,Progression stage
+君玄境,Sovereign Profound Realm (Monarch Phase),cultivation_realm,
+命宫,Life Palace,cultivation_term,
+嘲风,Chaofeng,creature,Dragon son
+器鼎,Refining Cauldron,item,
+囚牛,Qiuniu,creature,Dragon son
+因果,Karma,cultivation_term,
+因缘,Destiny,cultivation_term,
+圆满,Perfection,cultivation_term,Completion stage
+圣人,Saint,cultivation_realm,
+圣光,Holy Light,cultivation_term,
+圣兽,Sacred Beast,creature,
+圣品,Saint Grade,cultivation_term,
+圣器,Sacred Artifact,item,
+圣地,Holy Land,location,
+圣级,Saint-Grade,cultivation_term,
+地仙,Earth Immortal,cultivation_realm,
+地器,Earth-Grade Weapon,item,
+地灵根,Earthly Spiritual Root,cultivation_term,
+地狱,Hell,location,
+地玄境,Earth Profound Realm (Earth Phase),cultivation_realm,
+地级,Earth-Grade,cultivation_term,
+地阶,Earth Rank,cultivation_term,
+境界,Realm,cultivation_term,Cultivation level
+夔 / 夔兽,Kui Beast,creature,
+夜叉,Yaksha,creature,
+大乘,Grand Ascension,cultivation_realm,Highest mortal cultivation realm before immortal ascension
+大乘境,Grand Ascension Realm,cultivation_realm,
+大千世界,Major Thousand Worlds,location,
+大圆满,Great Perfection,cultivation_term,
+大成,Major Achievement,cultivation_term,
+大罗金仙,Grand Luo Golden Immortal,cultivation_realm,Immortal King level - free from tribulations
+大道浮屠诀,Great Way of the Buddha,technique,
+天人 / 天众,Deva,creature,
+天仙,Heavenly Immortal,cultivation_realm,
+天劫,Heavenly Tribulation,cultivation_term,
+天器,Heaven-Grade Weapon,item,
+天地灵机,Heaven And Earth Spiritual Essence,cultivation_term,
+天地灵气,Heaven and Earth Spiritual Qi,cultivation_term,
+天才,Genius,cultivation_term,
+天灵根,Heavenly Spiritual Root,cultivation_term,
+天狗,Heavenly Dog,creature,
+天玄境,Sky Profound Realm (Heaven Phase),cultivation_realm,
+天眼,Heavenly Eye,technique,
+天神,Heavenly God,cultivation_realm,
+天级,Heaven-Grade,cultivation_term,
+天道,Heavenly Dao,cultivation_term,
+天阶,Heaven Rank,cultivation_term,
+太初之气,Primordial Beginning Qi,cultivation_term,
+夺舍,Possession,technique,Soul/body takeover
+奇门阵法,Esoteric Formation,technique,
+奥义,Profound Truth,cultivation_term,
+妖兽,Yao Beast,creature,
+妖孽,Prodigy,cultivation_term,
+妖族,Yao Race,race,
+妖术,Demonic Technique,technique,
+妖气,Demonic Qi,cultivation_term,
+妖界,Yao Realm,location,
+始祖神境,Ancestral God Realm,cultivation_realm,
+宇宙,Universe,location,
+宗门,Sect,organization,
+宝器,Treasure Artifact,item,
+宝藏,Treasure Trove,location,
+客卿,Guest Elder,title,
+家族,Family,organization,
+寿元,Lifespan,cultivation_term,
+封印,Seal,technique,
+封印武器,Sealed Weapon,item,
+小世界,Small World,location,
+小千世界,Minor Thousand Worlds,location,
+小成,Minor Achievement,cultivation_term,
+巅峰,Peak,cultivation_term,Highest stage
+巴蛇,Ba Serpent,creature,
+帝器,Emperor Weapon,item,
+帝国,Empire,organization,
+帝境,Emperor Realm,cultivation_realm,
+帝阶,Imperial Rank,cultivation_term,
+帮派,Gang,organization,
+幽冥豹,Nether Leopard,creature,
+应龙,Flying Raindragon,creature,
+废柴,Trash,cultivation_term,Derogatory term for weak cultivator
+御空境,Sky Riding Realm,cultivation_realm,
+心性,Heart-Nature,cultivation_term,
+心法,Cultivation Method,technique,
+心魔,Heart Demon,cultivation_term,Inner obstacle
+悟性,Comprehension Ability,cultivation_term,
+情劫,Inner Demon Tribulation,cultivation_term,
+意境,Concept,cultivation_term,
+愿力,Power Of Will,cultivation_term,
+慧眼,Wisdom Eye,technique,
+成仙,Immortal Ascension,cultivation_term,
+成长型武器,Growth-Type Weapon,item,
+战意,Battle Intent,cultivation_term,
+招式,Move,technique,
+拳意,Fist Intent,cultivation_term,
+摩睺罗伽 / 摩睺罗迦,Mahoraga,creature,
+散仙,Loose Immortal,cultivation_realm,
+散修,Rogue Cultivator,cultivation_path,
+散魔,Loose Devil,cultivation_realm,
+旱魃,Drought Demon,creature,
+星力,Star Power,cultivation_term,
+星域,Star Domain,location,
+暗器,Hidden Weapon,weapon,
+本命武器,Lifebound Weapon,item,
+本命法宝,Natal Weapon,item,
+本源,Origin,cultivation_term,
+本源真火,Origin True Fire,cultivation_term,
+朱厌,Zhuyan Ape,creature,
+朱雀,Vermilion Bird,creature,
+机缘,Opportunity,cultivation_term,Lucky encounter
+杀气,Killing Intent,cultivation_term,
+杂质,Impurities,cultivation_term,
+材料,Materials,item,
+极品灵石,Top-Grade Spirit Stone,item,
+极道武神,Supreme Martial God,cultivation_realm,
+枪,Spear,weapon,
+枪意,Spear Intent,cultivation_term,
+根基,Foundation,cultivation_term,
+梼杌,Taowu,creature,
+棍,Staff,weapon,
+椒图,Jiaotu,creature,Dragon son
+正道,Righteous Path,cultivation_path,
+武侠,Wuxia,genre,
+武圣,Martial Saint,cultivation_realm,
+武技,Martial Skill,technique,
+武林,Martial Forest,cultivation_term,Martial arts world
+武者,Martial Artist,cultivation_path,
+武道学院,Martial Arts Academy,organization,
+武道服,Martial Arts Uniform,item,
+死气,Death Qi,cultivation_term,
+残卷,Incomplete Manual,item,
+残缺武器,Damaged Weapon,item,
+毕方,Bifang Crane,creature,
+气,Qi,cultivation_term,Vital energy
+气势,Aura,cultivation_term,
+气海,Sea of Qi,cultivation_term,
+气海境,Qi Sea Realm,cultivation_realm,
+气运,Luck,cultivation_term,
+江湖,Jianghu,cultivation_term,Rivers and lakes; martial world
+法修,Magic Cultivator,cultivation_path,
+法器,Magical Artifact,item,
+法宝,Magic Treasure,item,
+法术,Spell,technique,
+法眼,Dharma Eye,technique,
+洗髓境,Marrow Cleansing Realm,cultivation_realm,
+洞府,Immortal Cave,location,
+洞虚,Void Tempering,cultivation_realm,
+浮屠之力,Buddha Power,cultivation_term,
+涅槃,Nirvana,cultivation_term,
+淬体,Body Tempering,cultivation_realm,
+混沌,Hundun,creature,Chaos beast
+混沌之气,Chaos Qi,cultivation_term,
+混沌至宝,Chaos Supreme Treasure,item,
+渡劫,Tribulation Transcendence,cultivation_realm,
+灵丹,Spirit Pill,item,
+灵兽,Spirit Beast,creature,
+灵压,Spiritual Pressure,cultivation_term,
+灵器,Spiritual Artifact,item,
+灵宝,Spirit Treasure,item,
+灵寂,Spiritual Void,cultivation_realm,
+灵核,Spirit Core,item,
+灵根,Spiritual Root,cultivation_term,Innate cultivation talent
+灵气,Spiritual Qi,cultivation_term,
+灵玄境,Spirit Profound Realm (Spiritual Phase),cultivation_realm,
+灵界,Spirit Realm,location,
+灵石,Spirit Stone,item,Currency/energy source
+灵级,Spirit Rank,cultivation_term,
+灵脉,Spiritual Vein,location,Natural qi source
+灵草,Spiritual Plant,item,
+灵药,Spirit Medicine,item,
+灵阶,Spirit Rank,cultivation_term,
+灵魂,Soul,cultivation_term,
+炉鼎,Cauldron,item,Also dual cultivation victim
+炼丹,Alchemy,profession,
+炼丹师,Alchemist,profession,
+炼丹房,Pill Refining Room,location,
+炼体,Body Refining,cultivation_realm,
+炼器,Artifact Refining,profession,
+炼器室,Artifact Refining Room,location,
+炼器师,Artifact Refiner,profession,
+炼心路,Heart Refining Road,location,
+炼气,Qi Refining,cultivation_realm,
+炼气期,Qi Refinement Stage,cultivation_realm,
+炼神,Spirit Refining,cultivation_realm,
+炼虚,Void Refining,cultivation_realm,
+炼魂,Soul Refining,cultivation_realm,
+烛龙,Torch Dragon,creature,
+犼,Hou,creature,
+狐狸精,Fox Spirit,creature,
+狴犴,Bi'an Tiger,creature,Dragon son
+狻猊,Suanni,creature,Dragon son
+猰貐,Yayu,creature,
+獬豸,Xiezhi,creature,
+玄仙,Profound Immortal,cultivation_realm,
+玄器,Profound Weapon,item,
+玄幻,Xuanhuan,genre,
+玄武,Black Tortoise,creature,
+玄气,Profound Qi,cultivation_term,
+玄阶,Profound Rank,cultivation_term,
+玉兔,Jade Rabbit,creature,
+玉简,Jade Slip,item,Information storage device
+王朝,Dynasty,organization,
+王玄境,Emperor Profound Realm (King Phase),cultivation_realm,
+王阶,King Rank,cultivation_term,
+瑞兽,Auspicious Beast,creature,
+瓶颈,Bottleneck,cultivation_term,Cultivation barrier
+生死境,Life and Death Realm,cultivation_realm,
+生气,Life Qi,cultivation_term,
+白泽,Baize,creature,
+白虎,White Tiger,creature,
+百年血参,Hundred-Year Blood Ginseng,item,
+皇朝,Imperial Dynasty,organization,
+皇阶,Emperor Rank,cultivation_term,
+真人,Immortal Master,title,
+真仙,True Immortal,cultivation_realm,
+真气,True Qi,cultivation_term,
+真玄境,True Profound Realm (True Phase),cultivation_realm,
+真神,True God,cultivation_realm,
+真神境,True God Realm (Full True Gods),cultivation_realm,
+睚眦,Yazi,creature,Dragon son
+石狮,Guardian Lions,creature,
+矿石,Ore,item,
+神丹,Divine Pill,item,
+神主,Divine Master,cultivation_realm,
+神主境,Divine Master Realm (High-rank Realm Kings),cultivation_realm,
+神人,Divine Being,cultivation_realm,
+神元境,Divine Origin Realm (Vital Energy Deification),cultivation_realm,
+神兽,Divine Beast,creature,
+神力,Divine Power,cultivation_term,
+神劫境,Divine Tribulation Realm (Divine Perishing),cultivation_realm,
+神君,Divine Lord,cultivation_realm,
+神君境,Divine Sovereign Realm (Mid-rank Realm Kings),cultivation_realm,
+神品,Divine Grade,cultivation_term,
+神器,Divine Artifact,item,
+神境,God Realm,cultivation_realm,
+神威,Divine Might,cultivation_term,
+神尊,Divine Venerable,cultivation_realm,
+神帝,God Emperor,cultivation_realm,
+神族,God Race,race,
+神极境,Divine Limit Realm (Half-God Pinnacle),cultivation_realm,
+神气,Divine Qi,cultivation_term,
+神灭,Divine Extinction,cultivation_realm,
+神灭境,Divine Extinction Realm (Half-Step True God / Half-God),cultivation_realm,
+神灵境,Divine Spirit Realm (Spirit Deification),cultivation_realm,
+神玄七境,Seven Divine Realms,cultivation_realm,
+神王,God King,cultivation_realm,
+神王境,Divine King Realm (Low-rank Realm Kings),cultivation_realm,
+神界,Divine Realm,location,
+神石,Divine Stone,item,
+神级,Divine-Grade,cultivation_term,
+神草,Divine Plant,item,
+神识,Divine Sense,cultivation_term,Spiritual perception
+神通,Divine Ability,technique,
+神魂,Divine Soul,cultivation_term,
+神魂境,Divine Soul Realm (Soul Deification),cultivation_realm,
+禁制,Restriction,technique,
+禁地,Forbidden Land,location,
+秘境,Secret Realm,location,
+秘境修炼资格,Secret Realm Cultivation Qualification,item,
+秘籍,Secret Manual,item,
+穴位,Acupoints,cultivation_term,Energy points on body
+穷奇,Qiongqi,creature,
+空冥,Void Gazer,cultivation_realm,
+穿越,Transmigration,cultivation_term,Time/world travel
+突破,Breakthrough,cultivation_term,
+符咒,Talismanic Incantation,technique,
+符箓,Talisman,item,
+等级,Rank,cultivation_term,
+筑基,Foundation Establishment,cultivation_realm,
+筑基期,Foundation Establishment Stage,cultivation_realm,
+精怪,Spirit Monster,creature,
+精神力,Mental Energy,cultivation_term,
+系统,System,cultivation_term,Cheat system
+紧那罗,Kinnara,creature,
+紫府,Purple Mansion,cultivation_term,
+红尘,Mortal World,location,
+纯阳之气,Pure Yang Qi,cultivation_term,
+纯阴之气,Pure Yin Qi,cultivation_term,
+经脉,Meridians,cultivation_term,Energy channels in body
+结丹,Core Formation,cultivation_realm,
+绝品,Peerless Grade,cultivation_term,
+罗刹,Rakshasa,creature,
+罡气,Protective Aura,cultivation_term,
+联盟,Alliance,organization,
+聚元境,Essence Gathering Realm,cultivation_realm,
+聚气,Qi Gathering,cultivation_realm,
+聚灵阵法,Spirit Gathering Array,technique,
+肉身,Physical Body,cultivation_term,
+肥遗,Feiyi Snake,creature,
+脱胎境,Rebirth Realm,cultivation_realm,
+至尊,Supreme,cultivation_realm,
+药鼎,Medicine Cauldron,item,
+蒲牢,Pulao,creature,Dragon son
+蓝星,Blue Star,location,
+藏经阁,Scripture Pavilion,location,
+虚空,Void Realm,cultivation_realm,
+虬龙,Horned Dragon,creature,
+蚣蝮,Gongfu,creature,Dragon son
+蛊,Gu,cultivation_term,Voodoo/poison magic
+蛊虫,Gu Insects,creature,
+蛟龙,Flood Dragon,creature,
+融合,Fusion,cultivation_term,
+螭吻,Chiwen,creature,Dragon son
+螭龙,Hornless Dragon,creature,
+蟠龙,Coiling Dragon,creature,
+血脉,Bloodline,cultivation_term,
+血脉之力,Bloodline Power,cultivation_term,
+行气,Qi Circulation,technique,
+袖里乾坤,Universe In the Sleeve,technique,
+觉醒,Awakening,cultivation_term,
+诅咒武器,Cursed Weapon,item,
+识海,Sea of Consciousness,cultivation_term,Mind space
+试炼之地,Trial Grounds,location,
+诸犍,Zhujian Leopard,creature,
+貔貅,Pixiu,creature,
+负屃,Fuxi,creature,Dragon son
+资质,Aptitude,cultivation_term,Innate talent
+赑屃,Bixi,creature,Dragon son
+走火入魔,Qi Deviation,cultivation_term,Cultivation backlash
+踏天境,Sky Trampling Realm,cultivation_realm,
+转世,Reincarnation,cultivation_term,
+轮回,Reincarnation,cultivation_term,
+远古真神境,Ancient True God Stages,cultivation_realm,
+迦楼罗,Garuda,creature,
+逆天,Heaven-Defying,cultivation_term,
+通脉境,Meridian Opening Realm,cultivation_realm,
+道,Dao,cultivation_term,The Way
+道器,Dao Artifact,item,
+道心,Dao Heart,cultivation_term,
+道术,Daoist Magic,technique,
+道级,Dao-Grade,cultivation_term,
+那伽 / 龙众,Naga,creature,
+邪器,Demonic Weapon,item,
+邪道,Evil Path,cultivation_path,
+邪道修者,Demonic Cultivator,cultivation_path,
+邪道门派,Demonic Cultivation Sect,organization,
+重生,Rebirth,cultivation_term,
+金丹,Golden Core,cultivation_realm,
+金丹期,Golden Core Stage,cultivation_realm,
+金乌,Golden Crow,creature,
+金仙,Golden Immortal,cultivation_realm,
+金手指,Golden Finger,cultivation_term,Cheat ability
+锻骨境,Bone Forging Realm,cultivation_realm,
+门派,School,organization,
+阳气,Yang Qi,cultivation_term,
+阴气,Yin Qi,cultivation_term,
+阴阳,Yin and Yang,cultivation_term,
+阵旗,Formation Flag,item,
+阵法,Formation,technique,
+阵法师,Formation Master,profession,
+阵盘,Formation Plate,item,
+隐世家族,Hidden Family,organization,
+雷劫,Lightning Tribulation,cultivation_term,
+霸下,Baxia,creature,Dragon son
+霸玄境,Tyrant Profound Realm (Overlord Phase),cultivation_realm,
+青龙,Azure Dragon,creature,
+顿悟,Epiphany,cultivation_term,Sudden enlightenment
+领域,Domain,cultivation_term,
+飞剑,Flying Sword,item,
+飞升,Ascension,cultivation_term,
+飞龙,Soaring Dragon,creature,
+饕餮,Taotie,creature,
+饿鬼,Hungry Ghosts,creature,
+高级,Advanced,cultivation_term,Level classification
+魂修,Soul Cultivator,cultivation_path,
+魂力,Soul Power,cultivation_term,
+魂飞魄散,Soul Flying Away and Spirit Scattering,cultivation_term,Complete soul destruction
+鬼,Ghost,creature,
+魔兽,Demonic Beast,creature,
+魔功,Demonic Technique,technique,
+魔君,Demonic Lord,cultivation_realm,
+魔头,Devil Head,cultivation_term,
+魔帝,Devil Emperor,cultivation_realm,
+魔族,Demon Race,race,
+魔气,Devilish Qi,cultivation_term,
+魔王,Devil King,cultivation_realm,
+魔界,Demon Realm,location,
+魔能,Demonic Energy,cultivation_term,
+魔道,Demonic Path,cultivation_path,
+鲲鹏,Kunpeng,creature,
+鸱吻,Chiwen,creature,Dragon son
+鸾,Luan Bird,creature,
+鸿蒙,Grandmist,cultivation_term,Primordial chaos
+鸿蒙之气,Primordial Qi,cultivation_term,
+鸿蒙圣体,Primordial Sacred Body,cultivation_term,
+鸿蒙灵宝,Primordial Spirit Treasure,item,
+鹏,Kunpeng,creature,
+鹣,Jian Bird,creature,
+麒麟,Qilin,creature,
+黄泉,Yellow Springs,location,Underworld river
+黄级上品聚气丹,Yellow Rank High-Grade Qi Gathering Pill,item,
+黄阶,Yellow Rank,cultivation_term,
+黄龙,Yellow Dragon,creature,
+黑市,Black Market,location,
+龙,Dragon,creature,
+龙夏国,Dragon Xia Country,location,
+龙气,Dragon Qi,cultivation_term,
+龙王,Dragon King,creature,
+龙马,Dragon Horse,creature,
+龙龟,Dragon Turtle,creature,
+仙子,Fairy,title,Respectful address for female cultivator
+公子,Young Master,title,
+内门弟子,Inner Sect Disciple,title,
+前辈,Senior,title,Respectful address for elders
+圣女,Saintess,title,
+圣子,Saint,title,
+外门弟子,Outer Sect Disciple,title,
+大师,Great Master,title,
+太上长老,Grand Elder,title,
+宗主,Sect Master,title,
+小姐,Young Miss,title,
+少主,Young Lord,title,
+师伯,Senior Martial Uncle,title,
+师兄,Senior Brother,title,
+师叔,Junior Martial Uncle,title,
+师妹,Junior Sister,title,
+师姐,Senior Sister,title,
+师姑,Martial Aunt,title,
+师尊,Master,title,
+师弟,Junior Brother,title,
+师父,Master,title,
+师祖,Grandmaster,title,
+弟子,Disciple,title,
+护法,Protector,title,
+掌门,Sect Leader,title,
+族长,Clan Chief,title,
+晚辈,Junior,title,Respectful self-address to elders
+核心弟子,Core Disciple,title,
+殿下,Your Highness,title,
+真传弟子,True Disciple,title,
+祖师,Ancestral Master,title,
+道侣,Dao Companion,title,Cultivation partner/spouse
+道友,Fellow Daoist,title,Respectful address between cultivators
+长老,Elder,title,
+门主,Sect Leader,title,
+阁下,Your Excellency,title,
+陛下,Your Majesty,title,
+钟叔,Uncle Zhong,character_name,Lin Yuan's butler
+皇甫卓,Huangfu Zhuo,character_name,Huangfu family genius
+皇甫雄,Huangfu Xiong,character_name,Huangfu family patriarch
+林可儿,Lin Ke'er,character_name,Lin Yuan's sister and formation prodigy
+林梦瑶,Lin Mengyao,character_name,Lin Yuan's businesswoman sister
+刘如烟,Liu Ruyan,character_name,Magic City Martial Arts Academy competitor
+赵文武,Zhao Wenwu,character_name,Tiannan Academy competitor
+罗天,Luo Tian,character_name,Cangyun Academy competitor
+石磊,Shi Lei,character_name,War God Academy's Absolute Defense fighter
+秦战,Qin Zhan,character_name,Imperial Military Academy fighter
+太上道祖,Supreme Dao Ancestor,character_name,Ancient soul in Ye Xuan's consciousness
+血燃龙变诀,Blood-Burning Dragon Transformation Art,technique,Ye Xuan's forbidden technique
+血燃龙拳,Blood-Burning Dragon Fist,technique,Ye Xuan's attack move
+明王琉璃体,Bright King Glazed Body,technique,Shi Lei's innate defensive physique
+龙象镇狱功,Dragon Elephant Prison-Suppressing Art,technique,Qin Zhan's power technique
+琉璃雪心剑法,Glazed Snow Heart Sword Art,technique,Gu Ningxue's Earth-Rank sword technique
+冰凰降世,Ice Phoenix Descends,technique,Gu Ningxue's ultimate move
+龙争于野,Dragon Battles the Wilds,technique,Ye Xuan's attack move
+九曲龙困阵,Nine-Twist Dragon Trap Formation,technique,Lin Ke'er's Earth-Rank formation
+天星阵,Heavenly Star Array,technique,Ancient divine formation
+幻光步,Phantom Light Steps,technique,Liu Ruyan's movement technique
+追魂夺命剑,Soul-Chasing Life-Reaping Sword,technique,Liu Ruyan's sword technique
+开山拳,Mountain-Splitting Fist,technique,Zhao Wenwu's fist technique
+龙巢,Dragon's Nest,location,National martial arts stadium
+燕京城,Yan Jing City,location,Capital city of Dragon Xia Country
+北疆,Northern Frontier,location,Military region commanded by Lin Zhan
+松州,Songzhou,location,City where academy is located
+皇甫家,Huangfu Family,organization,Enemy family of the Lin family
+战神学院,War God Academy,organization,Shi Lei's academy
+皇家军事学院,Imperial Military Academy,organization,Qin Zhan's academy
+京都武道学院,Capital Martial Arts Academy,organization,Main characters' academy
+魔都武道学院,Magic City Martial Arts Academy,organization,Liu Ruyan's academy
+天南武道学院,Tiannan Martial Arts Academy,organization,Zhao Wenwu's academy
+苍云武道学院,Cangyun Martial Arts Academy,organization,Luo Tian's academy
+北疆军团,Northern Frontier Legion,organization,Military force commanded by Lin Zhan
+禁术,Forbidden Technique,cultivation_term,Techniques with severe backlash
+精元,Life Essence,cultivation_term,Vital life force
+残魂,Remnant Soul,cultivation_term,Fragment of a deceased soul
+宿主,Host,cultivation_term,Body hosting another soul
+天命之子,Child of Destiny,cultivation_term,Protagonist blessed by fate
+龙威,Dragon Might,cultivation_term,Dragon-type pressure/aura
+千年火灵芝,Thousand-Year Fire Lingzhi,item,Rare fire-element treasure
+紫玉葡萄,Purple Jade Grape,item,Spirit fruit rich in spiritual energy
+云顶仙糕,Cloud-Peak Immortal Cake,item,Rare pastry filled with spiritual energy
+灵泉水,Spirit Spring Water,item,Refreshing cultivator beverage
+光脑,Light-Brain,item,Futuristic communicator/computer device
+管家,Butler,title,Head servant
+叶沧澜,Ye Canglan,character_name,Ye Xuan's father and Divine Court member
+宋瑶,Song Yao,character_name,Song family princess and prodigy
+柳明轩,Liu Mingxuan,character_name,Liu family heir
+陈宇,Chen Yu,character_name,Chen family heir
+柳擎天,Liu Qingtian,character_name,Liu family patriarch
+陈天豪,Chen Tianhao,character_name,Chen family patriarch
+王腾,Wang Teng,character_name,Wang family prodigy
+通神境,Meridian Opening Realm,cultivation_realm,Typo for 通脉境 in source - use Meridian Opening Realm
+神庭,Divine Court,organization,Evil cult opposing Dragon Xia Country
+十二神官,Twelve Divine Officials,title,Top-tier Divine Court members
+炼血大阵,Blood Refinement Array,technique,Divine Court soul-refining formation
+镇天印,Heaven-Suppressing Seal,technique,Lin Zhan's law-burning attack
+周天星斗大阵,Grand Celestial Star Formation,technique,Star-based formation array
+太虚裂空拳,Grand Void Shattering Fist,technique,Lin Yuan's star-dropping punch
+沧溟剑意,Boundless Sword Intent,technique,Lin Yuan's ocean-like sword intent
+血魔吞天爪,Blood Demon Heaven-Devouring Claw,technique,Ye Xuan's demonic claw attack
+血狱沉沦,Blood Prison Descent,technique,Li Xuan'er's chain binding attack
+陈若曦,Chen Ruoxi,character_name,Chen family daughter and artifact refining prodigy
+萧龙,Xiao Long,character_name,Xiao family grandson and battle-axe fighter
+萧诚恩,Xiao Cheng'en,character_name,Xiao family martial god
+赵虎,Zhao Hu,character_name,Zhao family eldest grandson (Zhao Tiger)
+鬼枭,Ghost Owl,character_name,Divine Court assassin (Meridian Opening 5th level)
+影刃,Shadow Blade,character_name,Divine Court assassin (Meridian Opening 3rd level)
+黑风谷,Black Wind Valley,location,Forbidden zone in the wilderness
+云顶山庄,Cloud Summit Manor,location,Venue for National Finals
+荒野狩猎,Wilderness Hunt,event,Annual prodigy hunting competition
+天工图解,Celestial Craft Illustrated,item,Heaven-rank artifact refining manual
+九龙镜,Nine Dragon Mirror,item,Artifact refined by Chen Ruoxi
+裂风刀,Wind Ripper,item,Chen Yu's Profound-Rank war saber
+冷月鞭,Cold Moon Whip,item,Song Yao's chain blade weapon
+九窍净心果,Nine-Aperture Heart-Clearing Fruit,item,Rare spirit fruit
+玄龙赤血丹,Mystic Dragon Scarlet Blood Pill,item,Medicinal pill
+破魔灵盘,Demon-Breaking Spirit Disc,item,Artifact item
+猛虎下山,Fierce Tiger Descends the Mountain,technique,Zhao Hu's attack technique
+三尺冰,Three Feet of Ice,technique,Gu Ningxue's ice defense technique
+疾风斩,Gale Slash,technique,Chen Yu's saber technique
+四象锁天阵,Four Symbols Heaven-Lock Formation,technique,Liu family formation
+冰凰舞,Ice Phoenix Dance,technique,Gu Ningxue's phoenix technique
+冥血祭,Nether Blood Sacrifice,technique,Divine Court soul-burning forbidden technique
+冥神爪,Nether God Claw,technique,Divine Court killing technique
+鲲鹏逍遥步,Kunpeng Wandering Step,technique,Lin Yuan's void-stepping movement technique
+紫天神雷,Purple Heaven Divine Thunder,technique,Lin Yuan's lightning technique
+惊鸿幻步,Startled Swan Phantom Steps,technique,Movement technique
+缩地成寸,Shrink the Earth to Inches,technique,Spatial movement technique
+永世季梦大阵,Grand Dream of Eternal Seasons,technique,High-rank formation
+风兔,Wind Rabbit,creature,First-tier demonic beast
+赤焰狼,Scarlet Flame Wolf,creature,Second-tier demonic beast
+裂地魔熊,Earth-Rending Demon Bear,creature,Third-tier demonic beast
+法则之力,Law Power,cultivation_term,Higher-level energy type
+柳玄宸,Liu Xuanchen,character_name,Liu family old War God and Martial God
+上官惊鸿,Shangguan Jinghong,character_name,Flying Moon Sword God - youngest Martial God in Dragon Xia
+铁狂,Tie Kuang,character_name,Mountain-Swallowing Martial God - known for strength and defense
+赵天龙,Zhao Tianlong,character_name,Western District Commander
+王俊义,Wang Junyi,character_name,Regional Commander under Lin Jianguo
+陈北玄,Chen Beixuan,character_name,Regional Commander under Lin Jianguo
+李默,Li Mo,character_name,Regional Commander under Lin Jianguo
+飞月剑神,Flying Moon Sword God,title,Shangguan Jinghong's title
+吞岳武神,Mountain-Swallowing Martial God,title,Tie Kuang's title
+凶煞血龙,Baleful Blood Dragon,creature,Terrifying dragon summoned by Divine Court sacrifice
+禁神丹,Divine Prohibition Pill,item,Divine Court forbidden pill that burns potential for power
+陸野,Lu Ye,character_name,Nine Lives Celestial Venerable - protagonist of Betrayed by Eight Empresses
+九命天尊,Nine Lives Celestial Venerable,title,Lu Ye's title
+上官幻靈,Shangguan Huanling,character_name,Phantom Spirit Empress - one of the eight empresses
+幻靈女帝,Phantom Spirit Empress,title,Shangguan Huanling's title
+古今天尊,Ancient-Modern Celestial Venerable,character_name,Supreme being of the previous era
+古今鏡,Ancient-Modern Mirror,item,Mirror that reflects past and future and severs time/karma
+九命不死天經,Nine Lives Immortal Scripture,technique,Lu Ye's cultivation method granting nine lives
+陰陽噬道蠱,Yin-Yang Dao-Devouring Gu,creature,Parasitic Gu that devours the Great Dao - planted during intimacy
+黑暗之源,Source of Darkness,creature,Dark entity threatening the Nine Heavens
+墮天釘,Heaven-Falling Nail,item,Torture implement
+證道,Proving the Dao,cultivation_term,Process of ascending to become a Saint
+成聖大劫,Saint Tribulation,cultivation_term,Tribulation to become a Saint
+萬古大劫,Primordial Tribulation,cultivation_term,Most difficult tribulation - fighting all past tribulation takers
+天尊器,Celestial Venerable Artifact,item,Weapon forged by a Celestial Venerable
+萧正,Xiao Zheng,character_name,Third Corps Commander of Northern Guard Legion
+赵烈,Zhao Lie,character_name,Marshal of Dragon Xia Nation's military
+天命之子,Child of Destiny,cultivation_term,Protagonist of fate

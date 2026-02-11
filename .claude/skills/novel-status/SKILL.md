@@ -16,7 +16,7 @@ Provide a quick overview of every novel in the project.
    - Latest chapter number translated
    - Cover image present? (check for cover.jpg or cover.png)
 3. **Scan `raw/` directory**: For each novel, count raw chapter files available
-4. **Scan glossary**: Count terms per novel in `translation_glossary.csv` (using the Novel column)
+4. **Scan glossary**: Count terms from each novel's `glossary.md` file (count table rows). Also note total universal terms in `common_glossary.csv`.
 5. **Check `output/`**: Note which novels have EPUBs built and their file sizes
 
 ## Output Format

@@ -7,17 +7,21 @@ You are a professional translator specializing in Chinese web novels, particular
 ```
 novel-translations/
 ├── CLAUDE.md                    # This file
-├── translation_glossary.csv     # Master glossary (ALWAYS reference this)
+├── common_glossary.csv          # Universal terms shared across all novels
 ├── .claude/skills/              # Claude Code skills (translate, build-epub, glossary, etc.)
 ├── scripts/                     # Utility scripts
 ├── raw/                         # Raw Chinese chapters (organized by novel)
-├── translated/                  # Finished English translations (each novel has metadata.json)
+├── translated/                  # Finished English translations
+│   └── <novel>/
+│       ├── metadata.json        # Novel info and chapter titles
+│       ├── glossary.md          # Novel-specific glossary (also used as EPUB appendix)
+│       └── chapter*.txt         # Translated chapters
 └── output/                      # Generated EPUBs and other output
 ```
 
 ## Core Translation Principles
 
-**Glossary Authority**: The `translation_glossary.csv` file is the single source of truth for all terms, names, and terminology. Always reference it before translating any recurring element. Use glossary entries exactly as specified—no variations in spelling, capitalization, or format.
+**Glossary Authority**: The glossary is split into two sources: `common_glossary.csv` (universal terms shared across all novels) and `translated/<novel>/glossary.md` (novel-specific terms). Always reference both before translating any recurring element. Use glossary entries exactly as specified—no variations in spelling, capitalization, or format.
 
 **Natural English Priority**: Readability trumps literal accuracy. Translate for meaning and flow, not word-for-word conversion. English readers should never feel they're reading a translation.
 
@@ -28,8 +32,8 @@ novel-translations/
 ## Glossary Usage
 
 **Before Translating**:
-- Load and parse `translation_glossary.csv` completely
-- Filter by the Novel column to focus on terms for the current novel + universal terms (empty Novel field)
+- Load and parse `common_glossary.csv` (universal terms)
+- Load and parse `translated/<novel>/glossary.md` (novel-specific terms)
 - Index terms by category for quick lookup
 - Note any terms with contextual usage differences
 
@@ -211,15 +215,15 @@ novel-translations/
 
 ### Translating New Chapters
 
-1. Read the glossary first (filter by Novel column for the current novel + universal terms)
+1. Read the glossary first: `common_glossary.csv` (universal terms) + `translated/<novel-name>/glossary.md` (novel-specific terms)
 2. Read `translated/<novel-name>/metadata.json` to check existing chapter titles and find where translation left off
 3. Read the raw chapter(s) in `raw/<novel-name>/`
 4. Translate, referencing glossary for all terms
 5. Save to `translated/<novel-name>/chapterXXX.txt` (content only, no title in file)
 6. Update `translated/<novel-name>/metadata.json` with the new chapter number and English title in `chapter_titles`
-7. Add any new terms to `translation_glossary.csv` immediately after completing each chapter (do not wait until the end of a batch—this ensures consistency across multi-chapter sessions)
+7. Add any new novel-specific terms to `translated/<novel-name>/glossary.md` immediately after completing each chapter (append to the appropriate category table; do not wait until the end of a batch—this ensures consistency across multi-chapter sessions). Universal terms that apply across novels go in `common_glossary.csv`.
 8. Run `python scripts/generate_index.py` to regenerate `translated/index.json` (the LNReader plugin relies on this file to discover novels and chapters)
-9. Commit all changes and push to remote: stage the new/updated chapter files, metadata.json, glossary, and index.json, then `git commit` and `git push origin main`. This ensures translations are immediately available on GitHub Pages without requiring the user to manually push.
+9. Commit all changes and push to remote: stage the new/updated chapter files, metadata.json, glossary files, and index.json, then `git commit` and `git push origin main`. This ensures translations are immediately available on GitHub Pages without requiring the user to manually push.
 
 Use the `/translate` skill to automate this entire workflow.
 
@@ -229,17 +233,20 @@ When encountering terms not in glossary, add them immediately after each chapter
 
 1. **Assess category**: character name, cultivation term, location, organization, medical_term, etc.
 2. **Translate contextually**: use genre conventions and existing patterns
-3. **Add to glossary**: update `translation_glossary.csv` with the new term, using the Novel column for novel-specific terms
+3. **Add to glossary**:
+   - **Novel-specific terms**: Append a row to the appropriate category table in `translated/<novel>/glossary.md`
+   - **Universal terms** (shared across all novels): Append a row to `common_glossary.csv`
 4. **Use immediately**: reference the new glossary entry for all subsequent chapters in the same session
 
-Format for new glossary entries:
+Format for novel-specific glossary entries (append to the matching `## Category` table in `glossary.md`):
 ```
-Chinese,English,Category,Novel,Notes
-新术语,New Term,technique,Novel Short Name,Optional description
+| 新术语 | New Term | Optional description |
 ```
 
-- **Novel column**: Use the novel's short name (e.g., "Killing Spree", "Hospital Sign In", "No Daughter of Luck"). Leave empty for universal terms shared across all novels.
-- **Notes column**: Only for universally applicable context (e.g., "Energy center in the body"). Do NOT put the novel name here.
+Format for universal glossary entries (append to `common_glossary.csv`):
+```
+新术语,New Term,technique,Optional description
+```
 
 ### Building EPUBs
 
