@@ -19,10 +19,12 @@
 | 秦昊 | Qin Hao | Qin Jiang's father - Unity Realm Perfection |
 | 血玫瑰 | Blood Rose | Owner of Rose Casino in Ye City |
 | 玄夜 | Xuan Ye | Ye Xuan's alias at Rose Casino |
-| 四祖 | Fourth Ancestor | Qin family's fourth ancestral elder - Supreme Realm |
+| 四祖 | Fourth Ancestor | Qin family's fourth ancestral elder - now Great Emperor |
 | 颜韵 | Yan Yun | Blood Rose's real name - MC's woman |
 | 颜诗雅 | Yan Shiya | Yan Yun's aunt - Shadow Pavilion creator - one of Seven Beauties |
 | 火青儿 | Huo Qing'er | Fire Tribe woman from MC's ring |
+| 秦风流 | Qin Fengliu | Fourth Ancestor's real name |
+| 李雪依 | Li Xueyi | Qin Jiang's mother - mortal body prodigy who created her own cultivation method |
 
 ## Cultivation Realms
 
@@ -53,6 +55,8 @@
 | 剑心 | Sword Heart | Above Sword Force - sovereign level - human-sword unity |
 | 一劫至尊 | First Tribulation Supreme | Lowest sub-level of Supreme Realm |
 | 九劫至尊 | Nine Tribulations Supreme | Peak of Supreme Realm - one step below Great Emperor |
+| 涅盘神体 | Nirvana Divine Body | Qin Lian'er's awakened body - phoenix fire attribute |
+| 涅盘之火 | Nirvana Fire | Fire from Nirvana Divine Body - phoenix flames |
 
 ## Techniques
 
@@ -60,6 +64,7 @@
 |---------|---------|-------|
 | 苍穹动 | Firmament Quake | Great Emperor-level technique |
 | 法天象地 | Heaven and Earth Manifestation | Immortal-level technique |
+| 合击之法 | Combined Strike Art | Technique allowing multiple cultivators to fight as one |
 
 ## Items
 
@@ -81,6 +86,7 @@
 | 先天鸿蒙紫气 | Innate Primordial Purple Qi | Improves physique - chance to awaken Divine Body |
 | 青铜小鼎 | Bronze Cauldron | Ye Xuan's natal treasure - refines anything into pure energy |
 | 极品灵髓 | Top-Grade Spirit Marrow | Premium crafting material |
+| 传讯石 | Message Stone | Communication device |
 
 ## Locations
 
@@ -104,6 +110,8 @@
 | 火族 | Fire Tribe | Ancient tribe - woman in MC's ring |
 | 古族 | Ancient Clan | Powerful ancient families of Heavenly Mystery Continent |
 | 暗阁 | Shadow Pavilion | Assassin organization run by Yan Shiya |
+| 赵家 | Zhao Family | Ancient clan and enemy of the Ye family |
+| 三百六十歌姬 | 360 Songstresses | System reward - 36 Saints + 324 Unity Realm - Combined Strike Art matches Nine Tribulations Supreme |
 
 ## Creatures
 
