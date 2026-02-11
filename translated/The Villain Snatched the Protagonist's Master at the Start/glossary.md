@@ -13,6 +13,12 @@
 | 黑龙 | Black Dragon | MC's guard |
 | 陈凝冰 | Chen Ningbing | City lord's daughter - drawn to strength - MC's woman |
 | 陈烈 | Chen Lie | Chen Ningbing's father - Azure City Town city lord |
+| 叶擎天 | Ye Qingtian | Ye family eldest son - lost contest for family head |
+| 叶玄 | Ye Xuan | New Child of Destiny - Ye Qingtian's son |
+| 叶凌天 | Ye Lingtian | Ye family head - Ye Ling'er's father |
+| 秦昊 | Qin Hao | Qin Jiang's father - Unity Realm Perfection |
+| 血玫瑰 | Blood Rose | Owner of Rose Casino in Ye City |
+| 玄夜 | Xuan Ye | Ye Xuan's alias at Rose Casino |
 
 ## Cultivation Realms
 
@@ -40,6 +46,12 @@
 | 反派点 | Villain Points | System currency for purchases and spoilers |
 | 剑意 | Sword Intent | Sword comprehension - system reward |
 
+## Techniques
+
+| Chinese | English | Notes |
+|---------|---------|-------|
+| 苍穹动 | Firmament Quake | Great Emperor-level technique |
+
 ## Items
 
 | Chinese | English | Notes |
@@ -51,6 +63,7 @@
 | 入圣丹 | Saint Ascension Pill | Helps Unity Realm break through to Saint |
 | 洗髓丹 | Marrow Cleansing Pill | Purifies body and enhances talent |
 | 祖龙精血 | Ancestral Dragon Blood Essence | Refined by Black Dragon to evolve bloodline |
+| 虚空行宫 | Void Palace | Qin Jiang's traveling palace pulled through the void |
 
 ## Locations
 
@@ -61,9 +74,19 @@
 | 青城镇 | Azure City Town | Small town in Qin Domain |
 | 秦域 | Qin Domain | Territory controlled by the Qin family |
 | 万妖之森 | Myriad Demon Forest | Forest filled with wild demon beasts |
+| 叶域 | Ye Domain | Territory controlled by the Ye family |
+| 叶城 | Ye City | Main city of the Ye Domain |
+| 玫瑰赌场 | Rose Casino | Casino in Ye City |
 
 ## Organizations
 
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 火族 | Fire Tribe | Ancient tribe - woman in MC's ring |
+| 古族 | Ancient Clan | Powerful ancient families of Heavenly Mystery Continent |
+
+## Creatures
+
+| Chinese | English | Notes |
+|---------|---------|-------|
+| 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace |
