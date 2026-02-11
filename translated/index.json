@@ -572,6 +572,7 @@
     "type": "dir",
     "files": [
       "chapter1.txt",
+      "chapter10.txt",
       "chapter2.txt",
       "chapter3.txt",
       "chapter4.txt",
@@ -580,7 +581,6 @@
       "chapter7.txt",
       "chapter8.txt",
       "chapter9.txt",
-      "chapter10.txt",
       "metadata.json"
     ]
   },
