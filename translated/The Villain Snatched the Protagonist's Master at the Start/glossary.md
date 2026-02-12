@@ -34,6 +34,8 @@
 | 剑瑶 | Jian Yao | Holy Sword Sect founder - Great Emperor - Sword Heart - resurrected via Seven Beauties Painting |
 | 火烈 | Huo Lie | Fire Tribe clan leader - stole Legacy Flame from Huo Qing'er - Nine Tribulations Supreme |
 | 火颖儿 | Huo Ying'er | Fire Tribe Martial Division leader - Huo Qing'er's best friend - MC's woman |
+| 楚元 | Chu Yuan | Child of Destiny - reborn from 10 years in the future |
+| 楚寒烟 | Chu Hanyan | Chu Yuan's older sister - Puppet Sect heir - MC's woman |
 
 ## Cultivation Realms
 
@@ -76,6 +78,8 @@
 | 仙气 | Immortal Qi | Foundation for advancing to the immortal path |
 | 传承火焰 | Legacy Flame | Fire Tribe clan leader's sacred flame - passed down through generations - contains accumulated power |
 | 帝法 | Emperor Technique | Great Emperor-level cultivation technique |
+| 大帝法则 | Great Emperor Law | Bestows Great Emperor realm upon recipient - system reward |
+| 傀儡之法 | Puppet Mastery | Puppet Sect's core technique - controls refined corpse puppets |
 
 ## Techniques
 
@@ -114,6 +118,7 @@
 | 镇运碑 | Fortune-Sealing Stele | System shop item - protects family fortune from Heavenly Dao drain |
 | 附灵石 | Spirit-Anchoring Stone | Stone that can house a cultivator's soul |
 | 大帝精血 | Great Emperor Blood Essence | Can be used to cultivate new Great Emperor-level powerhouses |
+| 大帝遗迹 | Great Emperor Ruins | Ancient ruins at Thousand Year Mountain - contains Great Emperor legacy |
 
 ## Locations
 
@@ -132,6 +137,8 @@
 | 圣剑城 | Holy Sword City | City of the Holy Sword Sect |
 | 剑谷 | Sword Valley | Holy Sword Sect's sacred training ground - 30,000 feet deep - founder's legacy |
 | 火域 | Fire Domain | Region above a magma sea - home to 90% of fire-attribute cultivators |
+| 地下斗场 | Underground Arena | Fighting pit with gambling - located in Fire Domain |
+| 千岁山 | Thousand Year Mountain | Site of the Great Emperor Ruins |
 
 ## Organizations
 
@@ -146,6 +153,7 @@
 | 三百六十歌姬 | 360 Songstresses | System reward - 36 Saints + 324 Unity Realm - Combined Strike Art matches Nine Tribulations Supreme |
 | 丹部 | Alchemy Division | Fire Tribe's alchemy branch - led by Huo Lie |
 | 武部 | Martial Division | Fire Tribe's martial branch - led by Huo Ying'er |
+| 傀儡宗 | Puppet Sect | Destroyed sect - refined corpse puppets from ancestral remains - annihilated ~1000 years ago |
 
 ## Creatures
 
