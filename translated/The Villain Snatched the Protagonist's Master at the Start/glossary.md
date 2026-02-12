@@ -53,6 +53,8 @@
 | 陈长生 | Chen Changsheng | Child of Destiny - 10th reincarnation - was Pill Emperor's master in previous life |
 | 执法者大统领 | Enforcement Grand Commander | Leader of the Heavenly Pill Palace enforcement squad - Great Emperor level |
 | 鬼仙人 | Ghost Immortal | Reclusive immortal-path cultivator - sinister disposition - came to avenge grandson - killed by Qin Jiang |
+| 唐银 | Tang Yin | Child of Destiny - Tang family youngest son - transmigrator from wuxia world - Supreme Realm |
+| 胡仙儿 | Hu Xian'er | White Fox Tribe chief - Great Emperor - naive and pure - MC's woman |
 
 ## Cultivation Realms
 
@@ -153,6 +155,7 @@
 | 仙王印 | Immortal King Seal | Gift from Myriad Realms Tower creator - can slay Immortal Kings at full power - given to Qin Jiang |
 | 天魔丹 | Heavenly Demon Pill | Immortal-grade pill - purifies demonic power - creates affinity toward blood essence donor - system reward |
 | 帝丹 | Emperor Pill | Great Emperor-level medicinal pill |
+| 三霞奇茸花 | Three Dawn Miracle Bloom | Immortal herb - strengthens physique - grants immortal body and eternal youth |
 
 ## Locations
 
@@ -185,6 +188,8 @@
 | 乱葬岗 | Mass Graves | Dumping ground for executed criminals in the Imperial City |
 | 丹城 | Pill City | City surrounding the Heavenly Pill Palace in Azure Cloud Heaven |
 | 丹香楼 | Pill Fragrance Pavilion | Largest restaurant in Pill City - backed by the Heavenly Pill Palace |
+| 妖域 | Demon Domain | Yao race territory in Azure Cloud Heaven |
+| 西域 | Western Regions | Region within Azure Cloud Heaven - location of Qin Family City |
 
 ## Organizations
 
@@ -209,6 +214,11 @@
 | 万丹大会 | Myriad Pill Assembly | Heavenly Pill Palace's decennial alchemy competition and gathering |
 | 丹王 | Pill King | Title awarded to the Myriad Pill Assembly champion |
 | 丹火淬体 | Pill Fire Tempering | Reward for the Pill King - condensed ancestral flames that break bottlenecks and enhance fire affinity |
+| 唐家 | Tang Family | Top-5 power in Western Regions - specializes in hidden weapons and poisons |
+| 白狐一族 | White Fox Tribe | All-female yao clan in Demon Domain - Fox Race's auspicious omen - carries fortune |
+| 天兔一族 | Celestial Rabbit Tribe | Yao clan in Demon Domain - has an Immortal-path protector |
+| 狐族 | Fox Race | One of three great powers in the Demon Domain |
+| 狼族 | Wolf Race | Strongest of three great powers in the Demon Domain - led by ancient Wolf King |
 
 ## Creatures
 
