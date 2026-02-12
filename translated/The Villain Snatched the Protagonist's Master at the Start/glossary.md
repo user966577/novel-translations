@@ -185,6 +185,10 @@
 | 爆裂丹 | Explosive Pill | Pill that explodes violently - highest grade can injure a Great Emperor |
 | 人道茶 | Human Dao Tea | Human Dao Sect's specialty tea - one cup grants 10 years of cultivation - chance to trigger epiphany - only first steep has medicinal properties |
 | 仙王杀阵阵盘 | Immortal King Killing Formation Plate | System reward - palm-sized formation plate inscribed with Immortal King-level killing formation - permanent and rechargeable - can slay Immortal Kings |
+| 领袖气质 | Leadership Charisma | System reward - enhances leader presence - 100% loyalty from those who've genuinely submitted - shows submission list |
+| 真灵奴印 | True Spirit Slave Seal | System reward - forces permanent enslavement with no removal method - survives reincarnation |
+| 真凰羽 | True Phoenix Plume | Immortal King-grade weapon - feather fan forged from Immortal King phoenix plume - contains phoenix fire and blood essence - system purchase for Lian'er |
+| 赤焰烈火 | Crimson Blaze | Fire born from phoenix nirvana - can burn flesh and Primordial Spirit - cultivating with it forges indestructible golden body - system purchase for Little Red |
 
 ## Locations
 
@@ -266,4 +270,4 @@
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace - nicknamed Little Xu (小虚) |
-| 小红 | Little Red | Baby phoenix - Qin Lian'er's companion - fist-sized at birth - Heavenly Soul Realm |
+| 小红 | Little Red | Phoenix - Qin Lian'er's companion - now in human form (Supreme Realm) - tsundere personality |
