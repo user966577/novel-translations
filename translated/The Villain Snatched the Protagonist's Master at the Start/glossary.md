@@ -45,7 +45,9 @@
 | 夏千菱 | Xia Qianling | Fortune heroine - father killed by Ninth Prince's grandmother's household - Mystic Yin Body |
 | 龙羽 | Long Yu | Ninth Prince's real name |
 | 魔君 | Demon Lord | Demon Hall member - tried to recruit Ninth Prince as a child - recurring antagonist |
-| 魔殿始祖 | Demon Hall Founder | Sealed immortal-path powerhouse in a painting - loli appearance - purple hair - crimson eyes - MC's woman |
+| 魔殿始祖 | Demon Hall Founder | Sealed immortal-path powerhouse in a painting - loli appearance - purple hair - crimson eyes - MC's woman - real name Mo Mo (魔茉) |
+| 魔茉 | Mo Mo | Demon Hall Founder's real name |
+| 魔殿殿主 | Demon Hall Master | Leader of the Demon Hall - became Chaos Marauder under Qin Jiang |
 
 ## Cultivation Realms
 
@@ -141,6 +143,7 @@
 | 记录石 | Record Stone | Ranking tablet for the Myriad Realms Tower - displays top 10,000 prodigies across all realms |
 | 龙珠 | Dragon Pearl | Immortal founder's legacy artifact - crystallized cultivation of Divine Dragon Empire's founder - given to Long Xin'er |
 | 仙王印 | Immortal King Seal | Gift from Myriad Realms Tower creator - can slay Immortal Kings at full power - given to Qin Jiang |
+| 天魔丹 | Heavenly Demon Pill | Immortal-grade pill - purifies demonic power - creates affinity toward blood essence donor - system reward |
 
 ## Locations
 
@@ -168,6 +171,10 @@
 | 万界塔 | Myriad Realms Tower | Ranking tower that exists across all realms - grants cultivation upon climbing - interconnected across the myriad realms |
 | 龙宫 | Dragon Palace | Palace within the Dragon Nest - contained Dragon Pearl - uprooted by Qin Jiang |
 | 鬼雾之森 | Ghost Fog Forest | Perpetually fog-covered mountains hiding Demon Hall headquarters |
+| 青云天 | Azure Cloud Heaven | One of the Nine Heavens - no unified government |
+| 秦家城 | Qin Family City | Qin Jiang's base of operations in Azure Cloud Heaven |
+| 乱葬岗 | Mass Graves | Dumping ground for executed criminals in the Imperial City |
+| 丹城 | Pill City | City surrounding the Heavenly Pill Palace in Azure Cloud Heaven |
 
 ## Organizations
 
@@ -187,6 +194,9 @@
 | 神龙帝国 | Divine Dragon Empire | Ruling power of the Divine Dragon Continent - led by the Dragon Emperor |
 | 供奉 | Imperial Patron | Great Emperor-level protectors of the Divine Dragon Empire - four total |
 | 魔殿 | Demon Hall | Evil organization within the Divine Dragon Empire - recurring antagonists - tried to recruit the Ninth Prince |
+| 天丹宫 | Heavenly Pill Palace | Alchemy center in Azure Cloud Heaven - hosts Myriad Pill Assembly every decade |
+| 颜家 | Yan Family | Powerful clan in Azure Cloud Heaven - Yan Shiya and Yan Yun's former family - annihilated by Mo Mo |
+| 万丹大会 | Myriad Pill Assembly | Heavenly Pill Palace's decennial alchemy competition and gathering |
 
 ## Creatures
 
