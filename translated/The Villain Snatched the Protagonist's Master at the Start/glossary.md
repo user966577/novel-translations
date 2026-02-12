@@ -72,6 +72,7 @@
 | 道坤 | Dao Kun | Human Dao Sect Master - Human Immortal - first under True Immortals - also called Immortal Kun (坤仙人) |
 | 陈百柘 | Chen Baizhe | Chen Qi'er's sister - Human Immortal - Human Dao Sect elder - known as Baizhe Immortal (百柘仙子) - guqin player - MC's woman |
 | 陈无名 | Chen Wuming | Beggar - Child of Destiny - adopted surname from Chen Qi'er - prospective disciple of Chen Qi'er - manipulated by Black Dragon into distrusting his master |
+| 安溪禾 | An Xihe | Celestial Formation Fairy (天阵仙子) - True Immortal sealed beneath Chaos District - on the verge of Immortal King - disguised as young woman in white to seduce Qin Jiang - formation specialist - MC's woman |
 
 ## Cultivation Realms
 
@@ -221,6 +222,7 @@
 | 中域 | Central Regions | Region within Azure Cloud Heaven - heart of cultivation - sealed by True Immortal's formation |
 | 混沌区 | Chaos District | Lawless zone within the Central Regions - True Immortal sealed beneath it |
 | 姻缘神殿 | Matchmaking Temple | Hall outside Azure Lotus Divine Palace where suitors send gifts to court the women |
+| 人道河 | Human Dao River | Sacred river cultivated by the Human Dao Sect over millennia - enriched with spiritual treasures - aids cultivation - spawns rare items |
 
 ## Organizations
 
