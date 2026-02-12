@@ -31,6 +31,9 @@
 | 柳舒婉 | Liu Shuwan | Holy Sword Sect ancestral Saintess - ~6000 years old - half-Emperor - secluded in Sword Valley |
 | 孙阳 | Sun Yang | Sword Valley ancestral elder - ~6000 years old - Supreme Realm |
 | 王朝 | Wang Chao | Sword Valley ancestral elder - Sun Yang's friend/rival - stronger than Sun Yang |
+| 剑瑶 | Jian Yao | Holy Sword Sect founder - Great Emperor - Sword Heart - resurrected via Seven Beauties Painting |
+| 火烈 | Huo Lie | Fire Tribe clan leader - stole Legacy Flame from Huo Qing'er - Nine Tribulations Supreme |
+| 火颖儿 | Huo Ying'er | Fire Tribe Martial Division leader - Huo Qing'er's best friend - MC's woman |
 
 ## Cultivation Realms
 
@@ -71,6 +74,8 @@
 | 剑皇之道 | Way of the Sword Emperor | True Sword Emperor path - system reward - one sword drawn ten thousand kneel |
 | 帝品丹道 | Emperor-Grade Alchemy | System reward - low probability at low cultivation |
 | 仙气 | Immortal Qi | Foundation for advancing to the immortal path |
+| 传承火焰 | Legacy Flame | Fire Tribe clan leader's sacred flame - passed down through generations - contains accumulated power |
+| 帝法 | Emperor Technique | Great Emperor-level cultivation technique |
 
 ## Techniques
 
@@ -107,6 +112,8 @@
 | 虚空神殿 | Void Divine Temple | System reward - infinite interior space for customization |
 | 凤凰蛋 | Phoenix Egg | System reward - hatches divine beast phoenix |
 | 镇运碑 | Fortune-Sealing Stele | System shop item - protects family fortune from Heavenly Dao drain |
+| 附灵石 | Spirit-Anchoring Stone | Stone that can house a cultivator's soul |
+| 大帝精血 | Great Emperor Blood Essence | Can be used to cultivate new Great Emperor-level powerhouses |
 
 ## Locations
 
@@ -124,6 +131,7 @@
 | 三千界 | Three Thousand Realms | World structure encompassing all continents |
 | 圣剑城 | Holy Sword City | City of the Holy Sword Sect |
 | 剑谷 | Sword Valley | Holy Sword Sect's sacred training ground - 30,000 feet deep - founder's legacy |
+| 火域 | Fire Domain | Region above a magma sea - home to 90% of fire-attribute cultivators |
 
 ## Organizations
 
@@ -136,6 +144,8 @@
 | 圣剑宗 | Holy Sword Sect | Swordsmanship holy land - hegemonic power on par with ancient clans |
 | 大长老 | Grand Elder | Holy Sword Sect Grand Elder - female - Bai Jingyun's senior - authority equal to Sect Master |
 | 三百六十歌姬 | 360 Songstresses | System reward - 36 Saints + 324 Unity Realm - Combined Strike Art matches Nine Tribulations Supreme |
+| 丹部 | Alchemy Division | Fire Tribe's alchemy branch - led by Huo Lie |
+| 武部 | Martial Division | Fire Tribe's martial branch - led by Huo Ying'er |
 
 ## Creatures
 
