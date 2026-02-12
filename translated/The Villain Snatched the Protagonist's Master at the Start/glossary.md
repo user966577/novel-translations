@@ -68,6 +68,8 @@
 | 青婵 | Qing Chan | Azure Lotus Divine Palace ancestor - True Immortal - face-lover - MC's woman |
 | 宁雪儿 | Ning Xue'er | Azure Lotus Divine Palace Palace Master - Human Immortal |
 | 琳琳 | Lin Lin | Azure Lotus Divine Palace disciple - manages the Matchmaking Temple |
+| 道真 | Dao Zhen | Human Dao Sect ancestor - True Immortal - disguises as weak old man among outer disciples - highest seniority in Azure Cloud Heaven |
+| 道坤 | Dao Kun | Human Dao Sect Master - Human Immortal - first under True Immortals - also called Immortal Kun (坤仙人) |
 
 ## Cultivation Realms
 
@@ -254,5 +256,5 @@
 
 | Chinese | English | Notes |
 |---------|---------|-------|
-| 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace |
+| 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace - nicknamed Little Xu (小虚) |
 | 小红 | Little Red | Baby phoenix - Qin Lian'er's companion - fist-sized at birth - Heavenly Soul Realm |
