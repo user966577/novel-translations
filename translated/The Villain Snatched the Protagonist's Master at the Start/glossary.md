@@ -67,6 +67,7 @@
 | 陈乞儿 | Chen Qi'er | Blind beggar - actually a sealed Immortal doing red dust heart tempering - Child of Destiny |
 | 青婵 | Qing Chan | Azure Lotus Divine Palace ancestor - True Immortal - face-lover - MC's woman |
 | 宁雪儿 | Ning Xue'er | Azure Lotus Divine Palace Palace Master - Human Immortal |
+| 琳琳 | Lin Lin | Azure Lotus Divine Palace disciple - manages the Matchmaking Temple |
 
 ## Cultivation Realms
 
@@ -80,13 +81,9 @@
 | 阴阳境 | Yin-Yang Realm |  |
 | 归一境 | Unity Realm |  |
 | 圣人境 | Saint Realm |  |
-| 至尊境 | Supreme Realm |  |
-| ↳ 一劫至尊 | 1. First Tribulation Supreme | Lowest sub-level |
-| ↳ 九劫至尊 | 2. Nine Tribulations Supreme | Peak - one step below Great Emperor |
-| 大帝 | Great Emperor | Realm above Supreme - highest known |
-| ↳ 古帝 | 1. Ancient Emperor | One step from the immortal path - Jian Yao's level |
-| ↳ 人仙 | 2. Human Immortal | First tier of the immortal path |
-| ↳ 真仙 | 3. True Immortal | Above Human Immortal - extremely difficult to kill |
+| 至尊境<br>一劫至尊<br>九劫至尊| Supreme Realm<br>&emsp;&emsp;1. First Tribulation Supreme<br>&emsp;&emsp;2. Nine Tribulations Supreme | |
+| 大帝<br>古帝 | Great Emperor<br>&emsp;&emsp;1. Ancient Emperor | Realm above Supreme<br>One step away from the Immortal Path|
+| <br>人仙<br>真仙 | Immortal Path<br>&emsp;&emsp;1. Human Immortal<br>&emsp;&emsp;2. True Immortal | |
 | 仙王 | Immortal King | Realm within the immortal path - above True Immortal |
 
 ## Cultivation Terms
@@ -176,6 +173,8 @@
 | 帝丹 | Emperor Pill | Great Emperor-level medicinal pill |
 | 三霞奇茸花 | Three Dawn Miracle Bloom | Immortal herb - strengthens physique - grants immortal body and eternal youth |
 | 时空神殿 | Space-Time Temple | Built within Void Divine Temple using completed Time-Space Disc - accelerates time for cultivation |
+| 古帝丹 | Ancient Emperor Pill | Can push Great Emperor to Ancient Emperor or give Ancient Emperor a chance at immortal path threshold |
+| 爆裂丹 | Explosive Pill | Pill that explodes violently - highest grade can injure a Great Emperor |
 
 ## Locations
 
@@ -212,6 +211,7 @@
 | 西域 | Western Regions | Region within Azure Cloud Heaven - location of Qin Family City |
 | 中域 | Central Regions | Region within Azure Cloud Heaven - heart of cultivation - sealed by True Immortal's formation |
 | 混沌区 | Chaos District | Lawless zone within the Central Regions - True Immortal sealed beneath it |
+| 姻缘神殿 | Matchmaking Temple | Hall outside Azure Lotus Divine Palace where suitors send gifts to court the women |
 
 ## Organizations
 
@@ -247,6 +247,8 @@
 | 青莲神宫 | Azure Lotus Divine Palace | All-female sect in Central Regions - True Immortal ancestor - recruits based on beauty - one of three strongest factions |
 | 无极圣地 | Limitless Holy Land | One of three strongest factions in the Central Regions - True Immortal - known for aggression |
 | 人道宗 | Human Dao Sect | One of three strongest factions in the Central Regions - True Immortal - known for calculating nature |
+| 江龙帮 | River Dragon Gang | Black Dragon's gang in the Chaos District - Qin Jiang as First Boss |
+| 混沌宗 | Chaos Sect | Largest faction in the Chaos District - puppet organization of the sealed True Immortal |
 
 ## Creatures
 
