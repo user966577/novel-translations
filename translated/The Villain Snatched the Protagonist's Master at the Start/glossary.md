@@ -60,7 +60,10 @@
 | 归一境 | Unity Realm |  |
 | 圣人境 | Saint Realm |  |
 | 至尊境 | Supreme Realm |  |
+| ↳ 一劫至尊 | 1. First Tribulation Supreme | Lowest sub-level |
+| ↳ 九劫至尊 | 2. Nine Tribulations Supreme | Peak - one step below Great Emperor |
 | 大帝 | Great Emperor | Realm above Supreme - highest known |
+| ↳ 古帝 | 1. Ancient Emperor | One step from the immortal path - Jian Yao's level |
 | 仙王 | Immortal King | Realm within the immortal path - above Great Emperor |
 
 ## Cultivation Terms
@@ -75,8 +78,6 @@
 | 剑意 | Sword Intent | Sword comprehension - system reward |
 | 剑势 | Sword Force | Above Sword Intent - king-level comprehension |
 | 剑心 | Sword Heart | Above Sword Force - sovereign level - human-sword unity |
-| 一劫至尊 | First Tribulation Supreme | Lowest sub-level of Supreme Realm |
-| 九劫至尊 | Nine Tribulations Supreme | Peak of Supreme Realm - one step below Great Emperor |
 | 涅盘神体 | Nirvana Divine Body | Qin Lian'er's awakened body - phoenix fire attribute |
 | 涅盘之火 | Nirvana Fire | Fire from Nirvana Divine Body - phoenix flames |
 | 气运女主 | Fortune Heroine | Female lead blessed by fortune/destiny |
@@ -94,7 +95,6 @@
 | 仙道种子 | Immortal Path Seed | Plants in Immortal Marrow to grow an Immortal Path Law over one month |
 | 仙道法则 | Immortal Path Law | Grants the ability to break through to the immortal path - grown from Immortal Path Seed |
 | 气运金龙 | Fortune Golden Dragon | Born when fortune reaches critical mass - governs and distributes fortune with precision |
-| 古帝 | Ancient Emperor | Sub-realm of Great Emperor - one step from the immortal path - Jian Yao's level |
 | 玄阴之体 | Mystic Yin Body | Xia Qianling's special physique - boosts partner's cultivation |
 
 ## Techniques
