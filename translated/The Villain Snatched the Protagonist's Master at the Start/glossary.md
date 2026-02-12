@@ -41,8 +41,10 @@
 | 龙傲天 | Long Aotian | Divine Dragon Emperor - Long Xin'er's father - strongest Emperor on the continent |
 | 四供奉 | Fourth Patron | Divine Dragon Empire's fourth Imperial Patron - Great Emperor - defected to Qin Jiang |
 | 大供奉 | First Patron | Divine Dragon Empire's first Imperial Patron - Great Emperor - leader of the four Patrons |
-| 九皇子 | Ninth Prince | Divine Dragon Emperor's most favored son - Child of Destiny - genius type |
-| 夏千菱 | Xia Qianling | Fortune heroine - father killed by Ninth Prince's grandmother's household |
+| 九皇子 | Ninth Prince | Divine Dragon Emperor's most favored son - Child of Destiny - genius type - real name Long Yu (龙羽) |
+| 夏千菱 | Xia Qianling | Fortune heroine - father killed by Ninth Prince's grandmother's household - Mystic Yin Body |
+| 龙羽 | Long Yu | Ninth Prince's real name |
+| 魔君 | Demon Lord | Demon Hall member - tried to recruit Ninth Prince as a child - recurring antagonist |
 
 ## Cultivation Realms
 
@@ -58,6 +60,7 @@
 | 圣人境 | Saint Realm |  |
 | 至尊境 | Supreme Realm |  |
 | 大帝 | Great Emperor | Realm above Supreme - highest known |
+| 仙王 | Immortal King | Realm within the immortal path - above Great Emperor |
 
 ## Cultivation Terms
 
@@ -91,6 +94,7 @@
 | 仙道法则 | Immortal Path Law | Grants the ability to break through to the immortal path - grown from Immortal Path Seed |
 | 气运金龙 | Fortune Golden Dragon | Born when fortune reaches critical mass - governs and distributes fortune with precision |
 | 古帝 | Ancient Emperor | Sub-realm of Great Emperor - one step from the immortal path - Jian Yao's level |
+| 玄阴之体 | Mystic Yin Body | Xia Qianling's special physique - boosts partner's cultivation |
 
 ## Techniques
 
@@ -99,6 +103,7 @@
 | 苍穹动 | Firmament Quake | Great Emperor-level technique |
 | 法天象地 | Heaven and Earth Manifestation | Immortal-level technique |
 | 合击之法 | Combined Strike Art | Technique allowing multiple cultivators to fight as one |
+| 玄阴神典 | Mystic Yin Divine Scripture | Cultivation method for Mystic Yin Body - system reward |
 
 ## Items
 
@@ -132,6 +137,9 @@
 | 大帝遗迹 | Great Emperor Ruins | Ancient ruins at Thousand Year Mountain - contains Great Emperor legacy |
 | 帝品飞船 | Emperor-grade Airship | Airship capable of traversing the Chaos - half-Emperor grade awarded by system |
 | 仙物罗盘 | Divination Compass | Immortal-grade artifact - divined 10 years of Chu Yuan's future - created his false rebirth |
+| 记录石 | Record Stone | Ranking tablet for the Myriad Realms Tower - displays top 10,000 prodigies across all realms |
+| 龙珠 | Dragon Pearl | Immortal founder's legacy artifact - crystallized cultivation of Divine Dragon Empire's founder - given to Long Xin'er |
+| 仙王印 | Immortal King Seal | Gift from Myriad Realms Tower creator - can slay Immortal Kings at full power - given to Qin Jiang |
 
 ## Locations
 
@@ -155,6 +163,9 @@
 | 混沌 | Chaos | The void between continents - dangerous space with native creatures and marauders |
 | 神龙大陆 | Divine Dragon Continent | One of the Ten Lands - unified under the Divine Dragon Empire |
 | 皇城 | Imperial City | Capital of the Divine Dragon Empire |
+| 神龙巢 | Dragon Nest | Secret realm controlled by the imperial family - opens once every 100 years - contains Myriad Realms Tower and Dragon Palace |
+| 万界塔 | Myriad Realms Tower | Ranking tower that exists across all realms - grants cultivation upon climbing - interconnected across the myriad realms |
+| 龙宫 | Dragon Palace | Palace within the Dragon Nest - contained Dragon Pearl - uprooted by Qin Jiang |
 
 ## Organizations
 
@@ -173,6 +184,7 @@
 | 混沌掠夺者 | Chaos Marauders | Bandits who operate in the Chaos - prey on travelers between continents |
 | 神龙帝国 | Divine Dragon Empire | Ruling power of the Divine Dragon Continent - led by the Dragon Emperor |
 | 供奉 | Imperial Patron | Great Emperor-level protectors of the Divine Dragon Empire - four total |
+| 魔殿 | Demon Hall | Evil organization within the Divine Dragon Empire - recurring antagonists - tried to recruit the Ninth Prince |
 
 ## Creatures
 
