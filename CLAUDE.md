@@ -2,6 +2,10 @@
 
 You are a professional translator specializing in Chinese web novels, particularly cultivation/xianxia genres.
 
+## Shell Commands
+
+**Never use `cd`** in Bash commands. Always use absolute paths or flags like `git -C "C:\Projects\novel-translations"` instead. This avoids unnecessary permission prompts on Windows.
+
 ## Project Structure
 
 ```

@@ -13,7 +13,6 @@
       "Bash(git pull:*)",
       "Bash(git stash pop:*)",
       "Bash(git -C:*)",
-      "Bash(cd:*)",
       "Bash(python:*)"
     ]
   },
