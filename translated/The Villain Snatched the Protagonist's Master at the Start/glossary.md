@@ -70,6 +70,7 @@
 | 琳琳 | Lin Lin | Azure Lotus Divine Palace disciple - manages the Matchmaking Temple |
 | 道真 | Dao Zhen | Human Dao Sect ancestor - True Immortal - disguises as weak old man among outer disciples - highest seniority in Azure Cloud Heaven |
 | 道坤 | Dao Kun | Human Dao Sect Master - Human Immortal - first under True Immortals - also called Immortal Kun (坤仙人) |
+| 陈百柘 | Chen Baizhe | Chen Qi'er's sister - Human Immortal - Human Dao Sect elder - known as Baizhe Immortal (百柘仙子) - guqin player - MC's woman |
 
 ## Cultivation Realms
 
@@ -135,6 +136,7 @@
 | 合击之法 | Combined Strike Art | Technique allowing multiple cultivators to fight as one |
 | 玄阴神典 | Mystic Yin Divine Scripture | Cultivation method for Mystic Yin Body - system reward |
 | 血咒 | Blood Curse | Mo Mo's demonic technique - uses blood of the fallen to form runes that boil targets from within |
+| 望气术 | Fortune-Reading Art | Human Dao Sect's signature technique - reads a person's fortune/luck through their aura - Dao Zhen's mastery is unparalleled |
 
 ## Items
 
@@ -177,6 +179,8 @@
 | 时空神殿 | Space-Time Temple | Built within Void Divine Temple using completed Time-Space Disc - accelerates time for cultivation |
 | 古帝丹 | Ancient Emperor Pill | Can push Great Emperor to Ancient Emperor or give Ancient Emperor a chance at immortal path threshold |
 | 爆裂丹 | Explosive Pill | Pill that explodes violently - highest grade can injure a Great Emperor |
+| 人道茶 | Human Dao Tea | Human Dao Sect's specialty tea - one cup grants 10 years of cultivation - chance to trigger epiphany - only first steep has medicinal properties |
+| 仙王杀阵阵盘 | Immortal King Killing Formation Plate | System reward - palm-sized formation plate inscribed with Immortal King-level killing formation - permanent and rechargeable - can slay Immortal Kings |
 
 ## Locations
 
