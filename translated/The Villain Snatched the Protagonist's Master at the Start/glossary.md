@@ -62,6 +62,9 @@
 | 墨翎 | Mo Ling | Black Water Serpent chieftain - Ancient Emperor - royal bloodline - sabotaged Yu Lan's bloodline |
 | 黑蛇老祖 | Black Serpent Ancestor | Black Water Serpent's Immortal elder - one of five Snake Race Immortals - provided the bloodline poison |
 | 陈凡 | Chen Fan | Chen Changsheng's alias in a previous life |
+| 紫芙 | Zi Fu | Previous Snake Race chieftain - Ancient Emperor - fortune heroine - traveling the world - befriends Lian'er |
+| 胡言 | Hu Yan | Hu Xian'er's father - Fox Race chieftain - Immortal |
+| 陈乞儿 | Chen Qi'er | Blind beggar - actually a sealed Immortal doing red dust heart tempering - Child of Destiny |
 
 ## Cultivation Realms
 
@@ -116,6 +119,8 @@
 | 轮回法则 | Reincarnation Law | Law comprehended through multiple reincarnations - same tier as Space-Time Laws |
 | 鬼道法则 | Ghost Dao Law | Immortal-path law extracted from the Ghost Immortal via Myriad Dao Stone - reserved for Yan Shiya |
 | 剑道法则 | Sword Dao Law | Immortal-path law of the sword - obtained from Tang Yin's fortune - given to Liu Shuwan |
+| 毒道法则 | Poison Dao Law | Immortal-path law extracted from Black Serpent Ancestor via Myriad Dao Stone - given to Chen Ningbing |
+| 红尘炼心 | Red Dust Heart Tempering | Sealing one's cultivation and living as a mortal to temper the dao heart - used by Chen Qi'er |
 
 ## Techniques
 
@@ -199,6 +204,7 @@
 | 丹香楼 | Pill Fragrance Pavilion | Largest restaurant in Pill City - backed by the Heavenly Pill Palace |
 | 妖域 | Demon Domain | Yao race territory in Azure Cloud Heaven |
 | 西域 | Western Regions | Region within Azure Cloud Heaven - location of Qin Family City |
+| 中域 | Central Regions | Region within Azure Cloud Heaven |
 
 ## Organizations
 
