@@ -65,6 +65,8 @@
 | 紫芙 | Zi Fu | Previous Snake Race chieftain - Ancient Emperor - fortune heroine - traveling the world - befriends Lian'er |
 | 胡言 | Hu Yan | Hu Xian'er's father - Fox Race chieftain - Immortal |
 | 陈乞儿 | Chen Qi'er | Blind beggar - actually a sealed Immortal doing red dust heart tempering - Child of Destiny |
+| 青婵 | Qing Chan | Azure Lotus Divine Palace ancestor - True Immortal - face-lover - MC's woman |
+| 宁雪儿 | Ning Xue'er | Azure Lotus Divine Palace Palace Master - Human Immortal |
 
 ## Cultivation Realms
 
@@ -83,7 +85,9 @@
 | ↳ 九劫至尊 | 2. Nine Tribulations Supreme | Peak - one step below Great Emperor |
 | 大帝 | Great Emperor | Realm above Supreme - highest known |
 | ↳ 古帝 | 1. Ancient Emperor | One step from the immortal path - Jian Yao's level |
-| 仙王 | Immortal King | Realm within the immortal path - above Great Emperor |
+| ↳ 人仙 | 2. Human Immortal | First tier of the immortal path |
+| ↳ 真仙 | 3. True Immortal | Above Human Immortal - extremely difficult to kill |
+| 仙王 | Immortal King | Realm within the immortal path - above True Immortal |
 
 ## Cultivation Terms
 
@@ -121,6 +125,7 @@
 | 剑道法则 | Sword Dao Law | Immortal-path law of the sword - obtained from Tang Yin's fortune - given to Liu Shuwan |
 | 毒道法则 | Poison Dao Law | Immortal-path law extracted from Black Serpent Ancestor via Myriad Dao Stone - given to Chen Ningbing |
 | 红尘炼心 | Red Dust Heart Tempering | Sealing one's cultivation and living as a mortal to temper the dao heart - used by Chen Qi'er |
+| 时空法则 | Space-Time Law | Growth-type law absorbed from completed Time-Space Disc - strengthens with user |
 
 ## Techniques
 
@@ -170,6 +175,7 @@
 | 天魔丹 | Heavenly Demon Pill | Immortal-grade pill - purifies demonic power - creates affinity toward blood essence donor - system reward |
 | 帝丹 | Emperor Pill | Great Emperor-level medicinal pill |
 | 三霞奇茸花 | Three Dawn Miracle Bloom | Immortal herb - strengthens physique - grants immortal body and eternal youth |
+| 时空神殿 | Space-Time Temple | Built within Void Divine Temple using completed Time-Space Disc - accelerates time for cultivation |
 
 ## Locations
 
@@ -204,7 +210,8 @@
 | 丹香楼 | Pill Fragrance Pavilion | Largest restaurant in Pill City - backed by the Heavenly Pill Palace |
 | 妖域 | Demon Domain | Yao race territory in Azure Cloud Heaven |
 | 西域 | Western Regions | Region within Azure Cloud Heaven - location of Qin Family City |
-| 中域 | Central Regions | Region within Azure Cloud Heaven |
+| 中域 | Central Regions | Region within Azure Cloud Heaven - heart of cultivation - sealed by True Immortal's formation |
+| 混沌区 | Chaos District | Lawless zone within the Central Regions - True Immortal sealed beneath it |
 
 ## Organizations
 
@@ -237,6 +244,9 @@
 | 蛇族 | Snake Race | One of three great powers in the Demon Domain - strict bloodline hierarchy - three royal bloodlines |
 | 紫鳞蛇 | Purple-Scale Serpent | Yu Lan's royal bloodline faction within the Snake Race |
 | 黑水蛇 | Black Water Serpent | Rival royal bloodline faction within the Snake Race - competing for clan chief position |
+| 青莲神宫 | Azure Lotus Divine Palace | All-female sect in Central Regions - True Immortal ancestor - recruits based on beauty - one of three strongest factions |
+| 无极圣地 | Limitless Holy Land | One of three strongest factions in the Central Regions - True Immortal - known for aggression |
+| 人道宗 | Human Dao Sect | One of three strongest factions in the Central Regions - True Immortal - known for calculating nature |
 
 ## Creatures
 
