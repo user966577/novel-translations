@@ -71,6 +71,7 @@
 | 道真 | Dao Zhen | Human Dao Sect ancestor - True Immortal - disguises as weak old man among outer disciples - highest seniority in Azure Cloud Heaven |
 | 道坤 | Dao Kun | Human Dao Sect Master - Human Immortal - first under True Immortals - also called Immortal Kun (坤仙人) |
 | 陈百柘 | Chen Baizhe | Chen Qi'er's sister - Human Immortal - Human Dao Sect elder - known as Baizhe Immortal (百柘仙子) - guqin player - MC's woman |
+| 陈无名 | Chen Wuming | Beggar - Child of Destiny - adopted surname from Chen Qi'er - prospective disciple of Chen Qi'er - manipulated by Black Dragon into distrusting his master |
 
 ## Cultivation Realms
 
@@ -137,6 +138,8 @@
 | 玄阴神典 | Mystic Yin Divine Scripture | Cultivation method for Mystic Yin Body - system reward |
 | 血咒 | Blood Curse | Mo Mo's demonic technique - uses blood of the fallen to form runes that boil targets from within |
 | 望气术 | Fortune-Reading Art | Human Dao Sect's signature technique - reads a person's fortune/luck through their aura - Dao Zhen's mastery is unparalleled |
+| 道法自然 | Dao Follows Nature | Human Dao Sect's supreme cultivation method - philosophy of desirelessness and letting things take their natural course - given to Qin Jiang by Chen Baizhe |
+| 心经 | Heart Sutra | Cultivation method created by Li Xueyi (Qin Jiang's mother) - still incomplete - shares principles with Dao Follows Nature - enormous potential |
 
 ## Items
 
