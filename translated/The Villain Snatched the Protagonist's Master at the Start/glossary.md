@@ -45,6 +45,7 @@
 | 夏千菱 | Xia Qianling | Fortune heroine - father killed by Ninth Prince's grandmother's household - Mystic Yin Body |
 | 龙羽 | Long Yu | Ninth Prince's real name |
 | 魔君 | Demon Lord | Demon Hall member - tried to recruit Ninth Prince as a child - recurring antagonist |
+| 魔殿始祖 | Demon Hall Founder | Sealed immortal-path powerhouse in a painting - loli appearance - purple hair - crimson eyes - MC's woman |
 
 ## Cultivation Realms
 
@@ -166,6 +167,7 @@
 | 神龙巢 | Dragon Nest | Secret realm controlled by the imperial family - opens once every 100 years - contains Myriad Realms Tower and Dragon Palace |
 | 万界塔 | Myriad Realms Tower | Ranking tower that exists across all realms - grants cultivation upon climbing - interconnected across the myriad realms |
 | 龙宫 | Dragon Palace | Palace within the Dragon Nest - contained Dragon Pearl - uprooted by Qin Jiang |
+| 鬼雾之森 | Ghost Fog Forest | Perpetually fog-covered mountains hiding Demon Hall headquarters |
 
 ## Organizations
 
