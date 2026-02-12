@@ -29,6 +29,8 @@
 | 林尘 | Lin Chen | Holy Sword Sect Holy Son - possessed by Great Emperor remnant soul - Child of Destiny |
 | 白景云 | Bai Jingyun | Holy Sword Sect Master - Bai Susu's father |
 | 柳舒婉 | Liu Shuwan | Holy Sword Sect ancestral Saintess - ~6000 years old - half-Emperor - secluded in Sword Valley |
+| 孙阳 | Sun Yang | Sword Valley ancestral elder - ~6000 years old - Supreme Realm |
+| 王朝 | Wang Chao | Sword Valley ancestral elder - Sun Yang's friend/rival - stronger than Sun Yang |
 
 ## Cultivation Realms
 
@@ -66,6 +68,9 @@
 | 仙火 | Immortal Fire | Fire Spirit Pearl evolved - above Great Emperor level |
 | 剑道皇者 | Sword Emperor | Title for one who achieves Sword Heart - commands all sword cultivators |
 | 元神之力 | Primordial Spirit Power | Lin Chen's trump card - remnant Great Emperor energy - non-renewable before reaching Emperor |
+| 剑皇之道 | Way of the Sword Emperor | True Sword Emperor path - system reward - one sword drawn ten thousand kneel |
+| 帝品丹道 | Emperor-Grade Alchemy | System reward - low probability at low cultivation |
+| 仙气 | Immortal Qi | Foundation for advancing to the immortal path |
 
 ## Techniques
 
@@ -96,6 +101,9 @@
 | 青铜小鼎 | Bronze Cauldron | Ye Xuan's natal treasure - refines anything into pure energy |
 | 极品灵髓 | Top-Grade Spirit Marrow | Premium crafting material |
 | 传讯石 | Message Stone | Communication device |
+| 安神香 | Calming Incense | Incense that induces deep sleep |
+| 仙髓 | Immortal Marrow | Immortal-grade spirit marrow - produces Immortal Qi - system reward |
+| 万道石 | Myriad Dao Stone | Forcibly absorbs Great Emperor law power and purifies it - system reward |
 | 虚空神殿 | Void Divine Temple | System reward - infinite interior space for customization |
 | 凤凰蛋 | Phoenix Egg | System reward - hatches divine beast phoenix |
 | 镇运碑 | Fortune-Sealing Stele | System shop item - protects family fortune from Heavenly Dao drain |
