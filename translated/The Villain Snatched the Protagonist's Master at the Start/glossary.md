@@ -36,6 +36,7 @@
 | 火颖儿 | Huo Ying'er | Fire Tribe Martial Division leader - Huo Qing'er's best friend - MC's woman |
 | 楚元 | Chu Yuan | Child of Destiny - reborn from 10 years in the future |
 | 楚寒烟 | Chu Hanyan | Chu Yuan's older sister - Puppet Sect heir - MC's woman |
+| 一祖 | First Ancestor | Qin family's first ancestral elder - most senior ancestor |
 
 ## Cultivation Realms
 
@@ -80,6 +81,10 @@
 | 帝法 | Emperor Technique | Great Emperor-level cultivation technique |
 | 大帝法则 | Great Emperor Law | Bestows Great Emperor realm upon recipient - system reward |
 | 傀儡之法 | Puppet Mastery | Puppet Sect's core technique - controls refined corpse puppets |
+| 仙道种子 | Immortal Path Seed | Plants in Immortal Marrow to grow an Immortal Path Law over one month |
+| 仙道法则 | Immortal Path Law | Grants the ability to break through to the immortal path - grown from Immortal Path Seed |
+| 气运金龙 | Fortune Golden Dragon | Born when fortune reaches critical mass - governs and distributes fortune with precision |
+| 古帝 | Ancient Emperor | Sub-realm of Great Emperor - one step from the immortal path - Jian Yao's level |
 
 ## Techniques
 
@@ -119,6 +124,7 @@
 | 附灵石 | Spirit-Anchoring Stone | Stone that can house a cultivator's soul |
 | 大帝精血 | Great Emperor Blood Essence | Can be used to cultivate new Great Emperor-level powerhouses |
 | 大帝遗迹 | Great Emperor Ruins | Ancient ruins at Thousand Year Mountain - contains Great Emperor legacy |
+| 帝品飞船 | Emperor-grade Airship | Airship capable of traversing the Chaos - half-Emperor grade awarded by system |
 
 ## Locations
 
@@ -139,6 +145,7 @@
 | 火域 | Fire Domain | Region above a magma sea - home to 90% of fire-attribute cultivators |
 | 地下斗场 | Underground Arena | Fighting pit with gambling - located in Fire Domain |
 | 千岁山 | Thousand Year Mountain | Site of the Great Emperor Ruins |
+| 混沌 | Chaos | The void between continents - dangerous space with native creatures and marauders |
 
 ## Organizations
 
@@ -154,6 +161,7 @@
 | 丹部 | Alchemy Division | Fire Tribe's alchemy branch - led by Huo Lie |
 | 武部 | Martial Division | Fire Tribe's martial branch - led by Huo Ying'er |
 | 傀儡宗 | Puppet Sect | Destroyed sect - refined corpse puppets from ancestral remains - annihilated ~1000 years ago |
+| 混沌掠夺者 | Chaos Marauders | Bandits who operate in the Chaos - prey on travelers between continents |
 
 ## Creatures
 
