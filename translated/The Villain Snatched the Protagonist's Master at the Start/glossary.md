@@ -55,6 +55,10 @@
 | 鬼仙人 | Ghost Immortal | Reclusive immortal-path cultivator - sinister disposition - came to avenge grandson - killed by Qin Jiang |
 | 唐银 | Tang Yin | Child of Destiny - Tang family youngest son - transmigrator from wuxia world - Supreme Realm |
 | 胡仙儿 | Hu Xian'er | White Fox Tribe chief - Great Emperor - naive and pure - MC's woman |
+| 雪梅 | Xue Mei | Celestial Rabbit Tribe ancestor - Immortal - MC's woman |
+| 小九 | Xiao Jiu | Celestial Rabbit Tribe princess - bloodline reversion - congenitally weak body - MC's woman |
+| 玉澜 | Yu Lan | Snake Race Empress - royal bloodline - Ancient Emperor - sabotaged by rival faction |
+| 玉茹 | Yu Ru | Yu Lan's younger sister - Great Emperor - MC's woman |
 
 ## Cultivation Realms
 
@@ -108,6 +112,7 @@
 | 轮回之力 | Power of Reincarnation | Chen Changsheng's power from 10 reincarnations - can heal and restore |
 | 轮回法则 | Reincarnation Law | Law comprehended through multiple reincarnations - same tier as Space-Time Laws |
 | 鬼道法则 | Ghost Dao Law | Immortal-path law extracted from the Ghost Immortal via Myriad Dao Stone - reserved for Yan Shiya |
+| 剑道法则 | Sword Dao Law | Immortal-path law of the sword - obtained from Tang Yin's fortune - given to Liu Shuwan |
 
 ## Techniques
 
@@ -219,6 +224,7 @@
 | 天兔一族 | Celestial Rabbit Tribe | Yao clan in Demon Domain - has an Immortal-path protector |
 | 狐族 | Fox Race | One of three great powers in the Demon Domain |
 | 狼族 | Wolf Race | Strongest of three great powers in the Demon Domain - led by ancient Wolf King |
+| 蛇族 | Snake Race | One of three great powers in the Demon Domain - strict bloodline hierarchy - three royal bloodlines |
 
 ## Creatures
 
