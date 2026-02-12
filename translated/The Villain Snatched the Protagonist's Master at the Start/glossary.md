@@ -59,6 +59,9 @@
 | 小九 | Xiao Jiu | Celestial Rabbit Tribe princess - bloodline reversion - congenitally weak body - MC's woman |
 | 玉澜 | Yu Lan | Snake Race Empress - royal bloodline - Ancient Emperor - sabotaged by rival faction |
 | 玉茹 | Yu Ru | Yu Lan's younger sister - Great Emperor - MC's woman |
+| 墨翎 | Mo Ling | Black Water Serpent chieftain - Ancient Emperor - royal bloodline - sabotaged Yu Lan's bloodline |
+| 黑蛇老祖 | Black Serpent Ancestor | Black Water Serpent's Immortal elder - one of five Snake Race Immortals - provided the bloodline poison |
+| 陈凡 | Chen Fan | Chen Changsheng's alias in a previous life |
 
 ## Cultivation Realms
 
@@ -122,6 +125,7 @@
 | 法天象地 | Heaven and Earth Manifestation | Immortal-level technique |
 | 合击之法 | Combined Strike Art | Technique allowing multiple cultivators to fight as one |
 | 玄阴神典 | Mystic Yin Divine Scripture | Cultivation method for Mystic Yin Body - system reward |
+| 血咒 | Blood Curse | Mo Mo's demonic technique - uses blood of the fallen to form runes that boil targets from within |
 
 ## Items
 
