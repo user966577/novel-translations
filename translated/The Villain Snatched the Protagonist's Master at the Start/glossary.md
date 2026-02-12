@@ -52,6 +52,7 @@
 | 玲珑 | Linglong | Pill Emperor's real name - Ancient Emperor level - Heavenly Pill Palace Master |
 | 陈长生 | Chen Changsheng | Child of Destiny - 10th reincarnation - was Pill Emperor's master in previous life |
 | 执法者大统领 | Enforcement Grand Commander | Leader of the Heavenly Pill Palace enforcement squad - Great Emperor level |
+| 鬼仙人 | Ghost Immortal | Reclusive immortal-path cultivator - sinister disposition - came to avenge grandson - killed by Qin Jiang |
 
 ## Cultivation Realms
 
@@ -102,6 +103,9 @@
 | 仙道法则 | Immortal Path Law | Grants the ability to break through to the immortal path - grown from Immortal Path Seed |
 | 气运金龙 | Fortune Golden Dragon | Born when fortune reaches critical mass - governs and distributes fortune with precision |
 | 玄阴之体 | Mystic Yin Body | Xia Qianling's special physique - boosts partner's cultivation |
+| 轮回之力 | Power of Reincarnation | Chen Changsheng's power from 10 reincarnations - can heal and restore |
+| 轮回法则 | Reincarnation Law | Law comprehended through multiple reincarnations - same tier as Space-Time Laws |
+| 鬼道法则 | Ghost Dao Law | Immortal-path law extracted from the Ghost Immortal via Myriad Dao Stone - reserved for Yan Shiya |
 
 ## Techniques
 
@@ -203,6 +207,8 @@
 | 天丹宫 | Heavenly Pill Palace | Alchemy center in Azure Cloud Heaven - hosts Myriad Pill Assembly every decade |
 | 颜家 | Yan Family | Powerful clan in Azure Cloud Heaven - Yan Shiya and Yan Yun's former family - annihilated by Mo Mo |
 | 万丹大会 | Myriad Pill Assembly | Heavenly Pill Palace's decennial alchemy competition and gathering |
+| 丹王 | Pill King | Title awarded to the Myriad Pill Assembly champion |
+| 丹火淬体 | Pill Fire Tempering | Reward for the Pill King - condensed ancestral flames that break bottlenecks and enhance fire affinity |
 
 ## Creatures
 
