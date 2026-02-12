@@ -225,6 +225,8 @@
 | 狐族 | Fox Race | One of three great powers in the Demon Domain |
 | 狼族 | Wolf Race | Strongest of three great powers in the Demon Domain - led by ancient Wolf King |
 | 蛇族 | Snake Race | One of three great powers in the Demon Domain - strict bloodline hierarchy - three royal bloodlines |
+| 紫鳞蛇 | Purple-Scale Serpent | Yu Lan's royal bloodline faction within the Snake Race |
+| 黑水蛇 | Black Water Serpent | Rival royal bloodline faction within the Snake Race - competing for clan chief position |
 
 ## Creatures
 
