@@ -48,6 +48,10 @@
 | 魔殿始祖 | Demon Hall Founder | Sealed immortal-path powerhouse in a painting - loli appearance - purple hair - crimson eyes - MC's woman - real name Mo Mo (魔茉) |
 | 魔茉 | Mo Mo | Demon Hall Founder's real name |
 | 魔殿殿主 | Demon Hall Master | Leader of the Demon Hall - became Chaos Marauder under Qin Jiang |
+| 丹语 | Dan Yu | Heavenly Pill Palace Saintess - fortune heroine - MC's woman |
+| 玲珑 | Linglong | Pill Emperor's real name - Ancient Emperor level - Heavenly Pill Palace Master |
+| 陈长生 | Chen Changsheng | Child of Destiny - 10th reincarnation - was Pill Emperor's master in previous life |
+| 执法者大统领 | Enforcement Grand Commander | Leader of the Heavenly Pill Palace enforcement squad - Great Emperor level |
 
 ## Cultivation Realms
 
@@ -144,6 +148,7 @@
 | 龙珠 | Dragon Pearl | Immortal founder's legacy artifact - crystallized cultivation of Divine Dragon Empire's founder - given to Long Xin'er |
 | 仙王印 | Immortal King Seal | Gift from Myriad Realms Tower creator - can slay Immortal Kings at full power - given to Qin Jiang |
 | 天魔丹 | Heavenly Demon Pill | Immortal-grade pill - purifies demonic power - creates affinity toward blood essence donor - system reward |
+| 帝丹 | Emperor Pill | Great Emperor-level medicinal pill |
 
 ## Locations
 
@@ -175,6 +180,7 @@
 | 秦家城 | Qin Family City | Qin Jiang's base of operations in Azure Cloud Heaven |
 | 乱葬岗 | Mass Graves | Dumping ground for executed criminals in the Imperial City |
 | 丹城 | Pill City | City surrounding the Heavenly Pill Palace in Azure Cloud Heaven |
+| 丹香楼 | Pill Fragrance Pavilion | Largest restaurant in Pill City - backed by the Heavenly Pill Palace |
 
 ## Organizations
 
