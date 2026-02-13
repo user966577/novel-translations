@@ -72,7 +72,8 @@
 | 道坤 | Dao Kun | Human Dao Sect Master - Human Immortal - first under True Immortals - also called Immortal Kun (坤仙人) |
 | 陈百柘 | Chen Baizhe | Chen Qi'er's sister - Human Immortal - Human Dao Sect elder - known as Baizhe Immortal (百柘仙子) - guqin player - MC's woman |
 | 陈无名 | Chen Wuming | Beggar - Child of Destiny - adopted surname from Chen Qi'er - prospective disciple of Chen Qi'er - manipulated by Black Dragon into distrusting his master |
-| 安溪禾 | An Xihe | Celestial Formation Fairy (天阵仙子) - True Immortal sealed beneath Chaos District - on the verge of Immortal King - disguised as young woman in white to seduce Qin Jiang - formation specialist - MC's woman |
+| 安溪禾 | An Xihe | Celestial Formation Fairy (天阵仙子) - Immortal King - formerly sealed beneath Chaos District - formation specialist - MC's woman |
+| 苍鹰仙人 | Eagle Immortal | Rogue cultivator Human Immortal in Demon Domain - participated in Black Serpent plot against Qin Jiang - killed by Xue Mei |
 
 ## Cultivation Realms
 
@@ -141,6 +142,7 @@
 | 望气术 | Fortune-Reading Art | Human Dao Sect's signature technique - reads a person's fortune/luck through their aura - Dao Zhen's mastery is unparalleled |
 | 道法自然 | Dao Follows Nature | Human Dao Sect's supreme cultivation method - philosophy of desirelessness and letting things take their natural course - given to Qin Jiang by Chen Baizhe |
 | 心经 | Heart Sutra | Cultivation method created by Li Xueyi (Qin Jiang's mother) - still incomplete - shares principles with Dao Follows Nature - enormous potential |
+| 石化 | Petrification | Celestial Rabbit Tribe's strongest bloodline ability - only usable by those with pure bloodline - Xue Mei and Xiao Jiu can use it - turns targets to stone |
 
 ## Items
 
@@ -189,6 +191,7 @@
 | 真灵奴印 | True Spirit Slave Seal | System reward - forces permanent enslavement with no removal method - survives reincarnation |
 | 真凰羽 | True Phoenix Plume | Immortal King-grade weapon - feather fan forged from Immortal King phoenix plume - contains phoenix fire and blood essence - system purchase for Lian'er |
 | 赤焰烈火 | Crimson Blaze | Fire born from phoenix nirvana - can burn flesh and Primordial Spirit - cultivating with it forges indestructible golden body - system purchase for Little Red |
+| 阴阳法则 | Yin-Yang Law | Qin Jiang's cultivation law - supreme path on par with Space-Time and Reincarnation - enables dual cultivation benefits for partners |
 
 ## Locations
 
@@ -262,6 +265,7 @@
 | 青莲神宫 | Azure Lotus Divine Palace | All-female sect in Central Regions - True Immortal ancestor - recruits based on beauty - one of three strongest factions |
 | 无极圣地 | Limitless Holy Land | One of three strongest factions in the Central Regions - True Immortal - known for aggression |
 | 人道宗 | Human Dao Sect | One of three strongest factions in the Central Regions - True Immortal - known for calculating nature |
+| 马族 | Horse Tribe | Yao clan in the Demon Domain - ancestor was Human Immortal - exterminated by the Celestial Rabbit Tribe |
 | 江龙帮 | River Dragon Gang | Black Dragon's gang in the Chaos District - Qin Jiang as First Boss |
 | 混沌宗 | Chaos Sect | Largest faction in the Chaos District - puppet organization of the sealed True Immortal |
 
