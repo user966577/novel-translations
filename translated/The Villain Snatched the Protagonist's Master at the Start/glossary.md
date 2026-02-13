@@ -75,6 +75,8 @@
 | 安溪禾 | An Xihe | Celestial Formation Fairy (天阵仙子) - Immortal King - formerly sealed beneath Chaos District - formation specialist - MC's woman |
 | 苍鹰仙人 | Eagle Immortal | Rogue cultivator Human Immortal in Demon Domain - participated in Black Serpent plot against Qin Jiang - killed by Xue Mei |
 | 秦山河 | Qin Shanhe | Qin Jiang's grandfather - Qin family patriarch - Supreme Realm - mediocre talent but politically shrewd |
+| 陈凝霜 | Chen Ningshuang | Chen Ningbing's younger sister - 3 years old - already smitten with Qin Jiang |
+| 赵兴 | Zhao Xing | Zhao family head in Grey Cloud Heaven - formerly the young master who tried to force marriage with Jian Yao |
 
 ## Cultivation Realms
 
@@ -143,6 +145,7 @@
 | 道法自然 | Dao Follows Nature | Human Dao Sect's supreme cultivation method - philosophy of desirelessness and letting things take their natural course - given to Qin Jiang by Chen Baizhe |
 | 心经 | Heart Sutra | Cultivation method created by Li Xueyi (Qin Jiang's mother) - still incomplete - shares principles with Dao Follows Nature - enormous potential |
 | 石化 | Petrification | Celestial Rabbit Tribe's strongest bloodline ability - only usable by those with pure bloodline - Xue Mei and Xiao Jiu can use it - turns targets to stone |
+| 血脉咒杀术 | Bloodline Curse | Mo Mo's technique - kills all who share a target's bloodline - requires target's blood to activate - those stronger than caster can resist |
 
 ## Items
 
@@ -231,6 +234,7 @@
 | 姻缘神殿 | Matchmaking Temple | Hall outside Azure Lotus Divine Palace where suitors send gifts to court the women |
 | 人道河 | Human Dao River | Sacred river cultivated by the Human Dao Sect over millennia - enriched with spiritual treasures - aids cultivation - spawns rare items |
 | 天域 | Heavenly Domain | Higher realm above the Nine Heavens and Ten Lands - accessible via passage that opens 30 years after a Level Two Domain is achieved |
+| 苍云天 | Grey Cloud Heaven | One of the Nine Heavens - Jian Yao and Mo Mo's homeland - home of the Sword Sect - rumored to contain an Immortal King's secret treasure |
 
 ## Organizations
 
@@ -273,6 +277,7 @@
 | 功勋阁 | Merit Hall | Huaxia Manor's reward and task system - members earn Merit Points exchangeable for treasures |
 | 神宫四仙 | Divine Palace's Four Immortals | Four Human Immortal women of the Azure Lotus Divine Palace - Wu Qi, Jiang Rou, Mu Xiyue, Xu Yuxuan |
 | 华夏学院 | Huaxia Academy | Training institution for Heavenly Domain preparation - located in the Chaos at the center of Nine Heavens and Ten Lands - Immortal King dean (An Xihe) - True Immortal vice deans (Qing Chan and Mo Mo) |
+| 剑宗 | Sword Sect | Jian Yao's original sect in Grey Cloud Heaven - once the strongest sect there - fell from power due to rumors of an Immortal King's secret treasure - currently has only one Human Immortal |
 
 ## Creatures
 
