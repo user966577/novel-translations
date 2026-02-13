@@ -89,6 +89,7 @@
 | 南宫云 | Nangong Yun | Child of Destiny - Nangong family heir - alias Gu Yun (孤云) - founded the anti-Huaxia alliance - Supreme Realm |
 | 血月 | Xue Yue | Blood Tribe royalty - red-clothed woman in anti-Huaxia alliance - saved from forced marriage - formerly had feelings for Nangong Yun - now QJ's woman |
 | 穆云潇 | Mu Yunxiao | Yue Weiwei's master - Human Immortal - reclusive hermit - ice-fire dual attributes (ice dominant) - timid personality - raised Weiwei like a daughter - QJ's woman |
+| 慕容情 | Murong Qing | Xue Yue's mother - Blood Tribe chief's wife - cold beauty mature type - imprisoned by Blood Tribe after Xue Yue's expulsion - harbors resentment toward the tribe |
 
 ## Cultivation Realms
 
@@ -212,6 +213,7 @@
 | 阴阳法则 | Yin-Yang Law | Qin Jiang's cultivation law - supreme path on par with Space-Time and Reincarnation - enables dual cultivation benefits for partners |
 | 混沌剑 | Chaos Sword | Immortal King-grade weapon - forged from Chaos Stone by the Sword Sect a million years ago - houses three Sword Sect True Immortal sword spirits - blood sacrifice of 11 True Immortals elevated it from half-step to true Immortal King grade - bonded to Li Yang |
 | 玄阳神石 | Mystic Yang Divine Stone | Immortal King-grade treasure - dense yang/fire-attribute energy - found by Nangong Yun in a True Immortal's pocket world - confiscated by Zhou family for Qin Jiang - used to strengthen Mu Yunxiao's fire-attribute origin |
+| 血灵草 | Blood Spirit Grass | Staple cultivation resource of the Blood Tribe - blankets their territory - produces a blood-like metallic scent - not essential but boosts cultivation speed |
 
 ## Locations
 
