@@ -85,9 +85,10 @@
 | 赵俊才 | Zhao Juncai | Azure Cloud Heaven Zhao family - Great Emperor - Huaxia Academy elite student - charmed by Ye Xuan |
 | 莫琳琳 | Mo Linlin | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
 | 陆月 | Lu Yue | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
-| 月薇薇 | Yue Weiwei | Great Emperor - captured from the anti-Huaxia alliance - Nangong Yun's senior sister - QJ's woman |
+| 月薇薇 | Yue Weiwei | Great Emperor - from the anti-Huaxia alliance - Nangong Yun's senior sister - raised by Mu Yunxiao since childhood - QJ's woman |
 | 南宫云 | Nangong Yun | Child of Destiny - Nangong family heir - alias Gu Yun (孤云) - founded the anti-Huaxia alliance - Supreme Realm |
 | 血月 | Xue Yue | Blood Tribe royalty - red-clothed woman in anti-Huaxia alliance - saved from forced marriage - formerly had feelings for Nangong Yun - now QJ's woman |
+| 穆云潇 | Mu Yunxiao | Yue Weiwei's master - Human Immortal - reclusive hermit - ice-fire dual attributes (ice dominant) - timid personality - raised Weiwei like a daughter - QJ's woman |
 
 ## Cultivation Realms
 
@@ -298,6 +299,7 @@
 | 反华夏联盟 | Anti-Huaxia Alliance | Rebel group in Grey Cloud Heaven founded by Nangong Yun - pitifully weak (3 Great Emperors, 16 Supremes) - infiltrated by Qin Jiang |
 | 南宫世家 | Nangong Family | Destroyed by Huaxia for spreading truth about the Chaos Plan - Nangong Yun's former family |
 | 血族 | Blood Tribe | Ancient race with True Immortals - million members - royal bloodline includes Xue Yue - implicated by Xue Yue's membership in the Anti-Huaxia Alliance |
+| 周家 | Zhou Family | Nangong family's sworn enemies - has True Immortals - sent a Human Immortal to kill Nangong Yun's brothers |
 
 ## Creatures
 
