@@ -87,10 +87,9 @@
 | 阴阳境 | Yin-Yang Realm |  |
 | 归一境 | Unity Realm |  |
 | 圣人境 | Saint Realm |  |
-| 至尊境<br>一劫至尊<br>九劫至尊| Supreme Realm<br>&emsp;&emsp;1. First Tribulation Supreme<br>&emsp;&emsp;2. Nine Tribulations Supreme | |
-| 大帝<br>古帝 | Great Emperor<br>&emsp;&emsp;1. Ancient Emperor | Realm above Supreme<br>One step away from the Immortal Path|
-| <br>人仙<br>真仙 | Immortal Path<br>&emsp;&emsp;1. Human Immortal<br>&emsp;&emsp;2. True Immortal | |
-| 仙王 | Immortal King | Realm within the immortal path - above True Immortal |
+| 至尊境<br>一劫至尊<br>九劫至尊| Supreme Realm<br>&emsp;1. First Tribulation Supreme<br>&emsp;2. Nine Tribulations Supreme | |
+| 大帝<br>古帝 | Great Emperor<br>&emsp;1. Ancient Emperor | Realm above Supreme<br>One step away from the Immortal Path|
+| <br>人仙<br>真仙<br>仙王 | Immortal Path<br>&emsp;1. Human Immortal<br>&emsp;2. True Immortal<br>&emsp;3. Immortal King | |
 
 ## Cultivation Terms
 
@@ -230,6 +229,7 @@
 | 混沌区 | Chaos District | Lawless zone within the Central Regions - True Immortal sealed beneath it |
 | 姻缘神殿 | Matchmaking Temple | Hall outside Azure Lotus Divine Palace where suitors send gifts to court the women |
 | 人道河 | Human Dao River | Sacred river cultivated by the Human Dao Sect over millennia - enriched with spiritual treasures - aids cultivation - spawns rare items |
+| 天域 | Heavenly Domain | Higher realm above the Nine Heavens and Ten Lands - accessible via passage that opens 30 years after a Level Two Domain is achieved |
 
 ## Organizations
 
@@ -268,10 +268,21 @@
 | 马族 | Horse Tribe | Yao clan in the Demon Domain - ancestor was Human Immortal - exterminated by the Celestial Rabbit Tribe |
 | 江龙帮 | River Dragon Gang | Black Dragon's gang in the Chaos District - Qin Jiang as First Boss |
 | 混沌宗 | Chaos Sect | Largest faction in the Chaos District - puppet organization of the sealed True Immortal |
+| 华夏府 | Huaxia Manor | Qin Jiang's faction - encompasses all of Azure Cloud Heaven - structured as an empire with subordinate factions paying tribute |
+| 功勋阁 | Merit Hall | Huaxia Manor's reward and task system - members earn Merit Points exchangeable for treasures |
+| 神宫四仙 | Divine Palace's Four Immortals | Four Human Immortal women of the Azure Lotus Divine Palace - Wu Qi, Jiang Rou, Mu Xiyue, Xu Yuxuan |
 
 ## Creatures
 
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace - nicknamed Little Xu (小虚) |
-| 小红 | Little Red | Phoenix - Qin Lian'er's companion - now in human form (Supreme Realm) - tsundere personality |
+| 小红 | Little Red | Phoenix - Qin Lian'er's companion - now in human form (Supreme Realm) - tsundere personality - MC's woman |
+
+## Titles
+
+| Chinese | English | Notes |
+|---------|---------|-------|
+| 府主 | Manor Lord | Qin Jiang's title as head of Huaxia Manor |
+| 大尊 | Grand Sovereign | Mysterious being far above Immortal King - warned Qin Jiang to stay away from his daughter - sent decree establishing the Heavenly Domain passage |
+| 功勋值 | Merit Points | Currency within Huaxia Manor's Merit Hall - earned through missions and contributions |
