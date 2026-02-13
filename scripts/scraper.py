@@ -2685,6 +2685,56 @@ def scrape_novel(novel_url: str, output_dir: str = DEFAULT_OUTPUT_DIR, delay: fl
         session.close()
 
 
+def get_remote_chapter_count(url: str) -> tuple[str, int]:
+    """Get the total chapter count from a novel's source URL without downloading.
+    Returns (novel_title, total_chapter_count)."""
+    site = detect_site(url)
+    session = requests.Session()
+    try:
+        if site == "jpxs123":
+            title, _, total = get_jpxs123_first_chapter(url, session, skip_title_fetch=False)
+            return title, total
+        elif site == "sjks88":
+            title, _, total = get_sjks88_first_chapter(url, session, skip_title_fetch=False)
+            return title, total
+        elif site == "ffxs8":
+            title, _, total = get_ffxs8_first_chapter(url, session, skip_title_fetch=False)
+            return title, total
+        elif site == "wxdzs":
+            title, _, chapters = get_wxdzs_first_chapter(url, session, skip_title_fetch=False)
+            return title, len(chapters)
+        elif site == "wfxs":
+            title, _, chapters = get_wfxs_first_chapter(url, session, skip_title_fetch=False)
+            return title, len(chapters)
+        elif site == "uukanshu":
+            title, _, chapters = get_uukanshu_first_chapter(url, session, skip_title_fetch=False)
+            return title, len(chapters)
+        elif site == "novel543":
+            novel_id, _ = extract_novel543_info(url)
+            parsed = urlparse(url)
+            toc_url = f"{parsed.scheme}://{parsed.netloc}/{novel_id}/dir"
+            soup = fetch_page(toc_url, session)
+            if not soup:
+                raise Exception(f"Failed to fetch TOC page: {toc_url}")
+            title_tag = soup.find("h1")
+            title = title_tag.get_text(strip=True) if title_tag else "Unknown Novel"
+            title = re.sub(r"(章節列表|章节列表|目錄|目录)$", "", title).strip()
+            chapter_pattern = re.compile(rf"/{novel_id}/(\d+)_(\d+)\.html")
+            seen = set()
+            for link in soup.find_all("a", href=True):
+                match = chapter_pattern.search(link["href"])
+                if match:
+                    seen.add(int(match.group(2)))
+            return title, len(seen)
+        elif site == "shuhaige":
+            title, chapters = get_chapter_list(url, session)
+            return title, len(chapters)
+        else:
+            raise Exception(f"Unsupported site for remote chapter count: {site}")
+    finally:
+        session.close()
+
+
 def main():
     """Main entry point."""
     import argparse
