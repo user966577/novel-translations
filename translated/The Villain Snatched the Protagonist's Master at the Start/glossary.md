@@ -77,6 +77,9 @@
 | 秦山河 | Qin Shanhe | Qin Jiang's grandfather - Qin family patriarch - Supreme Realm - mediocre talent but politically shrewd |
 | 陈凝霜 | Chen Ningshuang | Chen Ningbing's younger sister - 3 years old - already smitten with Qin Jiang |
 | 赵兴 | Zhao Xing | Zhao family head in Grey Cloud Heaven - formerly the young master who tried to force marriage with Jian Yao |
+| 李清秋 | Li Qingqiu | Li family heir in Grey Cloud Heaven - Frost Divine Body - cold personality - extraordinarily talented - Qin Jiang's woman |
+| 李阳 | Li Yang | Li family side branch - Child of Destiny - possesses the Chaos Sword (Immortal King secret treasure from the Sword Sect) - seems weak but has extraordinary hidden potential |
+| 李家老祖 | Li Family Ancestor | Li family True Immortal - pragmatic survivor - reluctantly hosts Qin Jiang's group |
 
 ## Cultivation Realms
 
@@ -99,6 +102,7 @@
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 无垢神体 | Immaculate Divine Body | No cultivation bottlenecks |
+| 寒冰神体 | Frost Divine Body | Li Qingqiu's special physique - ice attribute - causes emotional flatness |
 | 饕餮神体 | Taotie Divine Body | Devouring attribute |
 | 火神体 | Fire Divine Body | Xiao Fan's hidden body |
 | 反派剧透系统 | Villain Spoiler System | MC's cheat |
@@ -146,6 +150,8 @@
 | 心经 | Heart Sutra | Cultivation method created by Li Xueyi (Qin Jiang's mother) - still incomplete - shares principles with Dao Follows Nature - enormous potential |
 | 石化 | Petrification | Celestial Rabbit Tribe's strongest bloodline ability - only usable by those with pure bloodline - Xue Mei and Xiao Jiu can use it - turns targets to stone |
 | 血脉咒杀术 | Bloodline Curse | Mo Mo's technique - kills all who share a target's bloodline - requires target's blood to activate - those stronger than caster can resist |
+| 冰神诀 | Ice Divine Art | Li family cultivation technique - includes the Ice Phoenix Spirit manifestation |
+| 冰凰灵 | Ice Phoenix Spirit | Manifestation from the Ice Divine Art - summons an ice phoenix |
 
 ## Items
 
@@ -195,6 +201,7 @@
 | 真凰羽 | True Phoenix Plume | Immortal King-grade weapon - feather fan forged from Immortal King phoenix plume - contains phoenix fire and blood essence - system purchase for Lian'er |
 | 赤焰烈火 | Crimson Blaze | Fire born from phoenix nirvana - can burn flesh and Primordial Spirit - cultivating with it forges indestructible golden body - system purchase for Little Red |
 | 阴阳法则 | Yin-Yang Law | Qin Jiang's cultivation law - supreme path on par with Space-Time and Reincarnation - enables dual cultivation benefits for partners |
+| 混沌剑 | Chaos Sword | Immortal King-grade weapon - forged from Chaos Stone by the Sword Sect a million years ago - houses three Sword Sect True Immortal sword spirits - blood sacrifice of 11 True Immortals elevated it from half-step to true Immortal King grade - bonded to Li Yang |
 
 ## Locations
 
@@ -278,6 +285,7 @@
 | 神宫四仙 | Divine Palace's Four Immortals | Four Human Immortal women of the Azure Lotus Divine Palace - Wu Qi, Jiang Rou, Mu Xiyue, Xu Yuxuan |
 | 华夏学院 | Huaxia Academy | Training institution for Heavenly Domain preparation - located in the Chaos at the center of Nine Heavens and Ten Lands - Immortal King dean (An Xihe) - True Immortal vice deans (Qing Chan and Mo Mo) |
 | 剑宗 | Sword Sect | Jian Yao's original sect in Grey Cloud Heaven - once the strongest sect there - fell from power due to rumors of an Immortal King's secret treasure - currently has only one Human Immortal |
+| 李家 | Li Family | Ancient clan in Grey Cloud Heaven - sworn enemies of the Zhao family - has one True Immortal ancestor - hosts Qin Jiang's group after the Zhao family's destruction |
 
 ## Creatures
 
