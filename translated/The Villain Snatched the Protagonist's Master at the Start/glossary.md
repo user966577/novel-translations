@@ -79,7 +79,8 @@
 | 赵兴 | Zhao Xing | Zhao family head in Grey Cloud Heaven - formerly the young master who tried to force marriage with Jian Yao |
 | 李清秋 | Li Qingqiu | Li family heir in Grey Cloud Heaven - Frost Divine Body - cold personality - extraordinarily talented - Qin Jiang's woman |
 | 李阳 | Li Yang | Li family side branch - Child of Destiny - possesses the Chaos Sword (Immortal King secret treasure from the Sword Sect) - seems weak but has extraordinary hidden potential |
-| 李家老祖 | Li Family Ancestor | Li family True Immortal - pragmatic survivor - reluctantly hosts Qin Jiang's group |
+| 李家老祖 | Li Family Ancestor | Li family True Immortal - pragmatic survivor - Lord of Huaxia Grey Cloud Heaven Branch |
+| 孙千 | Sun Qian | Grey Cloud Heaven True Immortal - enslaved via True Spirit Slave Seal - Vice Lord of Huaxia Grey Cloud Heaven Branch |
 
 ## Cultivation Realms
 
