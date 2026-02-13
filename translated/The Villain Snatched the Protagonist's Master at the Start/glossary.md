@@ -296,7 +296,7 @@
 | 华夏学院 | Huaxia Academy | Training institution for Heavenly Domain preparation - located in the Chaos at the center of Nine Heavens and Ten Lands - Immortal King dean (An Xihe) - True Immortal vice deans (Qing Chan and Mo Mo) |
 | 剑宗 | Sword Sect | Jian Yao's original sect in Grey Cloud Heaven - once the strongest sect there - fell from power due to rumors of an Immortal King's secret treasure - currently has only one Human Immortal |
 | 李家 | Li Family | Ancient clan in Grey Cloud Heaven - sworn enemies of the Zhao family - has one True Immortal ancestor - hosts Qin Jiang's group after the Zhao family's destruction |
-| 反华夏联盟 | Anti-Huaxia Alliance | Rebel group in Grey Cloud Heaven founded by Nangong Yun - pitifully weak (3 Great Emperors, 16 Supremes) - infiltrated by Qin Jiang |
+| 反华夏联盟 | Anti-Huaxia Alliance | Rebel group in Mystic Cloud Heaven founded by Nangong Yun - pitifully weak (3 Great Emperors, 16 Supremes) - infiltrated by Qin Jiang |
 | 南宫世家 | Nangong Family | Destroyed by Huaxia for spreading truth about the Chaos Plan - Nangong Yun's former family |
 | 血族 | Blood Tribe | Ancient race with True Immortals - million members - royal bloodline includes Xue Yue - implicated by Xue Yue's membership in the Anti-Huaxia Alliance |
 | 周家 | Zhou Family | Nangong family's sworn enemies - has True Immortals - sent a Human Immortal to kill Nangong Yun's brothers |
