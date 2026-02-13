@@ -87,7 +87,7 @@
 | 陆月 | Lu Yue | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
 | 月薇薇 | Yue Weiwei | Great Emperor - captured from the anti-Huaxia alliance - Nangong Yun's senior sister - QJ's woman |
 | 南宫云 | Nangong Yun | Child of Destiny - Nangong family heir - alias Gu Yun (孤云) - founded the anti-Huaxia alliance - Supreme Realm |
-| 血月 | Xue Yue | Red-clothed woman in anti-Huaxia alliance - saved from forced marriage - has feelings for Nangong Yun |
+| 血月 | Xue Yue | Blood Tribe royalty - red-clothed woman in anti-Huaxia alliance - saved from forced marriage - formerly had feelings for Nangong Yun - now QJ's woman |
 
 ## Cultivation Realms
 
@@ -297,6 +297,7 @@
 | 李家 | Li Family | Ancient clan in Grey Cloud Heaven - sworn enemies of the Zhao family - has one True Immortal ancestor - hosts Qin Jiang's group after the Zhao family's destruction |
 | 反华夏联盟 | Anti-Huaxia Alliance | Rebel group in Grey Cloud Heaven founded by Nangong Yun - pitifully weak (3 Great Emperors, 16 Supremes) - infiltrated by Qin Jiang |
 | 南宫世家 | Nangong Family | Destroyed by Huaxia for spreading truth about the Chaos Plan - Nangong Yun's former family |
+| 血族 | Blood Tribe | Ancient race with True Immortals - million members - royal bloodline includes Xue Yue - implicated by Xue Yue's membership in the Anti-Huaxia Alliance |
 
 ## Creatures
 
