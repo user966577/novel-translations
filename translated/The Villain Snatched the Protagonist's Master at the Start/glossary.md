@@ -74,6 +74,7 @@
 | 陈无名 | Chen Wuming | Beggar - Child of Destiny - adopted surname from Chen Qi'er - prospective disciple of Chen Qi'er - manipulated by Black Dragon into distrusting his master |
 | 安溪禾 | An Xihe | Celestial Formation Fairy (天阵仙子) - Immortal King - formerly sealed beneath Chaos District - formation specialist - MC's woman |
 | 苍鹰仙人 | Eagle Immortal | Rogue cultivator Human Immortal in Demon Domain - participated in Black Serpent plot against Qin Jiang - killed by Xue Mei |
+| 秦山河 | Qin Shanhe | Qin Jiang's grandfather - Qin family patriarch - Supreme Realm - mediocre talent but politically shrewd |
 
 ## Cultivation Realms
 
@@ -271,6 +272,7 @@
 | 华夏府 | Huaxia Manor | Qin Jiang's faction - encompasses all of Azure Cloud Heaven - structured as an empire with subordinate factions paying tribute |
 | 功勋阁 | Merit Hall | Huaxia Manor's reward and task system - members earn Merit Points exchangeable for treasures |
 | 神宫四仙 | Divine Palace's Four Immortals | Four Human Immortal women of the Azure Lotus Divine Palace - Wu Qi, Jiang Rou, Mu Xiyue, Xu Yuxuan |
+| 华夏学院 | Huaxia Academy | Training institution for Heavenly Domain preparation - located in the Chaos at the center of Nine Heavens and Ten Lands - Immortal King dean (An Xihe) - True Immortal vice deans (Qing Chan and Mo Mo) |
 
 ## Creatures
 
