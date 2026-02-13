@@ -43,7 +43,7 @@ novel-translations/
 
 **During Translation**:
 - Check glossary for: character names, cultivation terms, locations, techniques, organizations, titles, creatures, items
-- Match category to understand appropriate formatting (e.g., italicize techniques, capitalize proper nouns)
+- Match category to understand appropriate formatting (e.g., capitalize proper nouns)
 - For unlisted terms: translate contextually and flag for glossary addition
 
 **Never**:
@@ -112,10 +112,14 @@ novel-translations/
 - The raw Chinese already uses 【】 for system text; preserve those brackets in translation rather than converting to English-style brackets
 - If a novel has no system, this rule does not apply
 
+**Dashes**:
+- Use em dashes (—) with no surrounding spaces for interruptions, asides, and appositives: "He was an Immortal Emperor—arrogant and domineering"
+- NEVER use double hyphens ( -- ) as a substitute for em dashes
+- Hyphens (-) are only for compound words (e.g., "well-known", "half-Emperor")
+
 **Emphasis**:
 - Internal thoughts: Use apostrophes, not italics ('Like this, not *like this*')
-- Italics: technique names when first introduced, foreign terms needing distinction
-- Bold: **never use for emphasis in narrative**
+- NEVER use markdown formatting (bold, italics, etc.) in chapter .txt files—plain text only
 - Capitals: only for proper nouns and shouting
 
 **Paragraph Structure**:
