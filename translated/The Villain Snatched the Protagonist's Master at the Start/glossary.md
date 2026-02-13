@@ -83,6 +83,8 @@
 | 孙千 | Sun Qian | Grey Cloud Heaven True Immortal - enslaved via True Spirit Slave Seal - Vice Lord of Huaxia Grey Cloud Heaven Branch |
 | 叶璇 | Ye Xuan | Ye Xuan (叶玄) transformed into a woman - now living as female - Great Emperor - works as Qin Jiang's agent to manipulate Li Yang - secretly infatuated with Qin Jiang |
 | 赵俊才 | Zhao Juncai | Azure Cloud Heaven Zhao family - Great Emperor - Huaxia Academy elite student - charmed by Ye Xuan |
+| 莫琳琳 | Mo Linlin | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
+| 陆月 | Lu Yue | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
 
 ## Cultivation Realms
 
