@@ -14,7 +14,7 @@
 | 陈凝冰 | Chen Ningbing | City lord's daughter - drawn to strength - MC's woman |
 | 陈烈 | Chen Lie | Chen Ningbing's father - Azure City Town city lord |
 | 叶擎天 | Ye Qingtian | Ye family eldest son - lost contest for family head |
-| 叶玄 | Ye Xuan | New Child of Destiny - Ye Qingtian's son |
+| 叶玄 | Ye Xuan | Former Child of Destiny - Ye Qingtian's son - transformed into a woman by Qin Jiang - now goes by 叶璇 |
 | 叶凌天 | Ye Lingtian | Ye family head - Ye Ling'er's father |
 | 秦昊 | Qin Hao | Qin Jiang's father - Unity Realm Perfection |
 | 血玫瑰 | Blood Rose | Owner of Rose Casino in Ye City |
@@ -81,6 +81,8 @@
 | 李阳 | Li Yang | Li family side branch - Child of Destiny - possesses the Chaos Sword (Immortal King secret treasure from the Sword Sect) - seems weak but has extraordinary hidden potential |
 | 李家老祖 | Li Family Ancestor | Li family True Immortal - pragmatic survivor - Lord of Huaxia Grey Cloud Heaven Branch |
 | 孙千 | Sun Qian | Grey Cloud Heaven True Immortal - enslaved via True Spirit Slave Seal - Vice Lord of Huaxia Grey Cloud Heaven Branch |
+| 叶璇 | Ye Xuan | Ye Xuan (叶玄) transformed into a woman - now living as female - Great Emperor - works as Qin Jiang's agent to manipulate Li Yang - secretly infatuated with Qin Jiang |
+| 赵俊才 | Zhao Juncai | Azure Cloud Heaven Zhao family - Great Emperor - Huaxia Academy elite student - charmed by Ye Xuan |
 
 ## Cultivation Realms
 
@@ -258,7 +260,7 @@
 | 丹部 | Alchemy Division | Fire Tribe's alchemy branch - led by Huo Lie |
 | 武部 | Martial Division | Fire Tribe's martial branch - led by Huo Ying'er |
 | 傀儡宗 | Puppet Sect | Destroyed sect - refined corpse puppets from ancestral remains - annihilated ~1000 years ago |
-| 混沌掠夺者 | Chaos Marauders | Bandits who operate in the Chaos - prey on travelers between continents |
+| 混沌掠夺者 | Chaos Marauders | Former Demon Hall operatives reformed by Qin Jiang - now reorganized as Chaos Guardians (混沌守护者) to patrol and protect Huaxia's interests in the Chaos |
 | 神龙帝国 | Divine Dragon Empire | Ruling power of the Divine Dragon Continent - led by the Dragon Emperor |
 | 供奉 | Imperial Patron | Great Emperor-level protectors of the Divine Dragon Empire - four total |
 | 魔殿 | Demon Hall | Evil organization within the Divine Dragon Empire - recurring antagonists - tried to recruit the Ninth Prince |
