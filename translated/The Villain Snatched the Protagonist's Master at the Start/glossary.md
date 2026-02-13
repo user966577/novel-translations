@@ -85,6 +85,9 @@
 | 赵俊才 | Zhao Juncai | Azure Cloud Heaven Zhao family - Great Emperor - Huaxia Academy elite student - charmed by Ye Xuan |
 | 莫琳琳 | Mo Linlin | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
 | 陆月 | Lu Yue | Azure Lotus Divine Palace - Ancient Emperor - one of two top-ranked women below Palace Master and Grand Elders |
+| 月薇薇 | Yue Weiwei | Great Emperor - captured from the anti-Huaxia alliance - Nangong Yun's senior sister - QJ's woman |
+| 南宫云 | Nangong Yun | Child of Destiny - Nangong family heir - alias Gu Yun (孤云) - founded the anti-Huaxia alliance - Supreme Realm |
+| 血月 | Xue Yue | Red-clothed woman in anti-Huaxia alliance - saved from forced marriage - has feelings for Nangong Yun |
 
 ## Cultivation Realms
 
@@ -247,6 +250,7 @@
 | 人道河 | Human Dao River | Sacred river cultivated by the Human Dao Sect over millennia - enriched with spiritual treasures - aids cultivation - spawns rare items |
 | 天域 | Heavenly Domain | Higher realm above the Nine Heavens and Ten Lands - accessible via passage that opens 30 years after a Level Two Domain is achieved |
 | 苍云天 | Grey Cloud Heaven | One of the Nine Heavens - Jian Yao and Mo Mo's homeland - home of the Sword Sect - rumored to contain an Immortal King's secret treasure |
+| 玄云天 | Mystic Cloud Heaven | One of the Nine Heavens - target of the Chaos Plan - where Nangong Yun's anti-Huaxia alliance is based |
 
 ## Organizations
 
@@ -291,6 +295,8 @@
 | 华夏学院 | Huaxia Academy | Training institution for Heavenly Domain preparation - located in the Chaos at the center of Nine Heavens and Ten Lands - Immortal King dean (An Xihe) - True Immortal vice deans (Qing Chan and Mo Mo) |
 | 剑宗 | Sword Sect | Jian Yao's original sect in Grey Cloud Heaven - once the strongest sect there - fell from power due to rumors of an Immortal King's secret treasure - currently has only one Human Immortal |
 | 李家 | Li Family | Ancient clan in Grey Cloud Heaven - sworn enemies of the Zhao family - has one True Immortal ancestor - hosts Qin Jiang's group after the Zhao family's destruction |
+| 反华夏联盟 | Anti-Huaxia Alliance | Rebel group in Grey Cloud Heaven founded by Nangong Yun - pitifully weak (3 Great Emperors, 16 Supremes) - infiltrated by Qin Jiang |
+| 南宫世家 | Nangong Family | Destroyed by Huaxia for spreading truth about the Chaos Plan - Nangong Yun's former family |
 
 ## Creatures
 
