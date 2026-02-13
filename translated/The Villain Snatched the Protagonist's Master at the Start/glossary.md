@@ -211,6 +211,7 @@
 | 赤焰烈火 | Crimson Blaze | Fire born from phoenix nirvana - can burn flesh and Primordial Spirit - cultivating with it forges indestructible golden body - system purchase for Little Red |
 | 阴阳法则 | Yin-Yang Law | Qin Jiang's cultivation law - supreme path on par with Space-Time and Reincarnation - enables dual cultivation benefits for partners |
 | 混沌剑 | Chaos Sword | Immortal King-grade weapon - forged from Chaos Stone by the Sword Sect a million years ago - houses three Sword Sect True Immortal sword spirits - blood sacrifice of 11 True Immortals elevated it from half-step to true Immortal King grade - bonded to Li Yang |
+| 玄阳神石 | Mystic Yang Divine Stone | Immortal King-grade treasure - dense yang/fire-attribute energy - found by Nangong Yun in a True Immortal's pocket world - confiscated by Zhou family for Qin Jiang - used to strengthen Mu Yunxiao's fire-attribute origin |
 
 ## Locations
 
