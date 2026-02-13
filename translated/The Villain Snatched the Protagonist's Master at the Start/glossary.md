@@ -90,7 +90,8 @@
 | 血月 | Xue Yue | Blood Tribe royalty - red-clothed woman in anti-Huaxia alliance - saved from forced marriage - formerly had feelings for Nangong Yun - now QJ's woman |
 | 穆云潇 | Mu Yunxiao | Yue Weiwei's master - Human Immortal - reclusive hermit - ice-fire dual attributes (ice dominant) - timid personality - raised Weiwei like a daughter - QJ's woman |
 | 慕容情 | Murong Qing | Xue Yue's mother - Blood Tribe chief's wife - cold beauty mature type - imprisoned by Blood Tribe after Xue Yue's expulsion - harbors resentment toward the tribe - now living with QJ's group - QJ's woman |
-| 武樱桃 | Wu Yingtao | Fortune heroine - Wu family minor branch - shy personality - her brother secretly hides extraordinary talent (likely Child of Destiny) - selected by QJ from Mystic Cloud Heaven beauty pageant |
+| 武樱桃 | Wu Yingtao | Fortune heroine - Wu family minor branch - shy personality - possesses Ancient God bloodline (diluted reversion) - QJ's woman |
+| 武天 | Wu Tian | Wu Yingtao's brother - Child of Destiny - actually a reincarnated Immortal Emperor from the Heavenly Domain - WYT believes he possessed her real brother - hides his strength and cultivates via moonlight |
 
 ## Cultivation Realms
 
@@ -106,7 +107,7 @@
 | 圣人境 | Saint Realm |  |
 | 至尊境<br>一劫至尊<br>九劫至尊| Supreme Realm<br>&emsp;1. First Tribulation Supreme<br>&emsp;2. Nine Tribulations Supreme | |
 | 大帝<br>古帝 | Great Emperor<br>&emsp;1. Ancient Emperor | Realm above Supreme<br>One step away from the Immortal Path|
-| <br>人仙<br>真仙<br>仙王 | Immortal Path<br>&emsp;1. Human Immortal<br>&emsp;2. True Immortal<br>&emsp;3. Immortal King | |
+| <br>人仙<br>真仙<br>仙王<br>仙帝 | Immortal Path<br>&emsp;1. Human Immortal<br>&emsp;2. True Immortal<br>&emsp;3. Immortal King<br>&emsp;4. Immortal Emperor | |
 
 ## Cultivation Terms
 
@@ -146,6 +147,7 @@
 | 毒道法则 | Poison Dao Law | Immortal-path law extracted from Black Serpent Ancestor via Myriad Dao Stone - given to Chen Ningbing |
 | 红尘炼心 | Red Dust Heart Tempering | Sealing one's cultivation and living as a mortal to temper the dao heart - used by Chen Qi'er |
 | 时空法则 | Space-Time Law | Growth-type law absorbed from completed Time-Space Disc - strengthens with user |
+| 古神血脉 | Ancient God Bloodline | Heavenly Domain God Race bloodline - extremely powerful - guarantees True Immortal at maturity - Wu Yingtao has a diluted reversion |
 
 ## Techniques
 
@@ -163,6 +165,7 @@
 | 血脉咒杀术 | Bloodline Curse | Mo Mo's technique - kills all who share a target's bloodline - requires target's blood to activate - those stronger than caster can resist |
 | 冰神诀 | Ice Divine Art | Li family cultivation technique - includes the Ice Phoenix Spirit manifestation |
 | 冰凰灵 | Ice Phoenix Spirit | Manifestation from the Ice Divine Art - summons an ice phoenix |
+| 古神典 | Ancient God Scripture | Cultivation method for Ancient God bloodline - system reward (first 3 layers) - complete version held by the Ancient God Race in the Heavenly Domain |
 
 ## Items
 
@@ -304,6 +307,8 @@
 | 南宫世家 | Nangong Family | Destroyed by Huaxia for spreading truth about the Chaos Plan - Nangong Yun's former family |
 | 血族 | Blood Tribe | Ancient race with True Immortals - million members - royal bloodline includes Xue Yue - implicated by Xue Yue's membership in the Anti-Huaxia Alliance |
 | 周家 | Zhou Family | Nangong family's sworn enemies - has True Immortals - sent a Human Immortal to kill Nangong Yun's brothers |
+| 古神族 | Ancient God Race | Heavenly Domain God Race - only a few thousand members - top 10 power in the Heavenly Domain - extremely united - bloodline guarantees True Immortal minimum - Wu Yingtao carries their diluted bloodline |
+| 华夏分府 | Huaxia Branch Office | Regional branch of Huaxia Manor - Mystic Cloud Heaven branch established after local factions submitted |
 
 ## Creatures
 
