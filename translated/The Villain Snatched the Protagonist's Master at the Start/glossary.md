@@ -107,6 +107,8 @@
 | 刘兴 | Liu Xing | Huaxia operative - True Immortal - befriends Zhao Sheng as an undercover spy - talented actor |
 | 彭大壮 | Peng Dazhuang | Huaxia operative - True Immortal - plays the villain to help Liu Xing gain Zhao Sheng's trust |
 | 天水大帝 | Heavenly Waters Great Emperor | Deceased Immortal Emperor - created the Heavenly Waters Thirty-Six Strikes - secret realm buried under Dream Cloud Sea - friend of Zhao Sheng's ancestor - remnant soul destroyed by Black Dragon |
+| 杨洪 | Yang Hong | Yang family patriarch - Human Immortal - tens of thousands of years old - hostile toward Zhao family but submits to QJ |
+| 杨蔓蔓 | Yang Manman | Yang Hong's daughter - Great Emperor - admired Zhao Sheng from afar but never spoke to him - claimed by QJ - QJ's woman |
 
 ## Cultivation Realms
 
@@ -334,6 +336,7 @@
 | 华夏分府 | Huaxia Branch Office | Regional branch of Huaxia Manor - Mystic Cloud Heaven branch established after local factions submitted |
 | 鲛人族 | Merfolk Tribe | Aquatic race in Dream Cloud Sea - ruled by the Merfolk Empress (Immortal Emperor) - Ten Elders (all Immortal Kings) - human-fish hybrid form in water, fully human on land - royal bloodline denotes power and beauty |
 | 皇山宗 | Imperial Mountain Sect | Major faction with an Immortal Emperor - disciple killed at Dream Cloud City gates during blockade |
+| 杨家 | Yang Family | Rival family to Zhao family in remote Heavenly Domain - Human Immortal patriarch (Yang Hong) - once the local hegemon before Zhao family's rise |
 
 ## Creatures
 
