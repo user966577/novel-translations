@@ -109,6 +109,7 @@
 | 天水大帝 | Heavenly Waters Great Emperor | Deceased Immortal Emperor - created the Heavenly Waters Thirty-Six Strikes - secret realm buried under Dream Cloud Sea - friend of Zhao Sheng's ancestor - remnant soul destroyed by Black Dragon |
 | 杨洪 | Yang Hong | Yang family patriarch - Human Immortal - tens of thousands of years old - hostile toward Zhao family but submits to QJ |
 | 杨蔓蔓 | Yang Manman | Yang Hong's daughter - Great Emperor - admired Zhao Sheng from afar but never spoke to him - claimed by QJ - QJ's woman |
+| 大尊之女 | Grand Sovereign's Daughter | Pinnacle-realm cultivator - can read minds - found QJ after he impersonated her father's identity - name not yet revealed - unfathomably powerful |
 
 ## Cultivation Realms
 
@@ -125,6 +126,9 @@
 | 至尊境<br>一劫至尊<br>九劫至尊| Supreme Realm<br>&emsp;1. First Tribulation Supreme<br>&emsp;2. Nine Tribulations Supreme | |
 | 大帝<br>古帝 | Great Emperor<br>&emsp;1. Ancient Emperor | Realm above Supreme<br>One step away from the Immortal Path|
 | <br>人仙<br>真仙<br>仙王<br>仙帝 | Immortal Path<br>&emsp;1. Human Immortal<br>&emsp;2. True Immortal<br>&emsp;3. Immortal King<br>&emsp;4. Immortal Emperor | |
+| 圣尊 | Holy Sovereign | Realm above Immortal Emperor |
+| 神尊 | Divine Sovereign | Realm above Holy Sovereign - believed by most to be the absolute peak |
+| 极境 | The Pinnacle | Realm above Divine Sovereign - created/opened by the Grand Sovereign - he was the first to reach it |
 
 ## Cultivation Terms
 
@@ -351,5 +355,7 @@
 | Chinese | English | Notes |
 |---------|---------|-------|
 | 府主 | Manor Lord | Qin Jiang's title as head of Huaxia Manor |
-| 大尊 | Grand Sovereign | Mysterious being far above Immortal King - warned Qin Jiang to stay away from his daughter - sent decree establishing the Heavenly Domain passage |
+| 大尊 | Grand Sovereign | First Pinnacle-realm cultivator - strongest being in the myriad realms - warned Qin Jiang to stay away from his daughter - may have killed previous Myriad Realms Tower #1 holders |
+| 黑尊 | Black Sovereign | Enemy of the myriad realms - power rivaling the Grand Sovereign - officially blamed for killing all 8 previous Myriad Realms Tower #1 holders |
+| 天下第二 | World's Second | Permanent #2 on the Myriad Realms Tower rankings - has always been second - 8 people who surpassed him all died |
 | 功勋值 | Merit Points | Currency within Huaxia Manor's Merit Hall - earned through missions and contributions |
