@@ -92,6 +92,8 @@
 | 慕容情 | Murong Qing | Xue Yue's mother - Blood Tribe chief's wife - cold beauty mature type - imprisoned by Blood Tribe after Xue Yue's expulsion - harbors resentment toward the tribe - now living with QJ's group - QJ's woman |
 | 武樱桃 | Wu Yingtao | Fortune heroine - Wu family minor branch - shy personality - possesses Ancient God bloodline (diluted reversion) - QJ's woman |
 | 武天 | Wu Tian | Wu Yingtao's brother - Child of Destiny - actually a reincarnated Immortal Emperor from the Heavenly Domain - WYT believes he possessed her real brother - hides his strength and cultivates via moonlight |
+| 云宝 | Yun Bao | Pixiu girl - daughter of the middle-aged Pixiu man - loves treasures - MC's woman |
+| 云宝父 | Yun Bao's Father | Middle-aged Pixiu man - wife killed by humans for her bones - hiding in seclusion - assigned by Qin Jiang to follow and torment Wu Tian - self-proclaimed doctor |
 
 ## Cultivation Realms
 
@@ -218,6 +220,7 @@
 | 混沌剑 | Chaos Sword | Immortal King-grade weapon - forged from Chaos Stone by the Sword Sect a million years ago - houses three Sword Sect True Immortal sword spirits - blood sacrifice of 11 True Immortals elevated it from half-step to true Immortal King grade - bonded to Li Yang |
 | 玄阳神石 | Mystic Yang Divine Stone | Immortal King-grade treasure - dense yang/fire-attribute energy - found by Nangong Yun in a True Immortal's pocket world - confiscated by Zhou family for Qin Jiang - used to strengthen Mu Yunxiao's fire-attribute origin |
 | 血灵草 | Blood Spirit Grass | Staple cultivation resource of the Blood Tribe - blankets their territory - produces a blood-like metallic scent - not essential but boosts cultivation speed |
+| 血晶石 | Blood Crystal Stone | High-grade Blood Tribe cultivation resource - used during bottleneck breakthroughs |
 
 ## Locations
 
@@ -316,6 +319,7 @@
 |---------|---------|-------|
 | 虚空巨兽 | Void Beast | Colossal beast that pulls Qin Jiang's Void Palace - nicknamed Little Xu (小虚) |
 | 小红 | Little Red | Phoenix - Qin Lian'er's companion - now in human form (Supreme Realm) - tsundere personality - MC's woman |
+| 云宝 | Yun Bao | Pixiu girl - middle-aged man's daughter - loves eating treasures - MC's woman |
 
 ## Titles
 
