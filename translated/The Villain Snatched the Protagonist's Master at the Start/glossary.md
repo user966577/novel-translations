@@ -97,6 +97,11 @@
 | 杰哥 | Brother Jie | Regular client at the brothel where Nangong Yun was imprisoned - developed genuine feelings for Nangong Yun - rescued him from the Zhou family's custody (unknowingly according to Qin Jiang's plan) |
 | 媚儿 | Mei'er | One of the twelve Mystic Cloud Heaven beauties sent to Huaxia Academy - first among them to be intimate with Qin Jiang |
 | 木岚 | Mu Lan | Former Skyreach City lord's wife - voluptuous figure - city lord was impotent so she remained a virgin - natural actress who loves roleplay - QJ's woman |
+| 铁山 | Tieshan | Skyreach City lord - first to submit to QJ - voluntarily requested True Spirit Slave Seal - manages QJ's Skyreach City network |
+| 莫离 | Mo Li | Merfolk Third Elder - royal bloodline - Shanshan's grandfather - initially reluctant but cooperated with QJ |
+| 莫珊珊 | Mo Shanshan | Merfolk Third Elder's granddaughter - nicknamed Shanshan - royal bloodline - spoiled bully (villain character) - actually lonely and craving companionship - innocent and naive - QJ's woman |
+| 梦瑾 | Mengjin | Merfolk Empress - only Immortal Emperor of the Merfolk tribe - drugged by Grand Elder - rescued/claimed by QJ - real name revealed after becoming his woman |
+| 梦茜 | Mengqian | Merfolk Empress's guard captain - Immortal King - loyal since childhood - initially hostile to QJ but became his woman - feisty personality |
 
 ## Cultivation Realms
 
@@ -268,6 +273,8 @@
 | 苍云天 | Grey Cloud Heaven | One of the Nine Heavens - Jian Yao and Mo Mo's homeland - home of the Sword Sect - rumored to contain an Immortal King's secret treasure |
 | 玄云天 | Mystic Cloud Heaven | One of the Nine Heavens - target of the Chaos Plan - where Nangong Yun's anti-Huaxia alliance is based |
 | 通天城 | Skyreach City | Transit hub at the Heavenly Domain passages - official governing body that manages realm passages and fleeces newcomers - multiple cities exist across the Heavenly Domain |
+| 梦云海 | Dream Cloud Sea | Vast ocean in the Heavenly Domain - home to numerous aquatic races including the Merfolk tribe |
+| 鲛人王城 | Merfolk Royal City | Crystal palace at the center of Dream Cloud Sea - waterless interior where Merfolk maintain human form - ruled by the Merfolk Empress |
 
 ## Organizations
 
@@ -318,6 +325,7 @@
 | 周家 | Zhou Family | Nangong family's sworn enemies - has True Immortals - sent a Human Immortal to kill Nangong Yun's brothers |
 | 古神族 | Ancient God Race | Heavenly Domain God Race - only a few thousand members - top 10 power in the Heavenly Domain - extremely united - bloodline guarantees True Immortal minimum - Wu Yingtao carries their diluted bloodline |
 | 华夏分府 | Huaxia Branch Office | Regional branch of Huaxia Manor - Mystic Cloud Heaven branch established after local factions submitted |
+| 鲛人族 | Merfolk Tribe | Aquatic race in Dream Cloud Sea - ruled by the Merfolk Empress (Immortal Emperor) - Ten Elders (all Immortal Kings) - human-fish hybrid form in water, fully human on land - royal bloodline denotes power and beauty |
 
 ## Creatures
 
