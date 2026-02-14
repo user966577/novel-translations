@@ -11,7 +11,16 @@ Translate raw Chinese chapters into polished English following all rules in CLAU
 ## Arguments
 
 - `$ARGUMENTS` should specify the novel folder name and chapter range
-- Examples: `/translate after-villain-lies-low 98-102`, `/translate "No Daughter of Luck Shall Be Spared!" 294`
+- The chapter specifier can be:
+  - A range: `98-102` → chapters 98 through 102
+  - A single chapter number: `294` → just chapter 294
+  - A count (requires context): a standalone number that means "translate the next N chapters starting after the last translated chapter"
+- **How to distinguish a single chapter vs. a count**: Check `metadata.json` for the highest existing chapter number. If the number given is **less than or equal to the highest chapter + 1**, treat it as a single chapter number. If it is **much smaller than the highest chapter** (e.g., highest is 543 and user writes `15`), treat it as a count of chapters. Use common sense—a user translating chapter 500+ is not asking for chapter 15.
+- When interpreting as a count: read `metadata.json` to find the last translated chapter number, then translate chapters `(last + 1)` through `(last + N)`
+- Examples:
+  - `/translate after-villain-lies-low 98-102` → chapters 98–102
+  - `/translate "No Daughter of Luck Shall Be Spared!" 294` → chapter 294
+  - `/translate "The Villain Snatched the Protagonist's Master at the Start" 15` → next 15 chapters after the last translated one
 - If no arguments given, ask the user which novel and chapter(s) to translate
 
 ## Workflow
@@ -25,7 +34,11 @@ Translate raw Chinese chapters into polished English following all rules in CLAU
 
 ### 2. Identify Chapters
 
-- Parse the chapter range from arguments (e.g., "98-102" = chapters 98 through 102, "294" = single chapter)
+- Parse the chapter specifier from arguments:
+  - Range (`98-102`): chapters 98 through 102
+  - Single chapter (`294`): just that chapter
+  - Count (`15` when last translated chapter is 543): compute range as 544–558
+- When interpreting as a count, read `metadata.json` to find the highest chapter number in `chapter_titles`, then set the range to `(last + 1)` through `(last + N)`. Report the computed range to the user before proceeding (e.g., "Last translated chapter is 543. Translating chapters 544–558.")
 - Locate matching raw files in `raw/<novel>/` by chapter number prefix (format: `NNN_[title].txt`)
 - If a chapter is already translated (file exists in `translated/<novel>/`), warn the user and skip unless they confirm overwrite
 

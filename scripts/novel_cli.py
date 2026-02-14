@@ -71,11 +71,20 @@ def list_novels() -> list[dict]:
     return novels
 
 
+def hyperlink(text: str, url: str) -> str:
+    """Wrap text in an OSC 8 terminal hyperlink (clickable in supported terminals)."""
+    return f"\033]8;;{url}\033\\{text}\033]8;;\033\\"
+
+
 def site_label(sources: dict, name: str) -> str:
     entry = sources.get(name)
     if not entry:
         return "\u2014"
-    return entry.get("site", "\u2014")
+    site = entry.get("site", "\u2014")
+    url = entry.get("url", "")
+    if url:
+        return hyperlink(site, url)
+    return site
 
 
 # ---------------------------------------------------------------------------
