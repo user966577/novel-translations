@@ -96,6 +96,7 @@
 | 云宝父 | Yun Bao's Father | Middle-aged Pixiu man - wife killed by humans for her bones - hiding in seclusion - assigned by Qin Jiang to follow and torment Wu Tian - self-proclaimed doctor |
 | 杰哥 | Brother Jie | Regular client at the brothel where Nangong Yun was imprisoned - developed genuine feelings for Nangong Yun - rescued him from the Zhou family's custody (unknowingly according to Qin Jiang's plan) |
 | 媚儿 | Mei'er | One of the twelve Mystic Cloud Heaven beauties sent to Huaxia Academy - first among them to be intimate with Qin Jiang |
+| 木岚 | Mu Lan | Former Skyreach City lord's wife - voluptuous figure - city lord was impotent so she remained a virgin - natural actress who loves roleplay - QJ's woman |
 
 ## Cultivation Realms
 
@@ -223,6 +224,8 @@
 | 玄阳神石 | Mystic Yang Divine Stone | Immortal King-grade treasure - dense yang/fire-attribute energy - found by Nangong Yun in a True Immortal's pocket world - confiscated by Zhou family for Qin Jiang - used to strengthen Mu Yunxiao's fire-attribute origin |
 | 血灵草 | Blood Spirit Grass | Staple cultivation resource of the Blood Tribe - blankets their territory - produces a blood-like metallic scent - not essential but boosts cultivation speed |
 | 血晶石 | Blood Crystal Stone | High-grade Blood Tribe cultivation resource - used during bottleneck breakthroughs |
+| 镇天神印 | Heaven-Suppressing Divine Seal | The Grand Sovereign's supreme treasure - most powerful artifact in the myriad realms - symbol of the Grand Sovereign - the Immortal King Seal is a miniature replica |
+| 大道协议 | Dao Covenant | Inviolable agreement scroll - once signed with a strand of Primordial Spirit, terms are enforced by the Dao itself |
 
 ## Locations
 
@@ -264,6 +267,7 @@
 | 天域 | Heavenly Domain | Higher realm above the Nine Heavens and Ten Lands - accessible via passage that opens 30 years after a Level Two Domain is achieved |
 | 苍云天 | Grey Cloud Heaven | One of the Nine Heavens - Jian Yao and Mo Mo's homeland - home of the Sword Sect - rumored to contain an Immortal King's secret treasure |
 | 玄云天 | Mystic Cloud Heaven | One of the Nine Heavens - target of the Chaos Plan - where Nangong Yun's anti-Huaxia alliance is based |
+| 通天城 | Skyreach City | Transit hub at the Heavenly Domain passages - official governing body that manages realm passages and fleeces newcomers - multiple cities exist across the Heavenly Domain |
 
 ## Organizations
 
