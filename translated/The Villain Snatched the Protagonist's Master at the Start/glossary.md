@@ -94,6 +94,8 @@
 | 武天 | Wu Tian | Wu Yingtao's brother - Child of Destiny - actually a reincarnated Immortal Emperor from the Heavenly Domain - WYT believes he possessed her real brother - hides his strength and cultivates via moonlight |
 | 云宝 | Yun Bao | Pixiu girl - daughter of the middle-aged Pixiu man - loves treasures - MC's woman |
 | 云宝父 | Yun Bao's Father | Middle-aged Pixiu man - wife killed by humans for her bones - hiding in seclusion - assigned by Qin Jiang to follow and torment Wu Tian - self-proclaimed doctor |
+| 杰哥 | Brother Jie | Regular client at the brothel where Nangong Yun was imprisoned - developed genuine feelings for Nangong Yun - rescued him from the Zhou family's custody (unknowingly according to Qin Jiang's plan) |
+| 媚儿 | Mei'er | One of the twelve Mystic Cloud Heaven beauties sent to Huaxia Academy - first among them to be intimate with Qin Jiang |
 
 ## Cultivation Realms
 
