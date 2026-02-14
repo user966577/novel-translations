@@ -53,12 +53,18 @@ def save_sources(sources: dict):
 # Novel list helpers
 # ---------------------------------------------------------------------------
 
-def list_novels() -> list[dict]:
+def get_excluded(sources: dict) -> set:
+    return set(sources.get("_excluded", []))
+
+
+def list_novels(excluded: set | None = None) -> list[dict]:
     """Return sorted list of novel dicts with name and local chapter count."""
     novels = []
     if not os.path.isdir(RAW_DIR):
         return novels
     for name in sorted(os.listdir(RAW_DIR)):
+        if excluded and name in excluded:
+            continue
         folder = os.path.join(RAW_DIR, name)
         if not os.path.isdir(folder):
             continue
@@ -235,7 +241,7 @@ def render(novels: list[dict], sources: dict, cursor: int, status: str = ""):
     if status:
         print(f"  {status}\n")
 
-    print(" \u2191\u2193 Navigate  [Enter] Check  [a] Add  [d] Delete  [u] Update  [q/Esc] Quit")
+    print(" \u2191\u2193 Navigate  [Enter] Check  [a] Add  [e] Exclude  [u] Update  [q/Esc] Quit")
 
 
 # ---------------------------------------------------------------------------
@@ -377,17 +383,19 @@ def action_add(sources: dict) -> str:
     return f"Added \"{folder_name}\" from {site}."
 
 
-def action_delete(novel: dict, sources: dict) -> str:
+def action_exclude(novel: dict, sources: dict) -> str:
     name = novel["name"]
-    if name not in sources:
-        return f"No source URL tracked for \"{name}\"."
+    excluded = sources.get("_excluded", [])
+    if name in excluded:
+        return f"\"{name}\" is already excluded."
 
-    answer = prompt_yn(f"\n  Delete source URL for \"{name}\"?")
+    answer = prompt_yn(f"\n  Exclude \"{name}\" from the list?")
     if answer is None or not answer:
         return "Cancelled."
-    del sources[name]
+    excluded.append(name)
+    sources["_excluded"] = excluded
     save_sources(sources)
-    return "Source URL removed."
+    return f"Excluded \"{name}\"."
 
 
 def action_update(novel: dict, sources: dict) -> str:
@@ -425,7 +433,8 @@ def main():
     status = ""
 
     while True:
-        novels = list_novels()
+        excluded = get_excluded(sources)
+        novels = list_novels(excluded)
         if cursor >= len(novels):
             cursor = max(0, len(novels) - 1)
 
@@ -449,9 +458,9 @@ def main():
         elif key == "a":
             status = action_add(sources)
             sources = load_sources()
-        elif key == "d":
+        elif key == "e":
             if novels:
-                status = action_delete(novels[cursor], sources)
+                status = action_exclude(novels[cursor], sources)
         elif key == "u":
             if novels:
                 status = action_update(novels[cursor], sources)
