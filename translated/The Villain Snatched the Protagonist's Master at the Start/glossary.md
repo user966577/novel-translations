@@ -102,6 +102,11 @@
 | 莫珊珊 | Mo Shanshan | Merfolk Third Elder's granddaughter - nicknamed Shanshan - royal bloodline - spoiled bully (villain character) - actually lonely and craving companionship - innocent and naive - QJ's woman |
 | 梦瑾 | Mengjin | Merfolk Empress - only Immortal Emperor of the Merfolk tribe - drugged by Grand Elder - rescued/claimed by QJ - real name revealed after becoming his woman |
 | 梦茜 | Mengqian | Merfolk Empress's guard captain - Immortal King - loyal since childhood - initially hostile to QJ but became his woman - feisty personality |
+| 天机子 | Tianji | Young Daoist fortune-teller - Child of Destiny - heir of the Celestial Secrets tradition (天机道) - divination specialist - had his Dao Covenant marriage contract stolen by QJ |
+| 赵胜 | Zhao Sheng | Zhao family patriarch - Human Immortal - possesses a blood-red heirloom stone linked to the Heavenly Waters Great Emperor's secret realm - extraordinary talent |
+| 刘兴 | Liu Xing | Huaxia operative - True Immortal - befriends Zhao Sheng as an undercover spy - talented actor |
+| 彭大壮 | Peng Dazhuang | Huaxia operative - True Immortal - plays the villain to help Liu Xing gain Zhao Sheng's trust |
+| 天水大帝 | Heavenly Waters Great Emperor | Deceased Immortal Emperor - created the Heavenly Waters Thirty-Six Strikes - secret realm buried under Dream Cloud Sea - friend of Zhao Sheng's ancestor - remnant soul destroyed by Black Dragon |
 
 ## Cultivation Realms
 
@@ -176,6 +181,7 @@
 | 冰神诀 | Ice Divine Art | Li family cultivation technique - includes the Ice Phoenix Spirit manifestation |
 | 冰凰灵 | Ice Phoenix Spirit | Manifestation from the Ice Divine Art - summons an ice phoenix |
 | 古神典 | Ancient God Scripture | Cultivation method for Ancient God bloodline - system reward (first 3 layers) - complete version held by the Ancient God Race in the Heavenly Domain |
+| 天水三十六式 | Heavenly Waters Thirty-Six Strikes | Immortal Emperor combat technique created by the Heavenly Waters Great Emperor - transcends standard Immortal Emperor methods - trials test three phases: waves, water blades, and water giants |
 
 ## Items
 
@@ -275,6 +281,7 @@
 | 通天城 | Skyreach City | Transit hub at the Heavenly Domain passages - official governing body that manages realm passages and fleeces newcomers - multiple cities exist across the Heavenly Domain |
 | 梦云海 | Dream Cloud Sea | Vast ocean in the Heavenly Domain - home to numerous aquatic races including the Merfolk tribe |
 | 鲛人王城 | Merfolk Royal City | Crystal palace at the center of Dream Cloud Sea - waterless interior where Merfolk maintain human form - ruled by the Merfolk Empress |
+| 梦云城 | Dream Cloud City | Trade city near the Dream Cloud Sea - hub where sea tribes and other races mingle - most prosperous settlement within tens of thousands of miles |
 
 ## Organizations
 
@@ -326,6 +333,7 @@
 | 古神族 | Ancient God Race | Heavenly Domain God Race - only a few thousand members - top 10 power in the Heavenly Domain - extremely united - bloodline guarantees True Immortal minimum - Wu Yingtao carries their diluted bloodline |
 | 华夏分府 | Huaxia Branch Office | Regional branch of Huaxia Manor - Mystic Cloud Heaven branch established after local factions submitted |
 | 鲛人族 | Merfolk Tribe | Aquatic race in Dream Cloud Sea - ruled by the Merfolk Empress (Immortal Emperor) - Ten Elders (all Immortal Kings) - human-fish hybrid form in water, fully human on land - royal bloodline denotes power and beauty |
+| 皇山宗 | Imperial Mountain Sect | Major faction with an Immortal Emperor - disciple killed at Dream Cloud City gates during blockade |
 
 ## Creatures
 
